@@ -1,0 +1,18 @@
+{
+ "status": "0",
+ "data": {
+   "appName":"国科云",
+   "account":"1@1.com",
+   "deviceNum":"iphone",
+   "deviceNickName":"我的ip",
+   "devicePrint":"xxxxx",
+
+   "unbindUser":"小伟",
+   "unbindTime":"2016-02-22",
+   "complainant":"认证成功",
+   "complainantMobile":"向A支付1000",
+   "verificationProcess":"认证成功",
+   "des":"向A支付1000"
+  },
+ "detail": "请求数据成功!"
+}

@@ -1,0 +1,30 @@
+define('components/header/header', function(require, exports, module) {
+
+  /**
+   * header 标签中的内容
+   */
+  var $ = require('node_modules/egis-jquery/jquery');
+  require('node_modules/egis-bootstrap/bootstrap')();
+  var loadCss=require('node_modules/egis-load-css/load-css');
+  var doGenTsc=require('node_modules/egis-tsc/tsc').doGenTsc;
+  var ajax=require('node_modules/egis-ajax/ajax').ajax;
+  //var utilUser = require('components/util/utilUser');
+  var $header = $('header');
+  var cookie=require('node_modules/egis-cookie/cookie');
+  var userObj= JSON.parse(cookie('get','userObj'));
+  
+  function render(){
+      $header.html("<a href=\"javascript:;\" class=\"header-item header-item-userName\">\r\n    administrator@126.com\r\n</a>\r\n<!--<a href=\"#\" class=\"header-item header-item-bind none\">绑定时空令</a>-->\r\n<!--<a class=\"header-item header-item-modifyPass none\" href=\"#\">修改密码</a>-->\r\n<a class=\"header-item header-item-loginOut\" href=\"login.html\">安全退出</a>\r\n\r\n<!--绑定码弹框-->\r\n<div class=\"modal fade modal-bindQRcode\" id=\"modal-bindQRcode\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header clearfix\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\r\n                <h4 class=\"modal-title\">绑定时空令</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <div id=\"qrcodeCanvas\" class=\"modal-bindQRcode-canvas\"></div>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-gray btn-cancel\" data-dismiss=\"modal\">关闭</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+  
+      //显示用户名
+      $('.header-item-userName').html(userObj.username);
+  
+  }
+  
+  //var $logout = $('#accountInfoBox').find('.logout');
+  //utilUser.logout($logout);
+  module.exports={
+      render:render
+  };
+
+});

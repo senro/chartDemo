@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rml.dao.RolesMapper" >
+  <resultMap id="BaseResultMap" type="rml.model.Roles" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="roleName" property="roleName" jdbcType="VARCHAR" />
+    <result column="privilegeIds" property="privilegeIds" jdbcType="VARCHAR" />
+    <result column="createAt" property="createAt" jdbcType="VARCHAR" />
+    <result column="updateAt" property="updateAt" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, roleName, privilegeIds, createAt, updateAt
+  </sql>
+
+  <sql id="Insert_Column_List" >
+    roleName, privilegeIds, createAt, updateAt
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from roles
+    where ID = #{id}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="int" >
+    delete from roles
+    where ID = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="rml.model.Roles" >
+    insert into roles (<include refid="Insert_Column_List" />)
+    values (
+    #{roleName}, #{privilegeIds}, #{createAt}, #{updateAt})
+  </insert>
+
+  <insert id="insertSelective" parameterType="rml.model.Roles" >
+    insert into roles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+          ID,
+      </if>
+      <if test="roleName != null" >
+          roleName,
+      </if>
+      <if test="privilegeIds != null" >
+          privilegeIds,
+      </if>
+      <if test="createAt != null" >
+        CREATEAT,
+      </if>
+      <if test="updateAt != null" >
+        UPDATEAT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="roleName != null" >
+        #{roleName},
+      </if>
+      <if test="privilegeIds != null" >
+        #{privilegeIds},
+      </if>
+      <if test="createAt != null" >
+        #{createAt},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="rml.model.Roles" >
+    update roles
+    <set >
+      <if test="roleName != null" >
+          roleName = #{roleName},
+      </if>
+      <if test="privilegeIds != null" >
+          privilegeIds = #{privilegeIds},
+      </if>
+      <if test="updateAt != null" >
+          UPDATEAT = #{updateAt},
+      </if>
+    </set>
+    where ID = #{id}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="rml.model.Roles" >
+    update roles
+    set
+      roleName = #{roleName},
+      privilegeIds = #{privilegeIds},
+      UPDATEAT = #{updateAt}
+    where ID = #{id}
+  </update>
+  
+  <select id="getAll" resultMap="BaseResultMap">
+	select <include refid="Base_Column_List" /> from roles
+  </select>
+</mapper>

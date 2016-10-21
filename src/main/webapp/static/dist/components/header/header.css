@@ -1,0 +1,56 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: Administrator
+ * Date: 2016/3/1
+ * Time: 17:55
+ * To change this template use File | Settings | File Templates.
+ */
+.header {
+  padding: 0 0 10px 10px ;
+  text-align: right;
+  color: #9aacc3;
+}
+.header a {
+  color: #9aacc3;
+}
+.header a:hover {
+  color: #37a8ff;
+}
+.header-item {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 0 0 25px;
+  margin: 0 0 0 10px;
+}
+.header-item-userName {
+  background: url(/chartDemo/static/dist/components/header/header-item-userName.png) left center no-repeat;
+}
+.header-item-userName:hover {
+  background: url(/chartDemo/static/dist/components/header/header-item-userName-hover.png) left center no-repeat;
+}
+.header-item-bind {
+  background: url(/chartDemo/static/dist/components/header/header-item-bind.png) left center no-repeat;
+}
+.header-item-bind:hover {
+  background: url(/chartDemo/static/dist/components/header/header-item-bind-hover.png) left center no-repeat;
+}
+.header-item-modifyPass {
+  background: url(/chartDemo/static/dist/components/header/header-item-modifyPass.png) left center no-repeat;
+}
+.header-item-modifyPass:hover {
+  background: url(/chartDemo/static/dist/components/header/header-item-modifyPass-hover.png) left center no-repeat;
+}
+.header-item-loginOut {
+  background: url(/chartDemo/static/dist/components/header/header-item-loginOut.png) left center no-repeat;
+}
+.header-item-loginOut:hover {
+  background: url(/chartDemo/static/dist/components/header/header-item-loginOut-hover.png) left center no-repeat;
+}
+.modal-title {
+  text-align: left;
+}
+.modal-bindQRcode-canvas canvas {
+  display: block;
+  margin: 0 auto;
+}

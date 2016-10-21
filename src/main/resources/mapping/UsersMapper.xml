@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rml.dao.UsersMapper" >
+  <resultMap id="BaseResultMap" type="rml.model.Users" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="ROLEID" property="roleId" jdbcType="INTEGER" />
+    <result column="CREATEAT" property="createAt" jdbcType="VARCHAR" />
+    <result column="UPDATEAT" property="updateAt" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, EMAIL,PASSWORD, ROLEID, CREATEAT, UPDATEAT
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where ID = #{id}
+  </select>
+
+  <select id="selectByEmail" resultMap="BaseResultMap" parameterType="String" >
+    select
+    <include refid="Base_Column_List" />
+    from users
+    where email = #{email}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="int" >
+    delete from users
+    where ID = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="rml.model.Users" >
+    insert into users (NAME, EMAIL, PASSWORD, ROLEID, CREATEAT, UPDATEAT)
+    values (
+    #{name}, #{email}, #{password}, #{roleId}, #{createAt}, #{updateAt})
+  </insert>
+
+  <insert id="insertSelective" parameterType="rml.model.Users" >
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="roleId != null" >
+        ROLEID,
+      </if>
+      <if test="createAt != null" >
+        CREATEAT,
+      </if>
+      <if test="updateAt != null" >
+        UPDATEAT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="email != null" >
+        #{email},
+      </if>
+      <if test="password != null" >
+        #{password},
+      </if>
+      <if test="roleId != null" >
+        #{roleId},
+      </if>
+      <if test="createAt != null" >
+        #{createAt},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="rml.model.Users" >
+    update users
+    <set >
+      <if test="name != null" >
+        NAME = #{name},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password},
+      </if>
+      <if test="roleId != null" >
+        ROLEID = #{roleId},
+      </if>
+      <if test="updateAt != null" >
+        UPDATEAT = #{updateAt},
+      </if>
+    </set>
+    where ID = #{id}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="rml.model.Users" >
+    update users
+    set NAME = #{name},
+      EMAIL = #{email},
+      PASSWORD = #{password}
+      ROLEID = #{roleId}
+      UPDATEAT = #{updateAt}
+    where ID = #{id}
+  </update>
+  
+  <select id="getAll" resultMap="BaseResultMap" parameterType="rml.model.Page">
+	select ID, NAME, EMAIL, ROLEID, CREATEAT, UPDATEAT from users
+    ORDER BY users.UPDATEAT
+    <choose>
+      <when test="order!=null and order!=''">
+        <choose>
+          <when test="order == 'DESC'.toString() or order == 'desc'.toString()">
+            DESC
+          </when>
+          <otherwise>
+            ASC
+          </otherwise>
+        </choose>
+      </when>
+      <otherwise>
+        DESC
+      </otherwise>
+    </choose>
+    <if test="offset!=null and limit!=null">LIMIT #{offset}, #{limit}</if>
+  </select>
+
+  <select id="countAll"
+          parameterType="rml.model.Page"
+          resultType="java.lang.Integer">
+    select count(1) from users
+  </select>
+</mapper>

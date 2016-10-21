@@ -1,0 +1,34 @@
+
+<a class="nav-header-btn" href="javascript:;"></a>
+<div class="nav-mask"></div>
+<div class="nav">
+    <div class="nav-header">
+        <img class="nav-header-logo" src="/chartDemo/static/dist/components/navigation/logo.png" alt=""/>
+        管理平台
+    </div>
+    {{ if content && content.length > 0 }}
+        {{ each content as item i }}
+            {{ if item.show }}
+                <div class="nav-group">
+                    <a class="nav-btn nav-icon {{ item.iconClass }}" href="{{ item.href }}">
+                        {{ item.text }}
+                    </a>
+                    {{ if item.include && item.include.length > 0 }}
+                        <div class="nav-btn-sub">
+                            {{ each item.include as subItem j }}
+                                {{ if subItem.show }}
+                                    <a class="nav-btn-sub-btn" href="{{ subItem.href }}">
+                                        ● {{ subItem.text }}
+                                    </a>
+                                {{ /if }}
+                            {{ /each }}
+                            <div class="bottom-padding"></div>
+                        </div>
+                    {{ /if }}
+                </div>
+            {{ /if }}
+        {{ /each }}
+    {{ else }}
+        没有配置菜单
+    {{ /if }}
+</div>

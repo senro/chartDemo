@@ -1,0 +1,55 @@
+{
+  "name": "kaola-web-system",
+  "version": "0.0.1",
+  "description": "kaola web system template",
+  "keywords": [
+    "kaola",
+    "web system",
+    "kaola web system"
+  ],
+  "author": "kaola-team <passtom@foxmail.com>",
+  "homepage": "https://github.com/kaola-team/kaola-web-system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaola-team/kaola-web-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaola-team/kaola-web-system/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.3",
+    "egis-ajax": "0.0.1",
+    "egis-bootstrap-switch": "0.0.1",
+    "egis-checkbox": "0.0.1",
+    "egis-cookie": "0.0.1",
+    "egis-date-extend": "0.0.1",
+    "egis-datepicker": "0.0.1",
+    "egis-datetimepicker": "0.0.3",
+    "egis-director": "0.0.1",
+    "egis-get-query-string": "0.0.1",
+    "egis-jquery": "^1.11.3",
+    "egis-parse-argus": "0.0.1",
+    "egis-radio": "0.0.1",
+    "egis-tab": "0.0.1",
+    "egis-template": "0.0.1",
+    "egis-util": "0.0.1",
+    "egis-validate": "0.0.3",
+    "egis-xhr": "0.0.1",
+    "fis-mod": "^1.0.1",
+    "html5sortable": "^0.3.1",
+    "immutable": "^3.8.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^1.11.3",
+    "process": "^0.11.5",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "redux-immutablejs": "0.0.8",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.0.1",
+    "sugar": "^1.4.1",
+    "url": "^0.11.0",
+    "vue": "^1.0.26",
+    "whatwg-fetch": "^0.11.0"
+  }
+}

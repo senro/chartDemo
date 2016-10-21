@@ -1,0 +1,26 @@
+{
+ "status": "0",
+ "data": {
+   "content": [
+     {
+       "stateId": "1",
+       "stateName": "激活"
+     }
+     ,
+     {
+       "stateId": "2",
+       "stateName": "未激活"
+     }
+    ],
+   "size":"2",
+   "number":"0",
+   "sort":"null",
+   "numberOfElements":"2",
+   "totalElements":"2",
+   "totalPages":"1",
+   "firstPage":"true",
+   "lastPage":"true"
+  },
+ "detail": "请求数据成功!",
+ "key":"null"
+}

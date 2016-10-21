@@ -1,0 +1,18 @@
+{
+  "status": "0",
+  "data": {
+    "userId": 1048557048556,
+    "name": "厉天龙",
+    "mobile": "15000001027",
+    "roleId": 3,
+    "roleName": "仓库管理员",
+    "repoBaseId": 1049631581,
+    "repoBaseName": "上海总仓",
+    "repoAreaId": null,
+    "repoAreaName": null,
+    "repoId": null,
+    "repoName": null
+  },
+  "detail": "请求数据成功!",
+  "key": "69a90567-817d-4fbc-a7b4-02e2abfc4deb"
+}

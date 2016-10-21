@@ -1,0 +1,35 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: Administrator
+ * Date: 2016/3/1
+ * Time: 17:55
+ * To change this template use File | Settings | File Templates.
+ */
+.modal-addUser-table{
+    width: 80%;
+    margin: 0 auto;
+}
+.modal-addUser-table tr td{
+    padding: 5px 0;
+}
+.modal-addUser-table tr td:first-child{
+    padding: 0 10px 0 0;
+}
+.modal-addUser-table tr td:last-child{
+    padding: 0 0 0 10px;
+    color: red;
+}
+
+.commentBoxWrap{
+    width: 300px;
+}
+.commentBoxTit{
+    height:50px;
+    line-height: 50px;
+    background-color: green;
+}
+.commentBox{
+    height:200px;
+    background-color: #ccc;
+    padding: 10px;
+}

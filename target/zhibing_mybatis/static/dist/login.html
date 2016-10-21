@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1 ,maximum-scale=1, minimum-scale=1, user-scalable=no, target-densitydpi=medium-dpi">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="/chartDemo/static/dist/favicon.ico">
+    <!--
+    @require "static/css/bootstrap.css"
+    @require "static/css/common.css"
+    -->
+
+    <link rel="stylesheet" type="text/css" href="/chartDemo/static/dist/static/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/chartDemo/static/dist/static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/chartDemo/static/dist/node_modules/egis-system-message/system-message.css" />
+    <link rel="stylesheet" type="text/css" href="/chartDemo/static/dist/components/account/login/login.css" />
+</head>
+<body class="page-login">
+<div class="login-bg"></div>
+		<div class="container">
+			<div id="qrcode-login">
+				<div class="row text-center login-box">
+					<div class="col-sm-12">
+						<img src="/chartDemo/static/dist/components/account/login/logo.png"/>
+						<h3>管理平台</h3>
+					</div>
+				</div>
+				<div class="row login-info">
+					<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+						<form class="form-horizontal login-form" role="form">
+							<div class="input-group">
+								<span class="input-group-addon"><img src="/chartDemo/static/dist/components/account/login/message.png" style="width:20px; height:13px"/></span>
+								<input type="email" name="email" class="form-control" placeholder="请输入帐号">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><img src="/chartDemo/static/dist/components/account/login/pwd.png" style="height:20px"/></span>
+								<input type="password" name="password" class="form-control" placeholder="请输入密码">
+							</div>
+
+							<div class="input-group">
+								<button type="submit" class="btn btn-index btn-block" id="loginSubmit">登录</button>
+							</div>
+							<div class="input-group">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:0;">
+									<a class="multiCheckbox rememberMeCheckbox" href="javascript:;"></a>&nbsp;记住我
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" style="padding-right:0;">
+									<!--<a href="">忘记密码</a>-->
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/fis-mod/mod.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/process/browser.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-jquery/jquery.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-system-message/system-message.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-xhr/xhr.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-ajax/ajax.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-util/util.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-cookie/cookie.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-checkbox/checkbox.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-tsc/md5-min.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/node_modules/egis-validate/regs.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/components/account/login/login.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/static/lib/html5/html5.js"></script>
+<script type="text/javascript" src="/chartDemo/static/dist/static/lib/jsencrypt.js"></script>
+<script src="/chartDemo/static/dist/static/lib/GLOBAL_config.js"></script>
+<script>
+    //@require node_modules/fis-mod/mod.js
+    require("components/account/login/login");
+</script>
+<script type="text/javascript" charset="utf-8" src="http://192.168.96.18:8132/livereload.js"></script></body>
+</html>
