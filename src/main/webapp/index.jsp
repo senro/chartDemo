@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <link rel="stylesheet" type="text/css" href="static/css/index.css">
   </head>
   
-  <body class="none">
+  <body class="">
       <div class="header">
 
       </div>

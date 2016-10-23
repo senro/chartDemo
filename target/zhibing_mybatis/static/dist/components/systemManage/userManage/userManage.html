@@ -16,7 +16,7 @@
             <thead>
             <tr>
                 <th>用户</th>
-                <th>姓名</th>
+                <th>医院名称</th>
                 <th>角色</th>
                 <!--<th>状态</th>-->
                 <th>修改日期</th>
@@ -29,7 +29,15 @@
                     <tr>
                         <td>{{ item.email }}</td>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.roleId }}</td>
+                        <td>
+                            {{ if item.roleId == 1}}
+                                超级管理员
+                            {{ else if item.roleId == 2}}
+                                审核员
+                            {{else}}
+                                普通用户
+                            {{/if}}
+                        </td>
                         <!--<td>{{ item.state }}</td>-->
                         <td>{{ item.updateAt }}</td>
                         <td>
@@ -87,7 +95,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="text-right">名称</td>
+                            <td class="text-right">医院名称</td>
                             <td>
                                 <input type="text" name="name" v-model="name" required="required" class="form-control unitInput"
                                        data-vd-msg="请输入名称"/>

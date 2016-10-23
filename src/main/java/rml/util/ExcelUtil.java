@@ -201,8 +201,17 @@ public class ExcelUtil {
                     drugRecord.setDrugSpec(getValue(drugSpec));
                     drugRecord.setDrugUnit(getValue(drugUnit));
                     drugRecord.setDrugFactory(getValue(drugFactory));
-                    drugRecord.setSale(getValue(sale));
-                    drugRecord.setPrice(getValue(price));
+                    if(sale!=null){
+                        drugRecord.setSale(getValue(sale));
+                    }else{
+                        drugRecord.setSale("");
+                    }
+                    if(price!=null) {
+                        drugRecord.setPrice(getValue(price));
+                    }else{
+                        drugRecord.setPrice("");
+                    }
+
                     list.add(drugRecord);
                 }
             }
@@ -233,7 +242,7 @@ public class ExcelUtil {
             // Read the Row
             for (int rowNum = 4; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
                 HSSFRow hssfRow = hssfSheet.getRow(rowNum);
-                if (hssfRow != null) {
+                if (hssfRow != null && hssfRow.getCell(1)!=null) {
                     drugRecord = new DrugRecord();
 
                     HSSFCell drugName = hssfRow.getCell(1);
@@ -252,8 +261,17 @@ public class ExcelUtil {
                     drugRecord.setDrugSpec(getValue(drugSpec));
                     drugRecord.setDrugUnit(getValue(drugUnit));
                     drugRecord.setDrugFactory(getValue(drugFactory));
-                    drugRecord.setSale(getValue(sale));
-                    drugRecord.setPrice(getValue(price));
+
+                    if(sale!=null){
+                        drugRecord.setSale(getValue(sale));
+                    }else{
+                        drugRecord.setSale("");
+                    }
+                    if(price!=null) {
+                        drugRecord.setPrice(getValue(price));
+                    }else{
+                        drugRecord.setPrice("");
+                    }
 
                     list.add(drugRecord);
                 }

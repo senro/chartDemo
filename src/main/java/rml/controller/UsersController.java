@@ -87,10 +87,15 @@ public class UsersController {
 		logger.info("新增用户！");
 
 		try{
-
-			usersService.insert(user);
-			resultJson.put("status","1");
-			resultJson.put("detail","新增用户成功");
+			Users validateUser=usersService.selectByEmail(user.getEmail());
+			if(validateUser==null){
+				usersService.insert(user);
+				resultJson.put("status","1");
+				resultJson.put("detail","新增用户成功");
+			}else{
+				resultJson.put("status","0");
+				resultJson.put("detail","用户已存在，请更换其他邮箱");
+			}
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
 			resultJson.put("status","0");

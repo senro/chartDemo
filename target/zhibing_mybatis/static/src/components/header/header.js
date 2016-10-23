@@ -15,8 +15,14 @@ function render(){
     $header.html(__inline("./header.html"));
 
     //显示用户名
-    $('.header-item-userName').html(userObj.username);
+    $('.header-item-userName').html(userObj.name);
 
+    $('.btn-loginOut').click(function(){
+        ajax(window.apiHost+'web/loginOut.do',null,function (data) {
+            window.location.href=window.baseUrl+"/login.html";
+        });
+        return false;
+    });
 }
 
 //var $logout = $('#accountInfoBox').find('.logout');

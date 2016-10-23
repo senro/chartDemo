@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import rml.model.*;
+import rml.model.Bo.MonthPriceIndex;
 import rml.service.DataServiceI;
 import rml.service.DrugRecordServiceI;
 import rml.service.FilesServiceI;
@@ -87,6 +88,7 @@ public class DataController {
 		return resultJson.toString();
 	}
 
+
 	@RequestMapping(value="/addData", produces = "application/json; charset=utf-8")
     @ResponseBody
     public String addData(HttpServletRequest request, HttpSession session,Data data, String fileKey) {
@@ -129,16 +131,25 @@ public class DataController {
 										excelDrugRecord.getDrugFactory().equals(preMonthDrugRecord.getDrugFactory())
 										){
 
-									Double currMonthPrice=Double.valueOf(excelDrugRecord.getPrice());
-									Double preMonthPrice=Double.valueOf(preMonthDrugRecord.getPrice());
-
 									if( !excelDrugRecord.getPrice().equals("") &&
-										!preMonthDrugRecord.getPrice().equals("") &&
-											(currMonthPrice - preMonthPrice)>preMonthPrice*0.5 ){
-										//价格涨幅超上月50%
-										excelDrugRecord.setIsValid("0");
-									}else{
-										excelDrugRecord.setIsValid("1");
+											!preMonthDrugRecord.getPrice().equals("")&&
+											!excelDrugRecord.getPrice().equals("无") &&
+											!preMonthDrugRecord.getPrice().equals("无")) {
+
+										//System.out.printf(preMonthDrugRecord.getMonth()+"\n");
+										//System.out.printf(preMonthDrugRecord.getDrugName()+"\n");
+										//System.out.printf(preMonthDrugRecord.getUpdateAt()+"\n");
+										//System.out.printf(preMonthDrugRecord.getPrice()+"\n");
+
+										Double currMonthPrice = Double.valueOf(excelDrugRecord.getPrice());
+										Double preMonthPrice = Double.valueOf(preMonthDrugRecord.getPrice());
+
+										if ((currMonthPrice - preMonthPrice) > preMonthPrice * 0.5) {
+											//价格涨幅超上月50%
+											excelDrugRecord.setIsValid("0");
+										} else {
+											excelDrugRecord.setIsValid("1");
+										}
 									}
 								}
 							}
@@ -146,10 +157,10 @@ public class DataController {
 					}
 				}
 
-				//如果当月数据已经存在，则先删除之前上传过的数据再插入新上传的数据
+				//如果当月数据已经存在，则先删除之前上传过的数据再插入新上传的数据，超级管理员没有此限制
 				List<DrugRecord> currMonthDrugRecords = drugRecordService.getAllByUserIdAndMonth(data.getMonth(),user.getId());
-				if(currMonthDrugRecords.size()>0){
-					drugRecordService.deleteAllByUserIdAndMonth(data.getMonth(),user.getId());
+				if(user.getRoleId()!=1 && currMonthDrugRecords.size()>0){
+					drugRecordService.deleteAllByMonthAndUserId(data.getMonth(),user.getId());
 				}
 				drugRecordService.insertBatch(excelDrugRecords);
 
@@ -179,7 +190,10 @@ public class DataController {
 		JSONObject resultJson=new JSONObject();
 
 		try{
+			Data data = dataService.getDataById(id);
+			drugRecordService.deleteAllByMonthAndUserId(data.getMonth(),data.getUserId());
 			dataService.delete(id);
+
 			resultJson.put("status","1");
 			resultJson.put("detail","删除数据成功");
 		}catch(Exception e){

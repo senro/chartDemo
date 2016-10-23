@@ -16,6 +16,10 @@ public interface DrugRecordMapper {
 
     DrugRecord selectByPrimaryKey(int id);
 
+    List<DrugRecord> selectAllMonths();
+
+    List<DrugRecord> selectByMonthAndType(String month, String drugType);
+
     int updateByPrimaryKeySelective(DrugRecord drugRecord);
 
     int updateByPrimaryKey(DrugRecord drugRecord);
@@ -24,7 +28,7 @@ public interface DrugRecordMapper {
 
     List<DrugRecord> getAllByUserIdAndMonth(String month,int userId);
 
-    int deleteAllByUserIdAndMonth(String month,int userId);
+    int deleteAllByMonthAndUserId(String month,int userId);
 
     int countAll(Page page);
 }

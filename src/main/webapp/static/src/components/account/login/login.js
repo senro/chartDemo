@@ -8,6 +8,7 @@ var $submitBtn= $('#loginSubmit');
 var systemMessage = require('egis-system-message');
 var hex_md5=require('egis-tsc/md5-min').hex_md5;
 var regs=require('egis-validate/regs');
+var utilUser=require('components/util/utilUser');
 
 checkbox('multiCheckbox','multiCheckbox_hover');
 
@@ -24,12 +25,13 @@ $submitBtn.click(function(){
     if(!$submitBtn.hasClass('disable')){
        if(regs['email'].test(username)){
             ajax(window.apiHost + 'web/login.do',{email:username,password:password},function(data){
-                console.log(data);
-                cookie('set','userObj',jsonstringify({username:username}));
+                //console.log(data);
+                cookie('set','userObj',jsonstringify(data.data));
+                utilUser.start();
                 if($('.rememberMeCheckbox').hasClass('multiCheckbox_hover')){
                     cookie('set','rememberUsername',username);
                 }
-                window.location.href= window.baseUrl + '/index.html#/businessManage/dataManage';
+                window.location.href= window.baseUrl + '/index.html'+utilUser.getDefaultIndex();
 
             },function(){
                 $submitBtn.html('登录中...');

@@ -9,19 +9,29 @@ var $ = require('egis-jquery'),
 
 
 var User = {
-    //loginCookieName: 'userObj',
-    //loginInfo: {},
+    defaultIndex:"",
+    loginCookieName: 'userObj',
+    loginInfo: {},
+    getDefaultIndex:function () {
+        if(this.loginInfo.roleId==1){
+            //超级管理员
+            this.defaultIndex="#/systemManage/userManage";
+        }else if(this.loginInfo.roleId==2){
+            //审核员
+            this.defaultIndex="#/businessManage/dataManage";
+        }else if(this.loginInfo.roleId==3){
+            //普通用户
+            this.defaultIndex="#/businessManage/uploadManage";
+        }
+        return this.defaultIndex;
+    },
     //
-    //start: function () {
-    //    var $loginInfo = cookie('get', this.loginCookieName);
-    //    if (!$loginInfo) {
-    //        this.login();
-    //
-    //        return true;
-    //    }
-    //
-    //    this.loginInfo = $.parseJSON($loginInfo);
-    //},
+    start: function () {
+       var $loginInfo = cookie('get', this.loginCookieName);
+       if ($loginInfo) {
+           this.loginInfo = $.parseJSON($loginInfo);
+       }
+    },
     //
     //login: function () {
     //    window.location.href = 'login.html';
@@ -127,6 +137,23 @@ var User = {
                 ]
             }
         ];
+
+        if(cookie('get','userObj')){
+            var userObj=JSON.parse(cookie('get','userObj'));
+            if(userObj.roleId==1){
+                //超级管理员
+
+            }else if(userObj.roleId==2){
+                //审核员
+                obj[1].show=false;//隐藏系统管理
+                obj[2].include[0].show=false;//隐藏上传管理
+            }else if(userObj.roleId==3){
+                //普通用户
+                obj[1].show=false;//隐藏系统管理
+                obj[2].include[1].show=false;//隐藏数据管理
+            }
+        }
+
         //var User=this;
         //var authorities=User.getAuthorities();
         //
