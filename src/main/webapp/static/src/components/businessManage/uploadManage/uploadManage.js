@@ -19,7 +19,7 @@ var formVars=require('egis-formvars');
 var systemMessage=require('egis-system-message');
 var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
-//var utilUser = require('components/util/utilUser');
+var utilUser = require('components/util/utilUser');
 var $aside = $('aside');
 var Vue=require('vue');
 
@@ -128,11 +128,30 @@ function render(){
 
     var model_Data = {
         id:0,
+        userId:0,
         month:'',
         fileKey:''
     };
 
     var $addDataModal=$('#modal-addData');
+
+    //用户列表
+    var userListRender=template.compile($('#user-list-tpl').html());
+    ajax(
+        window.apiHost+'users/listUser.do',
+        null,//clearEmptyValue($context)
+        function (data) {
+            var dataObj = data.data || {};
+            $('#userId').html(userListRender(dataObj));
+        },
+        null,null,'post'
+    );
+
+    utilUser.start();
+    if(utilUser.loginInfo.roleId==1){
+        $('.row-hospitalName').show();
+    }
+
     //用vueJs 实现双向同步
     //Vue.config.debug = false;
     function initVue(){

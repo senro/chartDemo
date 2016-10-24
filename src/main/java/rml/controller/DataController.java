@@ -13,6 +13,7 @@ import rml.model.Bo.MonthPriceIndex;
 import rml.service.DataServiceI;
 import rml.service.DrugRecordServiceI;
 import rml.service.FilesServiceI;
+import rml.service.UsersServiceI;
 import rml.util.ConfigFileUtil;
 import rml.util.ExcelUtil;
 
@@ -30,6 +31,9 @@ public class DataController {
 
 	@Autowired
 	private DataServiceI dataService;
+
+	@Autowired
+	private UsersServiceI usersService;
 
 	@Autowired
 	private DrugRecordServiceI drugRecordService;
@@ -104,8 +108,15 @@ public class DataController {
 
 				Files getFile=filesService.getFilesByFileKey(fileKey);
 
-				data.setUserId(user.getId());
-				data.setHospitalName(user.getName());
+				if(user.getRoleId()==1){
+					if(data.getUserId()==0){
+						data.setUserId(user.getId());
+					}
+				}else{
+					data.setUserId(user.getId());
+				}
+
+				data.setHospitalName(usersService.getUserById(data.getUserId()).getName());
 				data.setDataPath(getFile.getFilePath());
 				data.setDataUrl(getFile.getFileUrl());
 

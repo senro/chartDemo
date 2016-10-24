@@ -107,6 +107,31 @@
             <div class="modal-body">
                 <form class="" action="" id="modal-addData-form">
                     <table class="modal-table modal-addRoller-table">
+                        <tr class="row-hospitalName none">
+                            <td class="text-right">医院名称</td>
+                            <td>
+                                <select class="form-control" id="userId" name="userId" v-model="userId">
+                                    <script type="text/html" id="user-list-tpl">
+                                        {{ if items && items.length > 0 }}
+                                        <option value="0">请选择</option>
+                                        {{ each items as item i }}
+                                        <option value="{{item.id}}">
+                                            {{ item.name }}
+                                        </option>
+                                        {{ /each }}
+                                        {{ else }}
+                                        <option value="">
+                                            没有查到名称
+                                        </option>
+                                        {{ /if }}
+                                    </script>
+                                </select>
+                            </td>
+                            <td class="color-red">
+                                <!--<span class="color-red">*</span>-->
+                                <!--<span class="errorMsg"></span>-->
+                            </td>
+                        </tr>
                         <tr>
                             <td class="text-right">数据月份</td>
                             <td>
