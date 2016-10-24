@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import rml.model.*;
 import rml.model.Bo.DrugRecordSearchCondition;
+import rml.model.Bo.MonthPriceIndex;
 import rml.service.DrugRecordServiceI;
 import rml.service.FilesServiceI;
 import rml.util.ExcelUtil;
@@ -68,6 +69,28 @@ public class DrugRecordController {
 			DrugRecord drugRecord = drugRecordService.getDrugRecordById(id);
 			resultJson.put("status","1");
 			resultJson.put("data",drugRecord);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexByMonthAndType", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexByMonthAndType(HttpServletRequest request,String drugType) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取当月数据的价格指数！");
+
+		try{
+			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndType(drugType);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);

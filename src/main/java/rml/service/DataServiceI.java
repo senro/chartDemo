@@ -1,8 +1,11 @@
 package rml.service;
 
+import rml.model.Bo.MonthPriceIndex;
 import rml.model.Page;
 import rml.model.PageResult;
 import rml.model.Data;
+
+import java.util.List;
 
 public interface DataServiceI {
     PageResult getAll(Page page);

@@ -48,6 +48,7 @@ $(document).ready(function () {
             }
         ]
     };
+    window.apiHost="service/";
 
     //综合指数
     var chartTogetherMonth = echarts.init(document.getElementById('chart-together-month'));
@@ -79,9 +80,47 @@ $(document).ready(function () {
     //中药指数
     var chartCnMonth = echarts.init(document.getElementById('chart-cn-month'));
 
-    chartCnMonth.setOption(
-        $.extend(true,lineOption,{})
-    );
+    $.ajax({
+        url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
+        data:{
+            drugType:1
+        },
+        dataType:"json",
+        type:"post",
+        success:function(data){
+            if(data.status==1){
+                var allMonths=[];
+                var allPriceIndex=[];
+                for(var i=0;i<data.data.length;i++){
+                    var monthPriceIndex=data.data[i];
+                    allMonths.push(monthPriceIndex.month);
+                    allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                }
+
+                var chartCnMonth_lineOption= $.extend(true,lineOption,{});
+                chartCnMonth_lineOption.xAxis.data=[];
+                chartCnMonth_lineOption.series[0].data=[];
+
+                chartCnMonth.setOption(
+                    $.extend(true,chartCnMonth_lineOption,{
+                        xAxis: {
+                            data: allMonths
+                        },
+                        series: [
+                            {
+                                name:'价格指数',
+                                type:'line',
+                                stack: '价格指数',
+                                data:allPriceIndex
+                            }
+                        ]
+                    })
+                );
+            }else{
+                alert(data.detail);
+            }
+        }
+    });
 
     var chartCnSeason = echarts.init(document.getElementById('chart-cn-season'));
 
@@ -106,9 +145,47 @@ $(document).ready(function () {
     //西药指数
     var chartEnMonth = echarts.init(document.getElementById('chart-en-month'));
 
-    chartEnMonth.setOption(
-        $.extend(true,lineOption,{})
-    );
+    $.ajax({
+        url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
+        data:{
+            drugType:0
+        },
+        dataType:"json",
+        type:"post",
+        success:function(data){
+            if(data.status==1){
+                var allMonths=[];
+                var allPriceIndex=[];
+                for(var i=0;i<data.data.length;i++){
+                    var monthPriceIndex=data.data[i];
+                    allMonths.push(monthPriceIndex.month);
+                    allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                }
+
+                var chartEnMonth_lineOption= $.extend(true,lineOption,{});
+                chartEnMonth_lineOption.xAxis.data=[];
+                chartEnMonth_lineOption.series[0].data=[];
+
+                chartEnMonth.setOption(
+                    $.extend(true,chartEnMonth_lineOption,{
+                        xAxis: {
+                            data: allMonths
+                        },
+                        series: [
+                            {
+                                name:'价格指数',
+                                type:'line',
+                                stack: '价格指数',
+                                data:allPriceIndex
+                            }
+                        ]
+                    })
+                );
+            }else{
+                alert(data.detail);
+            }
+        }
+    });
 
     var chartEnSeason = echarts.init(document.getElementById('chart-en-season'));
 

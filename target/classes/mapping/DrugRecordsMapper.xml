@@ -18,6 +18,10 @@
     <result column="updateAt" property="updateAt" jdbcType="VARCHAR" />
   </resultMap>
 
+  <resultMap id="MonthsResultMap" type="rml.model.DrugRecord" >
+    <result column="month" property="month" jdbcType="VARCHAR" />
+  </resultMap>
+
   <sql id="Base_Column_List" >
     id, userId, hospitalName, drugName, drugSpec, drugUnit, drugFactory, drugType, sale, price, isValid, month, createAt, updateAt
   </sql>
@@ -33,12 +37,26 @@
     where id = #{id}
   </select>
 
+  <select id="selectByMonthAndType" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from drugRecords
+    where month = #{0} and drugType = #{1}
+  </select>
+
+  <select id="selectAllMonths" resultMap="MonthsResultMap">
+    select
+    distinct
+    month
+    from drugRecords
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="int" >
     delete from drugRecords
     where id = #{id}
   </delete>
 
-  <delete id="deleteAllByUserIdAndMonth" >
+  <delete id="deleteAllByMonthAndUserId" >
     delete from drugRecords
     where month = #{0} and userId= #{1}
   </delete>

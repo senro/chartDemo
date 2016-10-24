@@ -1,8 +1,10 @@
 package rml.dao;
 
 import rml.model.Data;
+import rml.model.DrugRecord;
 import rml.model.Page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DataMapper {

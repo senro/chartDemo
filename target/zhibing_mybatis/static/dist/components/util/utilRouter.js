@@ -2,6 +2,9 @@ define('components/util/utilRouter', function(require, exports, module) {
 
   var $=require('node_modules/egis-jquery/jquery');
   var ajax = require('node_modules/egis-ajax/ajax').ajax;
+  var jsonstringify=require('node_modules/egis-util/util').JSON_stringify;
+  var utilUser=require('components/util/utilUser');
+  var cookie = require('node_modules/egis-cookie/cookie');
   //var currUrl=window.location.href,
   //    cookie = require('cookie'),
   //    utilUser=require('components/util/utilUser'),
@@ -35,9 +38,11 @@ define('components/util/utilRouter', function(require, exports, module) {
   
   //判断是否登录
   ajax(window.apiHost+'web/checkLogin.do',null,function(data){
+      cookie('set','userObj',jsonstringify(data.data));
+      utilUser.start();
       //已登陆,根据路由进行跳转
       if(!window.location.hash){
-          window.location.hash ='#/businessManage/dataManage';
+          window.location.hash =utilUser.getDefaultIndex();
       }
   
   },null,null,'get');

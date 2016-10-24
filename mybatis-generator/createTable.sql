@@ -10,7 +10,7 @@ id varchar(36) primary key,
 name varchar(36),
 age int,
 address varchar(36)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 用户表
 create table users(
@@ -21,7 +21,7 @@ password varchar(50),
 roleId int,
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 角色表
 create table roles(
@@ -30,7 +30,7 @@ roleName varchar(50),
 privilegeIds varchar(50),
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 权限表
 create table privileges(
@@ -38,7 +38,7 @@ id int primary key auto_increment,
 privilegeName varchar(50),
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 数据表
 create table data(
@@ -50,7 +50,7 @@ dataUrl varchar(100),
 dataPath varchar(100),
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 文件上传记录表
 create table files(
@@ -60,7 +60,7 @@ fileUrl varchar(100),
 filePath varchar(100),
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
 -- 药品数据表
 create table drugRecords(
@@ -78,9 +78,9 @@ isValid varchar(30),
 month varchar(30),
 createAt VARCHAR(30),
 updateAt VARCHAR(30)
-);
+) charset utf8 collate utf8_general_ci;
 
-INSERT INTO `users`( `name`, `email`, `password`, `roleId`) VALUES ('superDevAdmin','passtome@foxmail.com','abc111111','1')
+INSERT INTO `users`( `name`, `email`, `password`, `roleId`) VALUES ('superDevAdmin','passtome@foxmail.com','abc111111','1');
 -- ALTER TABLE users MODIFY createAt VARCHAR(30);
 -- ALTER TABLE users MODIFY updateAt VARCHAR(30);
 --

@@ -1,5 +1,8 @@
 var $=require('egis-jquery');
 var ajax = require('egis-ajax').ajax;
+var jsonstringify=require('egis-util').JSON_stringify;
+var utilUser=require('components/util/utilUser');
+var cookie = require('egis-cookie');
 //var currUrl=window.location.href,
 //    cookie = require('cookie'),
 //    utilUser=require('components/util/utilUser'),
@@ -33,9 +36,11 @@ var ajax = require('egis-ajax').ajax;
 
 //判断是否登录
 ajax(window.apiHost+'web/checkLogin.do',null,function(data){
+    cookie('set','userObj',jsonstringify(data.data));
+    utilUser.start();
     //已登陆,根据路由进行跳转
     if(!window.location.hash){
-        window.location.hash ='#/businessManage/dataManage';
+        window.location.hash =utilUser.getDefaultIndex();
     }
 
 },null,null,'get');

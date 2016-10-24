@@ -62,6 +62,7 @@ public class WebController {
 
 						dataJson.put("email",user.getEmail());
 						dataJson.put("name",user.getName());
+						dataJson.put("roleId",user.getRoleId());
 						dataJson.put("updateAt",user.getCreateAt());
 
 						resultJson.put("status","1");
@@ -103,7 +104,17 @@ public class WebController {
 
 		logger.info("检测是否登录");
 
+		Users user=(Users)session.getAttribute("userInfo");
+
+		JSONObject dataJson=new JSONObject();
+
+		dataJson.put("email",user.getEmail());
+		dataJson.put("name",user.getName());
+		dataJson.put("roleId",user.getRoleId());
+		dataJson.put("updateAt",user.getCreateAt());
+
 		resultJson.put("status","1");
+		resultJson.put("data",dataJson);
 		resultJson.put("detail","用户已登录");
 
 		return resultJson.toString();
