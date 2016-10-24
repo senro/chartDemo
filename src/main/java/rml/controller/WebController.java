@@ -246,12 +246,6 @@ public class WebController {
 		JSONObject resultJson=new JSONObject();
 		try {
 			String uploadFilePath= ConfigFileUtil.getUploadFilePath();//文件路径
-			//得到要下载的文件名
-
-			fileName = new String(fileName.getBytes("iso8859-1"), "UTF-8");
-
-			userId = new String(userId.getBytes("iso8859-1"), "UTF-8");
-
 			//通过文件名找出文件的所在目录
 			String path = uploadFilePath+"\\"+userId+"\\"+fileName;
 			//得到要下载的文件
@@ -285,7 +279,7 @@ public class WebController {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			resultJson.put("status","0");
-			resultJson.put("detail",e);
+			resultJson.put("detail",e.getMessage());
 		}
 		return resultJson.toString();
 	}
