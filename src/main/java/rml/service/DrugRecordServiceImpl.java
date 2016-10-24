@@ -130,7 +130,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 							!currentMonthDrugRecord.getSale().trim().equals("")&&
 							!currentMonthDrugRecord.getPrice().equals("无") &&
 							!currentMonthDrugRecord.getSale().equals("无")){
-						
+
 						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
 						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
 
