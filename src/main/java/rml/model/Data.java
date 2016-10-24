@@ -1,5 +1,9 @@
 package rml.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Pattern;
+
 public class Data extends Base {
 
     public String getHospitalName() {
@@ -31,7 +35,17 @@ public class Data extends Base {
     }
 
     public void setMonth(String month) {
-        this.month = month;
+        if(!month.equals("")){
+            Pattern datePattern = Pattern.compile("\\d\\d\\d\\d\\-\\d\\d\\-\\d\\d");
+            boolean result = datePattern.matcher(month).find();
+
+            if(result){
+                this.month = month;
+            }else{
+                SimpleDateFormat df = new SimpleDateFormat("yyyy");//设置日期格式
+                this.month = df.format(new Date())+"-"+month+"-01";
+            }
+        }
     }
 
     public int getUserId() {

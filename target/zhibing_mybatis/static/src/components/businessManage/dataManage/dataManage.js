@@ -196,7 +196,7 @@ function render(){
             if(validateForm($addDrugRecordModal.find('form'))){
                 var tempDate=new Date();
 
-                model_DrugRecord.month=tempDate.getFullYear()+'-'+model_DrugRecord.month+'-01';
+                //model_DrugRecord.month=tempDate.getFullYear()+'-'+model_DrugRecord.month+'-01';
 
                 ajax(
                     window.apiHost+'drugRecord/updateDrugRecord.do',

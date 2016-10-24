@@ -214,8 +214,8 @@ function render(){
                 }
                 var tmpDate=new Date();
 
-                model_Data.preMonth=tmpDate.getFullYear()+'-'+dateExtend.normalizeSingleNum((model_Data.month>1?model_Data.month-1:model_Data.month))+'-01';
-                model_Data.month=tmpDate.getFullYear()+'-'+dateExtend.normalizeSingleNum(model_Data.month)+'-01';
+                model_Data.preMonth=tmpDate.getFullYear()+'-'+model_Data.month+'-01';
+                //model_Data.month=tmpDate.getFullYear()+'-'+dateExtend.normalizeSingleNum(model_Data.month)+'-01';
 
                 ajax(
                     url,
