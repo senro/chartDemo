@@ -48,14 +48,16 @@ public class DataController {
 
 	@RequestMapping(value="/listData", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String listData(HttpServletRequest request,Page page) {
+	public String listData(HttpServletRequest request, HttpSession session,Page page) {
 
+		Users user=(Users)session.getAttribute("userInfo");
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("数据列表！");
 
 		try{
-			PageResult pageResult = dataService.getAll(page);
+			page.setUserId(user.getId());
+			PageResult pageResult = dataService.getAll( page );
 			JSONArray dataJson=new JSONArray();
 
 			resultJson.put("status","1");

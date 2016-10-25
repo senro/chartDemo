@@ -131,6 +131,11 @@
   
   <select id="getAll" resultMap="BaseResultMap" parameterType="rml.model.Page">
 	select <include refid="Base_Column_List" /> from data
+    <trim prefix="Where" prefixOverrides="AND |OR">
+      <if test="userId != 1" >
+        userId= #{userId}
+      </if>
+    </trim>
     ORDER BY data.updateAt
     <choose>
       <when test="order!=null and order!=''">
@@ -154,5 +159,10 @@
           parameterType="rml.model.Page"
           resultType="java.lang.Integer">
     select count(1) from data
+    <trim prefix="Where" prefixOverrides="AND |OR">
+      <if test="userId != 1" >
+        userId= #{userId}
+      </if>
+    </trim>
   </select>
 </mapper>

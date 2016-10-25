@@ -20,6 +20,8 @@ public interface DrugRecordMapper {
 
     List<DrugRecord> selectByMonthAndType(String month, String drugType);
 
+    List<DrugRecord> selectByMonthAndDrugName(String month, String drugName);
+
     int updateByPrimaryKeySelective(DrugRecord drugRecord);
 
     int updateByPrimaryKey(DrugRecord drugRecord);

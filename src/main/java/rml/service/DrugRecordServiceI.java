@@ -12,7 +12,9 @@ public interface DrugRecordServiceI {
 
     List<DrugRecord> getAllByUserIdAndMonth(String month,int userId);
 
-    List<MonthPriceIndex> getDataPriceIndexByMonthAndType(String type);
+    List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType);
+
+    List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugName(String drugName);
 
     int deleteAllByMonthAndUserId(String month,int userId);
 

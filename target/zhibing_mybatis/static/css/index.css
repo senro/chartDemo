@@ -146,7 +146,7 @@ a:hover{
 }
 
 .chartBox-together .searchBox{
-    width: 259px;
+    width: 287px;
 }
 
 .chartBox-together .searchBox input,.chartBox-together .searchBox button{
@@ -185,6 +185,13 @@ a:hover{
 
 .chartBox-top10 .chartContainer{
     height: 200px;
+}
+
+/*modal*/
+.modal .chartContainer{
+    height: 405px;
+    margin-top: 3px;
+    border:1px solid #9dbfff;
 }
 
 .mt15{

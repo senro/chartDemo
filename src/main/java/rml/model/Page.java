@@ -12,6 +12,15 @@ public class Page implements Serializable {
     private Integer offset;
     private String sort;
     private String order;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getPage() {
         return page;

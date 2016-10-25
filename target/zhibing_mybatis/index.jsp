@@ -127,8 +127,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <a href="#chartBox-together-panel-year" data-toggle="tab">年指数</a>
                   </li>
                   <li class="pull-right searchBox">
-                      <input type="text" class="form-control" placeholder="搜索单个药品指数" />
-                      <button class="btn btn-primary">
+                      <input type="text" class="form-control input-search-single-drugName" placeholder="搜索单个药品指数" />
+                      <button class="btn btn-primary btn-searchDrugName" data-toggle="modal" data-target="#myModal">
                           搜索
                       </button>
                   </li>
@@ -258,6 +258,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <div class="footer mt15">
 
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade modal-single-drugName" id="modal-single-drugName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel">单个药品指数</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="chartContainer" id="chart-single-drugName">
+
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
       </div>
 
       <script src="static/lib/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>

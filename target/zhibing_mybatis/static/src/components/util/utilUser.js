@@ -151,8 +151,10 @@ var User = {
                 //普通用户
                 obj[1].show=false;//隐藏系统管理
                 obj[2].include[1].show=false;//隐藏数据管理
+                obj[2].href="#/businessManage/uploadManage";
             }
         }
+
 
         //var User=this;
         //var authorities=User.getAuthorities();

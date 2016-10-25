@@ -88,7 +88,29 @@ public class DrugRecordController {
 		logger.info("获取当月数据的价格指数！");
 
 		try{
-			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndType(drugType);
+			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugType(drugType);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexByMonthAndDrugName", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexByMonthAndDrugName(HttpServletRequest request,String drugName) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取单个药品的价格指数！");
+
+		try{
+			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugName(drugName);
 			resultJson.put("status","1");
 			resultJson.put("data",data);
 			resultJson.put("detail","获取数据成功");

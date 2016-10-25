@@ -44,6 +44,12 @@ $(document).ready(function () {
                 name:'低价药指数',
                 type:'line',
                 stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
                 data:[120, 132, 101, 134, 90, 230, 210]
             }
         ]
@@ -80,6 +86,7 @@ $(document).ready(function () {
     //中药指数
     var chartCnMonth = echarts.init(document.getElementById('chart-cn-month'));
 
+    chartCnMonth.showLoading();
     $.ajax({
         url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
         data:{
@@ -93,7 +100,7 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var monthPriceIndex=data.data[i];
-                    allMonths.push(monthPriceIndex.month);
+                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
                     allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                 }
 
@@ -116,6 +123,8 @@ $(document).ready(function () {
                         ]
                     })
                 );
+
+                chartCnMonth.hideLoading();
             }else{
                 alert(data.detail);
             }
@@ -145,6 +154,7 @@ $(document).ready(function () {
     //西药指数
     var chartEnMonth = echarts.init(document.getElementById('chart-en-month'));
 
+    chartEnMonth.showLoading();
     $.ajax({
         url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
         data:{
@@ -158,7 +168,7 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var monthPriceIndex=data.data[i];
-                    allMonths.push(monthPriceIndex.month);
+                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
                     allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                 }
 
@@ -181,6 +191,7 @@ $(document).ready(function () {
                         ]
                     })
                 );
+                chartEnMonth.hideLoading();
             }else{
                 alert(data.detail);
             }
@@ -241,6 +252,12 @@ $(document).ready(function () {
                 name:'价格',
                 type:'bar',
                 barWidth: '60%',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
                 data:[10, 52, 200, 334, 390, 330, 220]
             }
         ]
@@ -266,5 +283,84 @@ $(document).ready(function () {
             ]
         })
     );
+
+    //搜索单个药品
+    var chartSingleDrugName = echarts.init(document.getElementById('chart-single-drugName'));
+
+    var $singleDrugNameInput=$('.input-search-single-drugName');
+    var $singleDrugNameModal=$('#modal-single-drugName');
+
+    $('.btn-searchDrugName').click(function(){
+        var $this=$(this);
+
+        if($.trim($singleDrugNameInput.val())){
+            $.ajax({
+                url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndDrugName.do",
+                data:{
+                    drugName:$singleDrugNameInput.val()
+                },
+                dataType:"json",
+                type:"post",
+                success:function(data){
+                    if(data.status==1){
+                        var allMonths=[];
+                        var allPriceIndex=[];
+                        if(data.data.length>=2){
+                            $singleDrugNameModal.find('.modal-title').html($singleDrugNameInput.val()+' 的价格指数');
+                            $singleDrugNameModal.modal('show');
+
+                            for(var i=0;i<data.data.length;i++){
+                                var monthPriceIndex=data.data[i];
+                                allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                                allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                            }
+
+                            var chartSingleDrugName_lineOption= $.extend(true,lineOption,{});
+                            chartSingleDrugName_lineOption.xAxis.data=[];
+                            chartSingleDrugName_lineOption.series[0].data=[];
+
+                            chartSingleDrugName.setOption(
+                                $.extend(true,chartSingleDrugName_lineOption,{
+                                    xAxis: {
+                                        data: allMonths
+                                    },
+                                    series: [
+                                        {
+                                            name:'价格指数',
+                                            type:'line',
+                                            stack: '价格指数',
+                                            data:allPriceIndex
+                                        }
+                                    ]
+                                })
+                            );
+
+                            setTimeout(function () {
+                                chartSingleDrugName.resize();
+                            },300);
+
+                        }else{
+                            alert("没有搜到该药品相关数据！");
+                        }
+                    }else{
+                        alert(data.detail);
+                    }
+                },
+                beforeSend:function () {
+                    $this.attr('disabled','disabled');
+                    $this.html('搜索中...');
+                },
+                complete:function(){
+                    $this.removeAttr('disabled');
+                    $this.html('搜索');
+                }
+            });
+
+        }else{
+            alert("请输入一个药品名称！");
+        }
+
+        return false;
+    });
 
 });

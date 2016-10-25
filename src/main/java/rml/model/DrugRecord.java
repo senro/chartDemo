@@ -101,7 +101,16 @@ public class DrugRecord extends Base {
     }
 
     public String getPrice() {
-        return price;
+
+        Pattern datePattern = Pattern.compile("\\.{2,}");
+        boolean result = datePattern.matcher(price).find();
+
+        if(result){
+            return price.replaceAll("\\.\\.", ".");
+        }else{
+            return price;
+        }
+
     }
 
     public void setPrice(String price) {

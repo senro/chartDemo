@@ -31,8 +31,9 @@ public class DataServiceImpl implements DataServiceI{
 	@Override
 	public PageResult getAll(Page page) {
 		PageResult result = new PageResult();
-		result.setItems(dataMapper.getAll(page));
-		result.setTotalElements(dataMapper.countAll(page));
+
+		result.setItems(dataMapper.getAll( page ));
+		result.setTotalElements(dataMapper.countAll( page ));
 		result.setSize(page.getSize());
 		result.setCurrentPage(page.getPage());
 		return result;
