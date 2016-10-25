@@ -96,20 +96,6 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndType("2016-05-01",drugType);
 		Double baseMonthTotalPrice=0.0;
 
-		for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
-
-			if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-					!baseMonthDrugRecord.getSale().trim().equals("")&&
-					!baseMonthDrugRecord.getPrice().equals("无") &&
-					!baseMonthDrugRecord.getSale().equals("无")){
-
-				Double price=Double.valueOf(baseMonthDrugRecord.getPrice());
-				Double sale=Double.valueOf(baseMonthDrugRecord.getSale());
-
-				baseMonthTotalPrice=baseMonthTotalPrice+price;
-			}
-
-		}
 
 		//设定5月份（基期）的价格指数默认为100
 		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
@@ -134,7 +120,24 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
 						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
 
-						currentMonthTotalPrice=currentMonthTotalPrice+price;
+						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+
+							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+									!baseMonthDrugRecord.getSale().trim().equals("") &&
+									!baseMonthDrugRecord.getPrice().equals("无") &&
+									!baseMonthDrugRecord.getSale().equals("无") &&
+									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
+									){
+
+								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+
+								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+							}
+
+						}
+						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
 					}
 
 				}
