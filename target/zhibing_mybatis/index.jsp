@@ -126,12 +126,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <li>
                       <a href="#chartBox-together-panel-year" data-toggle="tab">年指数</a>
                   </li>
-                  <li class="pull-right searchBox">
-                      <input type="text" class="form-control input-search-single-drugName" placeholder="搜索单个药品指数" />
-                      <button class="btn btn-primary btn-searchDrugName" data-toggle="modal" data-target="#myModal">
-                          搜索
-                      </button>
-                  </li>
+                  <%--<li class="pull-right searchBox">--%>
+                      <%--<input type="text" class="form-control input-search-single-drugName" placeholder="搜索单个药品指数" />--%>
+                      <%--<button class="btn btn-primary btn-searchDrugName" data-toggle="modal" data-target="#myModal">--%>
+                          <%--搜索--%>
+                      <%--</button>--%>
+                  <%--</li>--%>
               </ul>
               <div class="tab-content">
                   <div class="tab-pane active" id="chartBox-together-panel-month">
