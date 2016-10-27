@@ -12,6 +12,16 @@ public class MonthPriceIndex {
 
     private String month;
 
+    private String totalSale;
+
+    public String getTotalSale() {
+        return totalSale;
+    }
+
+    public void setTotalSale(String totalSale) {
+        this.totalSale = totalSale;
+    }
+
     public String getPriceIndex() {
         return priceIndex;
     }

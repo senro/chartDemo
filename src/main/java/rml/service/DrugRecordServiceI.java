@@ -12,6 +12,8 @@ public interface DrugRecordServiceI {
 
     List<DrugRecord> getAllByUserIdAndMonth(String month,int userId);
 
+    List<MonthPriceIndex> getDataPriceIndexByMonth();
+
     List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType);
 
     List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugName(String drugName);

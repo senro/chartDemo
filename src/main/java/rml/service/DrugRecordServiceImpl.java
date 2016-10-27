@@ -97,16 +97,15 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		//设定5月份（基期）的价格指数默认为100
 		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
-		baseMonthPriceIndex.setMonth("2016-05-01");
-		baseMonthPriceIndex.setPriceIndex("100");
-		resultList.add(baseMonthPriceIndex);
 
 		for (DrugRecord drugRecord:drugRecords) {
 			String currentMonth=drugRecord.getMonth();
 
 			if(!currentMonth.equals("2016-05-01")){
 				Double baseMonthTotalPrice=0.0;
+				Double baseMonthTotalSale=0.0;
 				Double currentMonthTotalPrice=0.0;
+				Double currentMonthTotalSale=0.0;
 
 				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
 				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
@@ -120,6 +119,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
 
 						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+						currentMonthTotalSale=currentMonthTotalSale+sale;
 
 						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
 
@@ -135,6 +135,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
 								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+								baseMonthTotalSale=baseMonthTotalSale+baseSale;
 							}
 
 						}
@@ -146,10 +147,16 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
 				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
 
+				baseMonthPriceIndex.setMonth("2016-05-01");
+				baseMonthPriceIndex.setPriceIndex("100");
+				baseMonthPriceIndex.setTotalSale(String.valueOf(baseMonthTotalSale));
+				resultList.add(baseMonthPriceIndex);
+
 				if(currentMonthDrugRecords.size()>0) {
 					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
 					currentMonthPriceIndex.setMonth(currentMonth);
 					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
+					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
 					resultList.add(currentMonthPriceIndex);
 				}
 			}
@@ -169,16 +176,15 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		//设定5月份（基期）的价格指数默认为100
 		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
-		baseMonthPriceIndex.setMonth("2016-05-01");
-		baseMonthPriceIndex.setPriceIndex("100");
-		resultList.add(baseMonthPriceIndex);
 
 		for (DrugRecord drugRecord:drugRecords) {
 			String currentMonth=drugRecord.getMonth();
 
 			if(!currentMonth.equals("2016-05-01")){
 				Double baseMonthTotalPrice=0.0;
+				Double baseMonthTotalSale=0.0;
 				Double currentMonthTotalPrice=0.0;
+				Double currentMonthTotalSale=0.0;
 
 				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(currentMonth,drugName);
 				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
@@ -192,6 +198,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
 
 						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+						currentMonthTotalSale=currentMonthTotalSale+sale;
 
 						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
 
@@ -207,6 +214,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
 								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+								baseMonthTotalSale=baseMonthTotalSale+baseSale;
 							}
 
 						}
@@ -218,14 +226,52 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
 				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
 
+				baseMonthPriceIndex.setMonth("2016-05-01");
+				baseMonthPriceIndex.setPriceIndex("100");
+				baseMonthPriceIndex.setTotalSale(String.valueOf(baseMonthTotalSale));
+
+				resultList.add(baseMonthPriceIndex);
+
 				if(currentMonthDrugRecords.size()>0){
 					MonthPriceIndex currentMonthPriceIndex=new MonthPriceIndex();
 					currentMonthPriceIndex.setMonth(currentMonth);
 					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice/baseMonthTotalPrice)*100));
+					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
 					resultList.add(currentMonthPriceIndex);
 				}
 
 			}
+		}
+
+		return resultList;
+	}
+
+	//获取月综合指数
+	@Override
+	public List<MonthPriceIndex> getDataPriceIndexByMonth() {
+		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
+
+		List<MonthPriceIndex> westDrugMonthPriceIndexList=getDataPriceIndexByMonthAndDrugType("0");
+		List<MonthPriceIndex> eastDrugMonthPriceIndexList=getDataPriceIndexByMonthAndDrugType("1");
+		MonthPriceIndex monthPriceIndex=new MonthPriceIndex();
+
+		for (MonthPriceIndex westDrugMonthPriceIndex:westDrugMonthPriceIndexList) {
+			monthPriceIndex.setMonth(westDrugMonthPriceIndex.getMonth());
+			for (MonthPriceIndex eastDrugMonthPriceIndex:eastDrugMonthPriceIndexList) {
+				if(westDrugMonthPriceIndex.getMonth().equals(eastDrugMonthPriceIndex.getMonth())){
+					Double westDrugMonthTotalSale=Double.valueOf(westDrugMonthPriceIndex.getTotalSale());
+					Double eastDrugMonthTotalSale=Double.valueOf(eastDrugMonthPriceIndex.getTotalSale());
+					Double drugMonthTotalSale=westDrugMonthTotalSale+eastDrugMonthTotalSale;
+
+					Double westDrugMonthPriceIndexNum=Double.valueOf(westDrugMonthPriceIndex.getPriceIndex());
+					Double eastDrugMonthPriceIndexNum=Double.valueOf(eastDrugMonthPriceIndex.getPriceIndex());
+
+					Double drugMonthPriceIndexNum=(westDrugMonthTotalSale/drugMonthTotalSale)*westDrugMonthPriceIndexNum+(eastDrugMonthTotalSale/drugMonthTotalSale)*eastDrugMonthPriceIndexNum;
+
+					monthPriceIndex.setPriceIndex(String.valueOf(drugMonthPriceIndexNum));
+				}
+			}
+			resultList.add(monthPriceIndex);
 		}
 
 		return resultList;

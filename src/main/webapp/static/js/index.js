@@ -59,9 +59,48 @@ $(document).ready(function () {
     //综合指数
     var chartTogetherMonth = echarts.init(document.getElementById('chart-together-month'));
 
-    chartTogetherMonth.setOption(
-        $.extend(true,lineOption,{})
-    );
+    chartTogetherMonth.showLoading();
+    $.ajax({
+        url:window.apiHost+"drugRecord/getDataPriceIndexByMonth.do",
+        data:{},
+        dataType:"json",
+        type:"post",
+        success:function(data){
+            if(data.status==1){
+                var allMonths=[];
+                var allPriceIndex=[];
+                for(var i=0;i<data.data.length;i++){
+                    var monthPriceIndex=data.data[i];
+                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                    allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                }
+
+                var chartTogetherMonth_lineOption= $.extend(true,lineOption,{});
+                chartTogetherMonth_lineOption.xAxis.data=[];
+                chartTogetherMonth_lineOption.series[0].data=[];
+
+                chartTogetherMonth.setOption(
+                    $.extend(true,chartTogetherMonth_lineOption,{
+                        xAxis: {
+                            data: allMonths
+                        },
+                        series: [
+                            {
+                                name:'价格指数',
+                                type:'line',
+                                stack: '价格指数',
+                                data:allPriceIndex
+                            }
+                        ]
+                    })
+                );
+
+                chartTogetherMonth.hideLoading();
+            }else{
+                alert(data.detail);
+            }
+        }
+    });
 
     var chartTogetherSeason = echarts.init(document.getElementById('chart-together-season'));
 

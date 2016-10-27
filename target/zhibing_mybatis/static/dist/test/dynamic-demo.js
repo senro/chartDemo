@@ -1,1 +1,0 @@
-module.exports=function(i,e){var n=require("mockjs"),o=n.mock({"list|1-10":[{"id|+1":1}]});e.end(JSON.stringify(o,null,4))};
