@@ -253,25 +253,34 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		List<MonthPriceIndex> westDrugMonthPriceIndexList=getDataPriceIndexByMonthAndDrugType("0");
 		List<MonthPriceIndex> eastDrugMonthPriceIndexList=getDataPriceIndexByMonthAndDrugType("1");
-		MonthPriceIndex monthPriceIndex=new MonthPriceIndex();
+
+		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
+		baseMonthPriceIndex.setMonth("2016-05-01");
+		baseMonthPriceIndex.setPriceIndex("100");
+
+		resultList.add(baseMonthPriceIndex);
 
 		for (MonthPriceIndex westDrugMonthPriceIndex:westDrugMonthPriceIndexList) {
-			monthPriceIndex.setMonth(westDrugMonthPriceIndex.getMonth());
-			for (MonthPriceIndex eastDrugMonthPriceIndex:eastDrugMonthPriceIndexList) {
-				if(westDrugMonthPriceIndex.getMonth().equals(eastDrugMonthPriceIndex.getMonth())){
-					Double westDrugMonthTotalSale=Double.valueOf(westDrugMonthPriceIndex.getTotalSale());
-					Double eastDrugMonthTotalSale=Double.valueOf(eastDrugMonthPriceIndex.getTotalSale());
-					Double drugMonthTotalSale=westDrugMonthTotalSale+eastDrugMonthTotalSale;
+			if(!westDrugMonthPriceIndex.getMonth().equals("2016-05-01")){
+				MonthPriceIndex monthPriceIndex=new MonthPriceIndex();
+				monthPriceIndex.setMonth(westDrugMonthPriceIndex.getMonth());
+				for (MonthPriceIndex eastDrugMonthPriceIndex:eastDrugMonthPriceIndexList) {
+					if(westDrugMonthPriceIndex.getMonth().equals(eastDrugMonthPriceIndex.getMonth())){
+						Double westDrugMonthTotalSale=Double.valueOf(westDrugMonthPriceIndex.getTotalSale());
+						Double eastDrugMonthTotalSale=Double.valueOf(eastDrugMonthPriceIndex.getTotalSale());
+						Double drugMonthTotalSale=westDrugMonthTotalSale+eastDrugMonthTotalSale;
 
-					Double westDrugMonthPriceIndexNum=Double.valueOf(westDrugMonthPriceIndex.getPriceIndex());
-					Double eastDrugMonthPriceIndexNum=Double.valueOf(eastDrugMonthPriceIndex.getPriceIndex());
+						Double westDrugMonthPriceIndexNum=Double.valueOf(westDrugMonthPriceIndex.getPriceIndex());
+						Double eastDrugMonthPriceIndexNum=Double.valueOf(eastDrugMonthPriceIndex.getPriceIndex());
 
-					Double drugMonthPriceIndexNum=(westDrugMonthTotalSale/drugMonthTotalSale)*westDrugMonthPriceIndexNum+(eastDrugMonthTotalSale/drugMonthTotalSale)*eastDrugMonthPriceIndexNum;
+						Double drugMonthPriceIndexNum=(westDrugMonthTotalSale/drugMonthTotalSale)*westDrugMonthPriceIndexNum+(eastDrugMonthTotalSale/drugMonthTotalSale)*eastDrugMonthPriceIndexNum;
 
-					monthPriceIndex.setPriceIndex(String.valueOf(drugMonthPriceIndexNum));
+						monthPriceIndex.setPriceIndex(String.valueOf(drugMonthPriceIndexNum));
+					}
 				}
+				resultList.add(monthPriceIndex);
 			}
-			resultList.add(monthPriceIndex);
+
 		}
 
 		return resultList;
