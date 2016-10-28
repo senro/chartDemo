@@ -97,6 +97,10 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		//设定5月份（基期）的价格指数默认为100
 		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
+		baseMonthPriceIndex.setMonth("2016-05-01");
+		baseMonthPriceIndex.setPriceIndex("100");
+
+		resultList.add(baseMonthPriceIndex);
 
 		for (DrugRecord drugRecord:drugRecords) {
 			String currentMonth=drugRecord.getMonth();
@@ -146,11 +150,6 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
 				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
-
-				baseMonthPriceIndex.setMonth("2016-05-01");
-				baseMonthPriceIndex.setPriceIndex("100");
-				baseMonthPriceIndex.setTotalSale(String.valueOf(baseMonthTotalSale));
-				resultList.add(baseMonthPriceIndex);
 
 				if(currentMonthDrugRecords.size()>0) {
 					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
