@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rml.dao.PriceIndexMapper" >
+  <resultMap id="BaseResultMap" type="rml.model.PriceIndex" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="month" property="month" jdbcType="INTEGER" />
+    <result column="season" property="season" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="west_month" property="westMonth" jdbcType="VARCHAR" />
+    <result column="west_season" property="westSeason" jdbcType="VARCHAR" />
+    <result column="west_year" property="westYear" jdbcType="VARCHAR" />
+    <result column="east_month" property="eastMonth" jdbcType="VARCHAR" />
+    <result column="east_season" property="eastSeason" jdbcType="VARCHAR" />
+    <result column="east_year" property="eastYear" jdbcType="VARCHAR" />
+    <result column="year_top10_price" property="yearTop10Price" jdbcType="VARCHAR" />
+    <result column="year_top10_sale" property="yearTop10Sale" jdbcType="VARCHAR" />
+    <result column="data_total" property="dataTotal" jdbcType="VARCHAR" />
+    <result column="createAt" property="createat" jdbcType="VARCHAR" />
+    <result column="updateAt" property="updateat" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, month, season, year, west_month, west_season, west_year, east_month, east_season, 
+    east_year, year_top10_price, year_top10_sale, data_total, createAt, updateAt
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from priceindex
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from priceindex
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="rml.model.PriceIndex" >
+    insert into priceindex (id, month, season, 
+      year, west_month, west_season, 
+      west_year, east_month, east_season, 
+      east_year, year_top10_price, year_top10_sale, 
+      data_total, createAt, updateAt
+      )
+    values (#{id,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}, #{season,jdbcType=INTEGER}, 
+      #{year,jdbcType=INTEGER}, #{westMonth,jdbcType=VARCHAR}, #{westSeason,jdbcType=VARCHAR}, 
+      #{westYear,jdbcType=VARCHAR}, #{eastMonth,jdbcType=VARCHAR}, #{eastSeason,jdbcType=VARCHAR}, 
+      #{eastYear,jdbcType=VARCHAR}, #{yearTop10Price,jdbcType=VARCHAR}, #{yearTop10Sale,jdbcType=VARCHAR}, 
+      #{dataTotal,jdbcType=VARCHAR}, #{createat,jdbcType=VARCHAR}, #{updateat,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="rml.model.PriceIndex" >
+    insert into priceindex
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="season != null" >
+        season,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="westMonth != null" >
+        west_month,
+      </if>
+      <if test="westSeason != null" >
+        west_season,
+      </if>
+      <if test="westYear != null" >
+        west_year,
+      </if>
+      <if test="eastMonth != null" >
+        east_month,
+      </if>
+      <if test="eastSeason != null" >
+        east_season,
+      </if>
+      <if test="eastYear != null" >
+        east_year,
+      </if>
+      <if test="yearTop10Price != null" >
+        year_top10_price,
+      </if>
+      <if test="yearTop10Sale != null" >
+        year_top10_sale,
+      </if>
+      <if test="dataTotal != null" >
+        data_total,
+      </if>
+      <if test="createat != null" >
+        createAt,
+      </if>
+      <if test="updateat != null" >
+        updateAt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=INTEGER},
+      </if>
+      <if test="season != null" >
+        #{season,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="westMonth != null" >
+        #{westMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="westSeason != null" >
+        #{westSeason,jdbcType=VARCHAR},
+      </if>
+      <if test="westYear != null" >
+        #{westYear,jdbcType=VARCHAR},
+      </if>
+      <if test="eastMonth != null" >
+        #{eastMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="eastSeason != null" >
+        #{eastSeason,jdbcType=VARCHAR},
+      </if>
+      <if test="eastYear != null" >
+        #{eastYear,jdbcType=VARCHAR},
+      </if>
+      <if test="yearTop10Price != null" >
+        #{yearTop10Price,jdbcType=VARCHAR},
+      </if>
+      <if test="yearTop10Sale != null" >
+        #{yearTop10Sale,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTotal != null" >
+        #{dataTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="createat != null" >
+        #{createat,jdbcType=VARCHAR},
+      </if>
+      <if test="updateat != null" >
+        #{updateat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="rml.model.PriceIndex" >
+    update priceindex
+    <set >
+      <if test="month != null" >
+        month = #{month,jdbcType=INTEGER},
+      </if>
+      <if test="season != null" >
+        season = #{season,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="westMonth != null" >
+        west_month = #{westMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="westSeason != null" >
+        west_season = #{westSeason,jdbcType=VARCHAR},
+      </if>
+      <if test="westYear != null" >
+        west_year = #{westYear,jdbcType=VARCHAR},
+      </if>
+      <if test="eastMonth != null" >
+        east_month = #{eastMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="eastSeason != null" >
+        east_season = #{eastSeason,jdbcType=VARCHAR},
+      </if>
+      <if test="eastYear != null" >
+        east_year = #{eastYear,jdbcType=VARCHAR},
+      </if>
+      <if test="yearTop10Price != null" >
+        year_top10_price = #{yearTop10Price,jdbcType=VARCHAR},
+      </if>
+      <if test="yearTop10Sale != null" >
+        year_top10_sale = #{yearTop10Sale,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTotal != null" >
+        data_total = #{dataTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="createat != null" >
+        createAt = #{createat,jdbcType=VARCHAR},
+      </if>
+      <if test="updateat != null" >
+        updateAt = #{updateat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="rml.model.PriceIndex" >
+    update priceindex
+    set month = #{month,jdbcType=INTEGER},
+      season = #{season,jdbcType=INTEGER},
+      year = #{year,jdbcType=INTEGER},
+      west_month = #{westMonth,jdbcType=VARCHAR},
+      west_season = #{westSeason,jdbcType=VARCHAR},
+      west_year = #{westYear,jdbcType=VARCHAR},
+      east_month = #{eastMonth,jdbcType=VARCHAR},
+      east_season = #{eastSeason,jdbcType=VARCHAR},
+      east_year = #{eastYear,jdbcType=VARCHAR},
+      year_top10_price = #{yearTop10Price,jdbcType=VARCHAR},
+      year_top10_sale = #{yearTop10Sale,jdbcType=VARCHAR},
+      data_total = #{dataTotal,jdbcType=VARCHAR},
+      createAt = #{createat,jdbcType=VARCHAR},
+      updateAt = #{updateat,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

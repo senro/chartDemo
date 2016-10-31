@@ -37,6 +37,13 @@
     where id = #{id}
   </select>
 
+  <select id="selectBySeasonAndType" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from drugRecords
+    where month >= #{0} and  month <= DATE_ADD(#{0}, Interval 2 month) and drugType = #{1}
+  </select>
+
   <select id="selectByMonthAndType" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />

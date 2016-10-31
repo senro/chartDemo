@@ -86,6 +86,83 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return drugRecordMapper.selectByPrimaryKey(id);
 	}
 
+
+	@Override
+	public List<MonthPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType) {
+		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
+		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
+		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
+		List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01",drugType);
+		//设定5月份（基期）的价格指数默认为100
+		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
+		baseMonthPriceIndex.setMonth("2016-05-01");
+		baseMonthPriceIndex.setPriceIndex("100");
+
+		resultList.add(baseMonthPriceIndex);
+
+		for (DrugRecord drugRecord:drugRecords) {
+			String currentMonth=drugRecord.getMonth();
+
+			if(!currentMonth.equals("2016-05-01")){
+				Double baseMonthTotalPrice=0.0;
+				Double baseMonthTotalSale=0.0;
+				Double currentMonthTotalPrice=0.0;
+				Double currentMonthTotalSale=0.0;
+
+				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
+				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
+
+					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
+							!currentMonthDrugRecord.getSale().trim().equals("")&&
+							!currentMonthDrugRecord.getPrice().equals("无") &&
+							!currentMonthDrugRecord.getSale().equals("无")){
+
+						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
+						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
+
+						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+						currentMonthTotalSale=currentMonthTotalSale+sale;
+
+						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+
+							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+									!baseMonthDrugRecord.getSale().trim().equals("") &&
+									!baseMonthDrugRecord.getPrice().equals("无") &&
+									!baseMonthDrugRecord.getSale().equals("无") &&
+									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
+									){
+
+								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+
+								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+								baseMonthTotalSale=baseMonthTotalSale+baseSale;
+							}
+
+						}
+
+					}
+
+				}
+
+				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
+				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
+
+				if(currentMonthDrugRecords.size()>0) {
+					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
+					currentMonthPriceIndex.setMonth(currentMonth);
+					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
+					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+					resultList.add(currentMonthPriceIndex);
+				}
+			}
+		}
+
+		return resultList;
+	}
+
 	@Override
 	public List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType) {
 		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();

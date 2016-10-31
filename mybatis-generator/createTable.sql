@@ -80,6 +80,26 @@ createAt VARCHAR(30),
 updateAt VARCHAR(30)
 ) charset utf8 collate utf8_general_ci;
 
+-- 指数记录表
+create table priceIndex(
+id int primary key auto_increment,
+month int(50),
+season int(50),
+year int(50),
+west_month varchar(50),
+west_season varchar(50),
+west_year varchar(50),
+east_month varchar(50),
+east_season varchar(50),
+east_year varchar(50),
+year_top10_price varchar(50),
+year_top10_sale varchar(50),
+data_total varchar(50),
+
+createAt VARCHAR(30),
+updateAt VARCHAR(30)
+) charset utf8 collate utf8_general_ci;
+
 INSERT INTO `users`( `name`, `email`, `password`, `roleId`) VALUES ('superDevAdmin','passtome@foxmail.com','abc111111','1');
 -- ALTER TABLE users MODIFY createAt VARCHAR(30);
 -- ALTER TABLE users MODIFY updateAt VARCHAR(30);
