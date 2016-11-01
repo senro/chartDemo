@@ -52,6 +52,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/service/web/toLogin.do"/>
 			<mvc:exclude-mapping path="/service/web/login.do"/>
+			<mvc:exclude-mapping path="/service/drugRecord/getDataPriceIndexBySeasonAndType.do"/>
 			<mvc:exclude-mapping path="/service/drugRecord/getDataPriceIndexByMonthAndType.do"/>
 			<mvc:exclude-mapping path="/service/drugRecord/getDataPriceIndexByMonthAndDrugName.do"/>
 			<mvc:exclude-mapping path="/service/drugRecord/getDataPriceIndexByMonth.do"/>

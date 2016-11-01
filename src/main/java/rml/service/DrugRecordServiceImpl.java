@@ -93,7 +93,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
 		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
 		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
-		List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01",drugType);
+		List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01","2016-07-01",drugType);
 		//设定5月份（基期）的价格指数默认为100
 		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
 		baseMonthPriceIndex.setMonth("2016-05-01");
@@ -101,6 +101,16 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		resultList.add(baseMonthPriceIndex);
 
+		Map season1DateMap = new HashMap();
+		season1DateMap.put("start","2016-01-01");
+		season1DateMap.put("end","2016-03-01");
+		//1 season {start:'2016-01-01',end:'2016-03-01'}
+		//2 season {start:'2016-04-01',end:'2016-06-01'}
+		//3 season {start:'2016-07-01',end:'2016-09-01'}
+		//4 season {start:'2016-10-01',end:'2016-12-01'}
+
+		//['2016-05-01','2016-06-01','2016-07-01','2016-08-01','2016-09-01','2016-10-01','2016-11-01']
+		//to [{start:'2016-05-01',end:'2016-07-01'},{start:'2016-08-01',end:'2016-11-01'}]
 		for (DrugRecord drugRecord:drugRecords) {
 			String currentMonth=drugRecord.getMonth();
 
