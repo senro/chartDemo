@@ -3,7 +3,10 @@ package rml.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rml.dao.DrugRecordMapper;
+import rml.model.Bo.DrugNamePriceIndex;
 import rml.model.Bo.MonthPriceIndex;
+import rml.model.Bo.SeasonPriceIndex;
+import rml.model.Bo.YearPriceIndex;
 import rml.model.DrugRecord;
 import rml.model.Page;
 import rml.model.PageResult;
@@ -86,93 +89,6 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return drugRecordMapper.selectByPrimaryKey(id);
 	}
 
-
-	@Override
-	public List<MonthPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType) {
-		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
-		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
-		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
-		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
-		List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01","2016-07-01",drugType);
-		//设定5月份（基期）的价格指数默认为100
-		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
-		baseMonthPriceIndex.setMonth("2016-05-01");
-		baseMonthPriceIndex.setPriceIndex("100");
-
-		resultList.add(baseMonthPriceIndex);
-
-		Map season1DateMap = new HashMap();
-		season1DateMap.put("start","2016-01-01");
-		season1DateMap.put("end","2016-03-01");
-		//1 season {start:'2016-01-01',end:'2016-03-01'}
-		//2 season {start:'2016-04-01',end:'2016-06-01'}
-		//3 season {start:'2016-07-01',end:'2016-09-01'}
-		//4 season {start:'2016-10-01',end:'2016-12-01'}
-
-		//['2016-05-01','2016-06-01','2016-07-01','2016-08-01','2016-09-01','2016-10-01','2016-11-01']
-		//to [{start:'2016-05-01',end:'2016-07-01'},{start:'2016-08-01',end:'2016-11-01'}]
-		for (DrugRecord drugRecord:drugRecords) {
-			String currentMonth=drugRecord.getMonth();
-
-			if(!currentMonth.equals("2016-05-01")){
-				Double baseMonthTotalPrice=0.0;
-				Double baseMonthTotalSale=0.0;
-				Double currentMonthTotalPrice=0.0;
-				Double currentMonthTotalSale=0.0;
-
-				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
-				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
-
-					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
-							!currentMonthDrugRecord.getSale().trim().equals("")&&
-							!currentMonthDrugRecord.getPrice().equals("无") &&
-							!currentMonthDrugRecord.getSale().equals("无")){
-
-						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
-						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
-
-						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
-						currentMonthTotalSale=currentMonthTotalSale+sale;
-
-						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
-
-							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-									!baseMonthDrugRecord.getSale().trim().equals("") &&
-									!baseMonthDrugRecord.getPrice().equals("无") &&
-									!baseMonthDrugRecord.getSale().equals("无") &&
-									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
-									){
-
-								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
-
-								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
-								baseMonthTotalSale=baseMonthTotalSale+baseSale;
-							}
-
-						}
-
-					}
-
-				}
-
-				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
-				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
-
-				if(currentMonthDrugRecords.size()>0) {
-					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
-					currentMonthPriceIndex.setMonth(currentMonth);
-					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
-					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
-					resultList.add(currentMonthPriceIndex);
-				}
-			}
-		}
-
-		return resultList;
-	}
-
 	@Override
 	public List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType) {
 		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
@@ -187,7 +103,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		baseMonthPriceIndex.setMonth("2016-05-01");
 		baseMonthPriceIndex.setPriceIndex("100");
 
-		resultList.add(baseMonthPriceIndex);
+		//resultList.add(baseMonthPriceIndex);
 
 		for (DrugRecord drugRecord:drugRecords) {
 			String currentMonth=drugRecord.getMonth();
@@ -316,7 +232,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				baseMonthPriceIndex.setPriceIndex("100");
 				baseMonthPriceIndex.setTotalSale(String.valueOf(baseMonthTotalSale));
 
-				resultList.add(baseMonthPriceIndex);
+				//resultList.add(baseMonthPriceIndex);
 
 				if(currentMonthDrugRecords.size()>0){
 					MonthPriceIndex currentMonthPriceIndex=new MonthPriceIndex();
@@ -344,7 +260,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		baseMonthPriceIndex.setMonth("2016-05-01");
 		baseMonthPriceIndex.setPriceIndex("100");
 
-		resultList.add(baseMonthPriceIndex);
+		//resultList.add(baseMonthPriceIndex);
 
 		for (MonthPriceIndex westDrugMonthPriceIndex:westDrugMonthPriceIndexList) {
 			if(!westDrugMonthPriceIndex.getMonth().equals("2016-05-01")){
@@ -368,6 +284,69 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 			}
 
 		}
+
+		return resultList;
+	}
+
+	@Override
+	public List<SeasonPriceIndex> getDataPriceIndexBySeason() {
+		List<SeasonPriceIndex> resultList=new ArrayList<SeasonPriceIndex>();
+
+		return resultList;
+	}
+
+	@Override
+	public List<SeasonPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType) {
+		List<SeasonPriceIndex> resultList=new ArrayList<SeasonPriceIndex>();
+		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
+		//List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
+		//List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01","2016-07-01",drugType);
+		//设定5月份（基期）的价格指数默认为100
+//		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
+//		baseMonthPriceIndex.setMonth("2016-05-01");
+//		baseMonthPriceIndex.setPriceIndex("100");
+
+		//resultList.add(baseMonthPriceIndex);
+
+//		Map season1DateMap = new HashMap();
+//		season1DateMap.put("start","2016-01-01");
+//		season1DateMap.put("end","2016-03-01");
+		//1 season {start:'2016-01-01',end:'2016-03-01'}
+		//2 season {start:'2016-04-01',end:'2016-06-01'}
+		//3 season {start:'2016-07-01',end:'2016-09-01'}
+		//4 season {start:'2016-10-01',end:'2016-12-01'}
+
+		//['2016-05-01','2016-06-01','2016-07-01','2016-08-01','2016-09-01','2016-10-01','2016-11-01']
+		//to [{start:'2016-05-01',end:'2016-07-01'},{start:'2016-08-01',end:'2016-11-01'}]
+
+		return resultList;
+	}
+
+	@Override
+	public List<YearPriceIndex> getDataPriceIndexByYear() {
+		List<YearPriceIndex> resultList=new ArrayList<YearPriceIndex>();
+
+		return resultList;
+	}
+
+	@Override
+	public List<YearPriceIndex> getDataPriceIndexByYearAndDrugType(String drugType) {
+		List<YearPriceIndex> resultList=new ArrayList<YearPriceIndex>();
+
+		return resultList;
+	}
+
+	@Override
+	public List<DrugNamePriceIndex> getDataPriceIndexByYearTop10() {
+		List<DrugNamePriceIndex> resultList=new ArrayList<DrugNamePriceIndex>();
+
+		return resultList;
+	}
+
+	@Override
+	public List<DrugNamePriceIndex> getDataSaleIndexByYearTop10() {
+		List<DrugNamePriceIndex> resultList=new ArrayList<DrugNamePriceIndex>();
 
 		return resultList;
 	}

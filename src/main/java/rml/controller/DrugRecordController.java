@@ -8,8 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import rml.model.*;
-import rml.model.Bo.DrugRecordSearchCondition;
-import rml.model.Bo.MonthPriceIndex;
+import rml.model.Bo.*;
 import rml.service.DrugRecordServiceI;
 import rml.service.FilesServiceI;
 import rml.util.ExcelUtil;
@@ -101,28 +100,6 @@ public class DrugRecordController {
 		return resultJson.toString();
 	}
 
-	@RequestMapping(value="/getDataPriceIndexBySeasonAndType", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public String getDataPriceIndexBySeasonAndType(HttpServletRequest request,String drugType) {
-
-		JSONObject resultJson=new JSONObject();
-
-		logger.info("获取当月数据的价格指数！");
-
-		try{
-			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
-			resultJson.put("status","1");
-			resultJson.put("data",data);
-			resultJson.put("detail","获取数据成功");
-		}catch(Exception e){
-			logger.error(e.getMessage(), e);
-			resultJson.put("status","0");
-			resultJson.put("detail",e.getMessage());
-		}
-
-		return resultJson.toString();
-	}
-
 	@RequestMapping(value="/getDataPriceIndexByMonthAndType", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public String getDataPriceIndexByMonthAndType(HttpServletRequest request,String drugType) {
@@ -155,6 +132,138 @@ public class DrugRecordController {
 
 		try{
 			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugName(drugName);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexBySeasonAndType", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexBySeasonAndType(HttpServletRequest request,String drugType) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取季度数据的价格指数！");
+
+		try{
+			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexBySeason", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexBySeason(HttpServletRequest request) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取季度数据的价格指数！");
+
+		try{
+			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeason();
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexByYearAndType", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexByYearAndType(HttpServletRequest request,String drugType) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取年数据的价格指数！");
+
+		try{
+			List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYearAndDrugType(drugType);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexByYear", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexByYear(HttpServletRequest request) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取季度数据的价格指数！");
+
+		try{
+			List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYear();
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataPriceIndexByYearTop10", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataPriceIndexByYearTop10(HttpServletRequest request) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取季度数据的价格指数！");
+
+		try{
+			List<DrugNamePriceIndex> data = drugRecordService.getDataPriceIndexByYearTop10();
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/getDataSaleIndexByYearTop10", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getDataSaleIndexByYearTop10(HttpServletRequest request) {
+
+		JSONObject resultJson=new JSONObject();
+
+		logger.info("获取季度数据的价格指数！");
+
+		try{
+			List<DrugNamePriceIndex> data = drugRecordService.getDataSaleIndexByYearTop10();
 			resultJson.put("status","1");
 			resultJson.put("data",data);
 			resultJson.put("detail","获取数据成功");

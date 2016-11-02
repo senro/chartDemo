@@ -1,6 +1,9 @@
 package rml.service;
 
+import rml.model.Bo.DrugNamePriceIndex;
 import rml.model.Bo.MonthPriceIndex;
+import rml.model.Bo.SeasonPriceIndex;
+import rml.model.Bo.YearPriceIndex;
 import rml.model.DrugRecord;
 import rml.model.Page;
 import rml.model.PageResult;
@@ -12,13 +15,23 @@ public interface DrugRecordServiceI {
 
     List<DrugRecord> getAllByUserIdAndMonth(String month,int userId);
 
-    List<MonthPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType);
-
     List<MonthPriceIndex> getDataPriceIndexByMonth();
 
     List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType);
 
     List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugName(String drugName);
+
+    List<SeasonPriceIndex> getDataPriceIndexBySeason();
+
+    List<SeasonPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType);
+
+    List<YearPriceIndex> getDataPriceIndexByYear();
+
+    List<YearPriceIndex> getDataPriceIndexByYearAndDrugType(String drugType);
+
+    List<DrugNamePriceIndex> getDataPriceIndexByYearTop10();
+
+    List<DrugNamePriceIndex> getDataSaleIndexByYearTop10();
 
     int deleteAllByMonthAndUserId(String month,int userId);
 
