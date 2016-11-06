@@ -299,7 +299,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 	public List<SeasonPriceIndex> getDataPriceIndexBySeasonAndDrugType(String drugType) {
 		List<SeasonPriceIndex> resultList=new ArrayList<SeasonPriceIndex>();
 		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
-		//List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
 		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
 		//List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01","2016-07-01",drugType);
 		//设定5月份（基期）的价格指数默认为100
@@ -309,9 +309,33 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		//resultList.add(baseMonthPriceIndex);
 
-//		Map season1DateMap = new HashMap();
-//		season1DateMap.put("start","2016-01-01");
-//		season1DateMap.put("end","2016-03-01");
+		List<HashMap> seasonList=new ArrayList<HashMap>();
+
+		HashMap<String,String> season1DateMap = new HashMap<String,String>();
+		season1DateMap.put("start","2016-01-01");
+		season1DateMap.put("end","2016-03-01");
+
+		HashMap<String,String> season2DateMap = new HashMap<String,String>();
+		season1DateMap.put("start","2016-04-01");
+		season1DateMap.put("end","2016-06-01");
+
+		HashMap<String,String> season3DateMap = new HashMap<String,String>();
+		season1DateMap.put("start","2016-07-01");
+		season1DateMap.put("end","2016-09-01");
+
+		HashMap<String,String> season4DateMap = new HashMap<String,String>();
+		season1DateMap.put("start","2016-10-01");
+		season1DateMap.put("end","2016-12-01");
+
+		seasonList.add(season1DateMap);
+		seasonList.add(season2DateMap);
+		seasonList.add(season3DateMap);
+		seasonList.add(season4DateMap);
+
+		for(HashMap currentSeasonDateMap : seasonList){
+			//根据当前的季度的头尾有没有数据去判定该季度需不需要计算
+
+		}
 		//1 season {start:'2016-01-01',end:'2016-03-01'}
 		//2 season {start:'2016-04-01',end:'2016-06-01'}
 		//3 season {start:'2016-07-01',end:'2016-09-01'}
