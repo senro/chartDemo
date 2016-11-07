@@ -10,7 +10,9 @@ import rml.model.Bo.YearPriceIndex;
 import rml.model.DrugRecord;
 import rml.model.Page;
 import rml.model.PageResult;
+import rml.util.DateUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -248,6 +250,8 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return resultList;
 	}
 
+
+
 	//获取月综合指数
 	@Override
 	public List<MonthPriceIndex> getDataPriceIndexByMonth() {
@@ -300,50 +304,100 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		List<SeasonPriceIndex> resultList=new ArrayList<SeasonPriceIndex>();
 		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
 		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
-		//遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
-		//List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-05-01","2016-07-01",drugType);
-		//设定5月份（基期）的价格指数默认为100
-//		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
-//		baseMonthPriceIndex.setMonth("2016-05-01");
-//		baseMonthPriceIndex.setPriceIndex("100");
-
-		//resultList.add(baseMonthPriceIndex);
 
 		List<HashMap> seasonList=new ArrayList<HashMap>();
 
-		HashMap<String,String> season1DateMap = new HashMap<String,String>();
-		season1DateMap.put("start","2016-01-01");
-		season1DateMap.put("end","2016-03-01");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-		HashMap<String,String> season2DateMap = new HashMap<String,String>();
-		season1DateMap.put("start","2016-04-01");
-		season1DateMap.put("end","2016-06-01");
+		for (DrugRecord drugRecord:drugRecords) {
+			String currentMonth = drugRecord.getMonth();
 
-		HashMap<String,String> season3DateMap = new HashMap<String,String>();
-		season1DateMap.put("start","2016-07-01");
-		season1DateMap.put("end","2016-09-01");
+			System.out.println(currentMonth);
 
-		HashMap<String,String> season4DateMap = new HashMap<String,String>();
-		season1DateMap.put("start","2016-10-01");
-		season1DateMap.put("end","2016-12-01");
+			if(!currentMonth.equals("2016-06-01") && !currentMonth.equals("2016-09-01")){
+				try
+				{
+					Date currentMonthDate = sdf.parse(currentMonth);
+					int currentYear=DateUtils.getYear(currentMonthDate);
+					int currentSeason=DateUtils.getSeason(currentMonthDate);
+					String currentSeasonLastMonth=DateUtils.formatDate(DateUtils.getSeasonDate(currentMonthDate)[2], "yyyy-MM")+"-01";
 
-		seasonList.add(season1DateMap);
-		seasonList.add(season2DateMap);
-		seasonList.add(season3DateMap);
-		seasonList.add(season4DateMap);
+					if(currentMonth.equals(currentSeasonLastMonth)){
+						HashMap<String,String> seasonDateMap = new HashMap<String,String>();
+						String currentSeasonFirstMonth=DateUtils.formatDate(DateUtils.getSeasonDate(currentMonthDate)[0], "yyyy-MM")+"-01";
 
-		for(HashMap currentSeasonDateMap : seasonList){
-			//根据当前的季度的头尾有没有数据去判定该季度需不需要计算
+						seasonDateMap.put("name",currentYear+"年"+currentSeason+"季度");
+						seasonDateMap.put("start",currentSeasonFirstMonth);
+						seasonDateMap.put("end",currentSeasonLastMonth);
+
+						seasonList.add(seasonDateMap);
+					}
+				}
+				catch (ParseException e)
+				{
+					System.out.println(e.getMessage());
+				}
+			}
 
 		}
-		//1 season {start:'2016-01-01',end:'2016-03-01'}
-		//2 season {start:'2016-04-01',end:'2016-06-01'}
-		//3 season {start:'2016-07-01',end:'2016-09-01'}
-		//4 season {start:'2016-10-01',end:'2016-12-01'}
 
-		//['2016-05-01','2016-06-01','2016-07-01','2016-08-01','2016-09-01','2016-10-01','2016-11-01']
-		//to [{start:'2016-05-01',end:'2016-07-01'},{start:'2016-08-01',end:'2016-11-01'}]
+		System.out.println(seasonList);//=>[{start=2016-10-01, end=2016-12-01}, {start=2017-01-01, end=2017-03-01}]
+		List<DrugRecord> baseSeasonDrugRecords=drugRecordMapper.selectBySeasonAndType("2016-07-01","2016-09-01",drugType);
 
+		for (HashMap seasonHashMap:seasonList) {
+			List<DrugRecord> currentSeasonDrugRecords=drugRecordMapper.selectBySeasonAndType(String.valueOf(seasonHashMap.get("start")),String.valueOf(seasonHashMap.get("end")),drugType);
+			Double baseTotalPrice=0.0;
+			Double baseTotalSale=0.0;
+			Double currentTotalPrice=0.0;
+			Double currentTotalSale=0.0;
+
+			for (DrugRecord currentSeasonDrugRecord:currentSeasonDrugRecords) {
+
+				if(!currentSeasonDrugRecord.getPrice().trim().equals("") &&
+						!currentSeasonDrugRecord.getSale().trim().equals("")&&
+						!currentSeasonDrugRecord.getPrice().equals("无") &&
+						!currentSeasonDrugRecord.getSale().equals("无")){
+
+					Double price=Double.valueOf(currentSeasonDrugRecord.getPrice());
+					Double sale=Double.valueOf(currentSeasonDrugRecord.getSale());
+
+					currentTotalPrice=currentTotalPrice+price*sale;
+					currentTotalSale=currentTotalSale+sale;
+
+					for (DrugRecord baseMonthDrugRecord:baseSeasonDrugRecords) {
+
+						if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+								!baseMonthDrugRecord.getSale().trim().equals("") &&
+								!baseMonthDrugRecord.getPrice().equals("无") &&
+								!baseMonthDrugRecord.getSale().equals("无") &&
+								baseMonthDrugRecord.getDrugName().equals(currentSeasonDrugRecord.getDrugName()) &&
+								baseMonthDrugRecord.getHospitalName().equals(currentSeasonDrugRecord.getHospitalName())
+								){
+
+							Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+							Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+
+							baseTotalPrice=baseTotalPrice+basePrice*sale;
+							baseTotalSale=baseTotalSale+baseSale;
+						}
+
+					}
+
+				}
+
+			}
+
+			System.out.printf(String.valueOf(currentTotalPrice)+"\n");
+			System.out.printf(String.valueOf(baseTotalPrice)+"\n");
+
+			if(currentSeasonDrugRecords.size()>0){
+				SeasonPriceIndex currentSeasonPriceIndex=new SeasonPriceIndex();
+				currentSeasonPriceIndex.setSeason(String.valueOf(seasonHashMap.get("name")));
+				currentSeasonPriceIndex.setPriceIndex(String.valueOf((currentTotalPrice/baseTotalPrice)*100));
+				currentSeasonPriceIndex.setTotalSale(String.valueOf(currentTotalSale));
+				resultList.add(currentSeasonPriceIndex);
+			}
+		}
 		return resultList;
 	}
 
@@ -380,4 +434,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return drugRecordMapper.countAll(page);
 	}
 
+	public static void main(String[] args) {
+		getDataPriceIndexBySeasonAndDrugType("0");
+	}
 }
