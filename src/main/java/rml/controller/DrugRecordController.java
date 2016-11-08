@@ -152,16 +152,16 @@ public class DrugRecordController {
 
 		logger.info("获取季度数据的价格指数！");
 
-//		try{
-//			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
-//			resultJson.put("status","1");
-//			resultJson.put("data",data);
-//			resultJson.put("detail","获取数据成功");
-//		}catch(Exception e){
-//			logger.error(e.getMessage(), e);
-//			resultJson.put("status","0");
-//			resultJson.put("detail",e.getMessage());
-//		}
+		try{
+			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
+			resultJson.put("status","1");
+			resultJson.put("data",data);
+			resultJson.put("detail","获取数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
 
 		return resultJson.toString();
 	}

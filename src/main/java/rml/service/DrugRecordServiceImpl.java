@@ -119,6 +119,9 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
 				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
 
+					String currentPrice=currentMonthDrugRecord.getPrice();
+					String currentSale=currentMonthDrugRecord.getSale();
+
 					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
 							!currentMonthDrugRecord.getSale().trim().equals("")&&
 							!currentMonthDrugRecord.getPrice().equals("无") &&
@@ -135,26 +138,41 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
 									!baseMonthDrugRecord.getSale().trim().equals("") &&
 									!baseMonthDrugRecord.getPrice().equals("无") &&
-									!baseMonthDrugRecord.getSale().equals("无") &&
-									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
-									){
+									!baseMonthDrugRecord.getSale().equals("无")){
 
-								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+								if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+										baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
+									Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+									Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
-								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
-								baseMonthTotalSale=baseMonthTotalSale+baseSale;
+									baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+									baseMonthTotalSale=baseMonthTotalSale+baseSale;
+								}
+							}else{
+//								System.out.printf(
+//										"基期 "+(drugType.equals("0")?"西药 ":"中药 ")+
+//										currentMonthDrugRecord.getDrugName()+" 包含不合法数据：价格："+
+//										String.valueOf(currentMonthDrugRecord.getPrice())+
+//										" 销量："+String.valueOf(currentMonthDrugRecord.getPrice())+
+//										"\n");
 							}
 
 						}
 
+					}else{
+						System.out.printf(
+								currentMonthDrugRecord.getHospitalName()+"医院： "+
+								currentMonth+"月"+(drugType.equals("0")?"西药 ":"中药 ")+
+								currentMonthDrugRecord.getDrugName()+" 包含不合法数据：价格："+
+								String.valueOf(currentMonthDrugRecord.getPrice())+
+								" 销量："+String.valueOf(currentMonthDrugRecord.getSale())+
+						"\n");
 					}
 
 				}
 
-				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
-				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
+				System.out.printf(currentMonth+"月"+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(currentMonthTotalPrice)+"\n");
+				System.out.printf("基期 "+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(baseMonthTotalPrice)+"\n");
 
 				if(currentMonthDrugRecords.size()>0) {
 					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
@@ -227,8 +245,8 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 				}
 
-				System.out.printf(String.valueOf(currentMonthTotalPrice)+"\n");
-				System.out.printf(String.valueOf(baseMonthTotalPrice)+"\n");
+				System.out.printf(currentMonth+"月"+drugName+"的总销售额为："+String.valueOf(currentMonthTotalPrice)+"\n");
+				System.out.printf("基期 "+drugName+"的总销售额为："+String.valueOf(baseMonthTotalPrice)+"\n");
 
 				baseMonthPriceIndex.setMonth("2016-05-01");
 				baseMonthPriceIndex.setPriceIndex("100");
@@ -296,6 +314,31 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 	public List<SeasonPriceIndex> getDataPriceIndexBySeason() {
 		List<SeasonPriceIndex> resultList=new ArrayList<SeasonPriceIndex>();
 
+		List<SeasonPriceIndex> westDrugSeasonPriceIndexList=getDataPriceIndexBySeasonAndDrugType("0");
+		List<SeasonPriceIndex> eastDrugSeasonPriceIndexList=getDataPriceIndexBySeasonAndDrugType("1");
+
+		for (SeasonPriceIndex westDrugSeasonPriceIndex:westDrugSeasonPriceIndexList) {
+			if(!westDrugSeasonPriceIndex.getSeason().equals("2016-05-01")){
+				SeasonPriceIndex seasonPriceIndex=new SeasonPriceIndex();
+				seasonPriceIndex.setSeason(westDrugSeasonPriceIndex.getSeason());
+				for (SeasonPriceIndex eastDrugSeasonPriceIndex:eastDrugSeasonPriceIndexList) {
+					if(westDrugSeasonPriceIndex.getSeason().equals(eastDrugSeasonPriceIndex.getSeason())){
+						Double westDrugMonthTotalSale=Double.valueOf(westDrugSeasonPriceIndex.getTotalSale());
+						Double eastDrugMonthTotalSale=Double.valueOf(eastDrugSeasonPriceIndex.getTotalSale());
+						Double drugMonthTotalSale=westDrugMonthTotalSale+eastDrugMonthTotalSale;
+
+						Double westDrugMonthPriceIndexNum=Double.valueOf(westDrugSeasonPriceIndex.getPriceIndex());
+						Double eastDrugMonthPriceIndexNum=Double.valueOf(eastDrugSeasonPriceIndex.getPriceIndex());
+
+						Double drugMonthPriceIndexNum=(westDrugMonthTotalSale/drugMonthTotalSale)*westDrugMonthPriceIndexNum+(eastDrugMonthTotalSale/drugMonthTotalSale)*eastDrugMonthPriceIndexNum;
+
+						seasonPriceIndex.setPriceIndex(String.valueOf(drugMonthPriceIndexNum));
+					}
+				}
+				resultList.add(seasonPriceIndex);
+			}
+
+		}
 		return resultList;
 	}
 
@@ -364,18 +407,18 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 					currentTotalPrice=currentTotalPrice+price*sale;
 					currentTotalSale=currentTotalSale+sale;
 
-					for (DrugRecord baseMonthDrugRecord:baseSeasonDrugRecords) {
+					for (DrugRecord baseSeasonDrugRecord:baseSeasonDrugRecords) {
 
-						if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-								!baseMonthDrugRecord.getSale().trim().equals("") &&
-								!baseMonthDrugRecord.getPrice().equals("无") &&
-								!baseMonthDrugRecord.getSale().equals("无") &&
-								baseMonthDrugRecord.getDrugName().equals(currentSeasonDrugRecord.getDrugName()) &&
-								baseMonthDrugRecord.getHospitalName().equals(currentSeasonDrugRecord.getHospitalName())
+						if(!baseSeasonDrugRecord.getPrice().trim().equals("") &&
+								!baseSeasonDrugRecord.getSale().trim().equals("") &&
+								!baseSeasonDrugRecord.getPrice().equals("无") &&
+								!baseSeasonDrugRecord.getSale().equals("无") &&
+								baseSeasonDrugRecord.getDrugName().equals(currentSeasonDrugRecord.getDrugName()) &&
+								baseSeasonDrugRecord.getHospitalName().equals(currentSeasonDrugRecord.getHospitalName())
 								){
 
-							Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-							Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+							Double basePrice=Double.valueOf(baseSeasonDrugRecord.getPrice());
+							Double baseSale=Double.valueOf(baseSeasonDrugRecord.getSale());
 
 							baseTotalPrice=baseTotalPrice+basePrice*sale;
 							baseTotalSale=baseTotalSale+baseSale;
@@ -387,10 +430,10 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 			}
 
-			System.out.printf(String.valueOf(currentTotalPrice)+"\n");
-			System.out.printf(String.valueOf(baseTotalPrice)+"\n");
-
 			if(currentSeasonDrugRecords.size()>0){
+				System.out.printf(String.valueOf(seasonHashMap.get("name"))+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(currentTotalPrice)+"\n");
+				System.out.printf("基期 "+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(baseTotalPrice)+"\n");
+
 				SeasonPriceIndex currentSeasonPriceIndex=new SeasonPriceIndex();
 				currentSeasonPriceIndex.setSeason(String.valueOf(seasonHashMap.get("name")));
 				currentSeasonPriceIndex.setPriceIndex(String.valueOf((currentTotalPrice/baseTotalPrice)*100));
@@ -434,7 +477,4 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return drugRecordMapper.countAll(page);
 	}
 
-	public static void main(String[] args) {
-		getDataPriceIndexBySeasonAndDrugType("0");
-	}
 }
