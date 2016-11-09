@@ -141,20 +141,15 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 									!baseMonthDrugRecord.getSale().equals("无")){
 
 								if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+										baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
 										baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
+
 									Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
 									Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
 									baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
 									baseMonthTotalSale=baseMonthTotalSale+baseSale;
 								}
-							}else{
-//								System.out.printf(
-//										"基期 "+(drugType.equals("0")?"西药 ":"中药 ")+
-//										currentMonthDrugRecord.getDrugName()+" 包含不合法数据：价格："+
-//										String.valueOf(currentMonthDrugRecord.getPrice())+
-//										" 销量："+String.valueOf(currentMonthDrugRecord.getPrice())+
-//										"\n");
 							}
 
 						}
@@ -179,6 +174,8 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 					currentMonthPriceIndex.setMonth(currentMonth);
 					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
 					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+
+					System.out.printf(currentMonth+"月"+(drugType.equals("0")?"西药":"中药")+"的指数为："+String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100)+"\n");
 					resultList.add(currentMonthPriceIndex);
 				}
 			}
@@ -229,6 +226,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 									!baseMonthDrugRecord.getPrice().equals("无") &&
 									!baseMonthDrugRecord.getSale().equals("无") &&
 									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
 									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
 									){
 
@@ -414,6 +412,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 								!baseSeasonDrugRecord.getPrice().equals("无") &&
 								!baseSeasonDrugRecord.getSale().equals("无") &&
 								baseSeasonDrugRecord.getDrugName().equals(currentSeasonDrugRecord.getDrugName()) &&
+								baseSeasonDrugRecord.getDrugFactory().equals(currentSeasonDrugRecord.getDrugFactory()) &&
 								baseSeasonDrugRecord.getHospitalName().equals(currentSeasonDrugRecord.getHospitalName())
 								){
 

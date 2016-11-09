@@ -240,7 +240,7 @@ public class ExcelUtil {
                 continue;
             }
             // Read the Row
-            for (int rowNum = 4; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+            for (int rowNum = 3; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
                 HSSFRow hssfRow = hssfSheet.getRow(rowNum);
                 if (hssfRow != null && hssfRow.getCell(1)!=null) {
                     drugRecord = new DrugRecord();
