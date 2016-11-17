@@ -60,45 +60,45 @@ $(document).ready(function () {
     var chartTogetherMonth = echarts.init(document.getElementById('chart-together-month'));
 
     chartTogetherMonth.showLoading();
-    //$.ajax({
-    //    url:window.apiHost+"drugRecord/getDataPriceIndexByMonth.do",
-    //    data:{},
-    //    dataType:"json",
-    //    type:"post",
-    //    success:function(data){
-    //        if(data.status==1){
-    //            var allMonths=[];
-    //            var allPriceIndex=[];
-    //            for(var i=0;i<data.data.length;i++){
-    //                var monthPriceIndex=data.data[i];
-    //                allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
-    //                allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
-    //            }
-    //
-    //            var chartTogetherMonth_lineOption= $.extend(true,lineOption,{});
-    //
-    //            chartTogetherMonth.setOption(
-    //                $.extend(true,chartTogetherMonth_lineOption,{
-    //                    xAxis: {
-    //                        data: allMonths
-    //                    },
-    //                    series: [
-    //                        {
-    //                            name:'价格指数',
-    //                            type:'line',
-    //                            stack: '价格指数',
-    //                            data:allPriceIndex
-    //                        }
-    //                    ]
-    //                })
-    //            );
-    //
-    //            chartTogetherMonth.hideLoading();
-    //        }else{
-    //            alert(data.detail);
-    //        }
-    //    }
-    //});
+    $.ajax({
+       url:window.apiHost+"drugRecord/getDataPriceIndexByMonth.do",
+       data:{},
+       dataType:"json",
+       type:"post",
+       success:function(data){
+           if(data.status==1){
+               var allMonths=[];
+               var allPriceIndex=[];
+               for(var i=0;i<data.data.length;i++){
+                   var monthPriceIndex=data.data[i];
+                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                   allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+               }
+
+               var chartTogetherMonth_lineOption= $.extend(true,lineOption,{});
+
+               chartTogetherMonth.setOption(
+                   $.extend(true,chartTogetherMonth_lineOption,{
+                       xAxis: {
+                           data: allMonths
+                       },
+                       series: [
+                           {
+                               name:'价格指数',
+                               type:'line',
+                               stack: '价格指数',
+                               data:allPriceIndex
+                           }
+                       ]
+                   })
+               );
+
+               chartTogetherMonth.hideLoading();
+           }else{
+               alert(data.detail);
+           }
+       }
+    });
 
     var chartTogetherSeason = echarts.init(document.getElementById('chart-together-season'));
 
@@ -342,46 +342,46 @@ $(document).ready(function () {
     var chartEnMonth = echarts.init(document.getElementById('chart-en-month'));
 
     chartEnMonth.showLoading();
-    //$.ajax({
-    //    url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
-    //    data:{
-    //        drugType:0
-    //    },
-    //    dataType:"json",
-    //    type:"post",
-    //    success:function(data){
-    //        if(data.status==1){
-    //            var allMonths=[];
-    //            var allPriceIndex=[];
-    //            for(var i=0;i<data.data.length;i++){
-    //                var monthPriceIndex=data.data[i];
-    //                allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
-    //                allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
-    //            }
-    //
-    //            var chartEnMonth_lineOption= $.extend(true,lineOption,{});
-    //
-    //            chartEnMonth.setOption(
-    //                $.extend(true,chartEnMonth_lineOption,{
-    //                    xAxis: {
-    //                        data: allMonths
-    //                    },
-    //                    series: [
-    //                        {
-    //                            name:'价格指数',
-    //                            type:'line',
-    //                            stack: '价格指数',
-    //                            data:allPriceIndex
-    //                        }
-    //                    ]
-    //                })
-    //            );
-    //            chartEnMonth.hideLoading();
-    //        }else{
-    //            alert(data.detail);
-    //        }
-    //    }
-    //});
+    $.ajax({
+       url:window.apiHost+"drugRecord/getDataPriceIndexByMonthAndType.do",
+       data:{
+           drugType:0
+       },
+       dataType:"json",
+       type:"post",
+       success:function(data){
+           if(data.status==1){
+               var allMonths=[];
+               var allPriceIndex=[];
+               for(var i=0;i<data.data.length;i++){
+                   var monthPriceIndex=data.data[i];
+                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                   allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+               }
+
+               var chartEnMonth_lineOption= $.extend(true,lineOption,{});
+
+               chartEnMonth.setOption(
+                   $.extend(true,chartEnMonth_lineOption,{
+                       xAxis: {
+                           data: allMonths
+                       },
+                       series: [
+                           {
+                               name:'价格指数',
+                               type:'line',
+                               stack: '价格指数',
+                               data:allPriceIndex
+                           }
+                       ]
+                   })
+               );
+               chartEnMonth.hideLoading();
+           }else{
+               alert(data.detail);
+           }
+       }
+    });
 
     var chartEnSeason = echarts.init(document.getElementById('chart-en-season'));
 
