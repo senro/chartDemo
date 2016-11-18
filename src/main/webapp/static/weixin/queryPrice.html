@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/queryPrice.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">价格查询</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group" id="searchModal">
+				<div class="mui-input-row">
+					<label>产品编码:</label>
+					<input type="text" class="mui-input-clear" v-model="cpmbm" placeholder="例如: 100014272001" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>产&nbsp;&nbsp;品&nbsp;&nbsp;名:</label>
+					<input type="text" class="mui-input-clear" v-model="cpm" placeholder="例如: 青霉素V钾片" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>生产企业:</label>
+					<input type="text" class="mui-input-clear" v-model="scs" placeholder="例如: 浙江亚太药业股份有限公司" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary btn-search" v-on:click="search">搜索</button>&nbsp;&nbsp;
+					<button type="reset" class="mui-btn mui-btn-danger">重置</button>
+				</div>
+			</form>
+
+			<div class="title title-result mt20">
+				搜索结果
+			</div>
+
+			<ul id="searchResultModal" class="mui-table-view mt10">
+				<li class="mui-table-view-cell" v-for="item in items">
+					<a class="mui-navigate-right" href="javascript:;" data-id="{{ item.id }}">
+						<h5>
+                            {{ item.cpm }}
+                        </h5>
+                        <p>
+                            产品编码: {{ item.cpmbm }}
+                        </p>
+                        <p>
+                            剂型: {{ item.jx_desc }}
+                        </p>
+                        <p>
+                            单位: {{ item.dw }}
+                        </p>
+                        <p>
+                            生产企业: {{ item.scs_desc }}
+                        </p>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+        <script src="libs/vue.min.js"></script>
+		<script src="libs/jquery-1.11.1.js"></script>
+		<script>
+//			mui.init({
+//				swipeBack: true //启用右滑关闭功能
+//			});
+            var searchResultModal={
+                items:[{"src_desc":"20120630","fullPin":"qingmeisu","dw":"瓶","scs":"1400","cpmbm":"100000224001","scs_desc":"江西东风药业股份有限公司","spm":"无","id":"188505","gys_desc":"江西东风药业股份有限公司","tymbm":"1010101001112","oid":"10","zbj":0.34,"zglsj":1.6,"tid":"1010101","xdzffw":"null","jx_desc":"粉针剂","cpm":"注射用青霉素钠","yppzwh":"国药准字H36020259","zblsj":0.39,"firstPin":"qms","zbsbbh":"2899657","bzjx_desc":"注射剂","zhb":"1","smlbh":"1","jy_desc":"是","ywtym":"Benzylpenicillin","gg":"0.96g(160万IU)","cfy_desc":"null","comment":"20140930","bzcz_desc":"空","zflb_desc":"甲类","zwtym":"青霉素"},{"src_desc":"20120630","fullPin":"qingmeisu","dw":"瓶","scs":"1859","cpmbm":"100000227001","scs_desc":"瑞阳制药有限公司","spm":"无","id":"188509","gys_desc":"瑞阳制药有限公司","tymbm":"1010101001112","oid":"14","zbj":0.0,"zglsj":0.92,"tid":"1010101","xdzffw":"null","jx_desc":"粉针剂","cpm":"注射用青霉素钠","yppzwh":"国药准字H37021950","zblsj":0.0,"firstPin":"qms","zbsbbh":"2896917","bzjx_desc":"注射剂","zhb":"1","smlbh":"1","jy_desc":"","ywtym":"Benzylpenicillin","gg":"0.48g(80万IU)","cfy_desc":"null","comment":"20140930","bzcz_desc":"空","zflb_desc":"甲类","zwtym":"青霉素"}]
+            };
+            var searchResultVm=new Vue({
+                el: '#searchResultModal',
+                data: searchResultModal
+            });
+
+            var searchModal={
+                cpmbm:'',
+                cpm:'',
+                scs:''
+			};
+			var searchVm=new Vue({
+				el: '#searchModal',
+				data: searchModal,
+				methods: {
+					search: function () {
+						$.ajax({
+                            url:'http://www.szyyjg.com/androidapi/medic_prices.jsp',
+							data:searchModal,
+							dataType:'jsonp',//服务器返回json格式数据
+							type:'get',//HTTP请求类型
+							success:function(data){
+								//服务器返回响应，根据响应结果，分析是否登录成功；
+                                mui.toast(data);
+							},
+							error:function(xhr,type,errorThrown){
+								//异常处理；
+                                mui.toast(type);
+							}
+						});
+					}
+				},
+				watch:{
+					'productNo': function (value, oldVal) {
+						if(value){
+							if(value != null && /^[0-9]*$/g.test(value)){
+								//newValue = value;
+							}else{
+								mui.toast('请输入数字！');
+                                searchModal.cpmbm=oldVal;
+							}
+						}
+					}
+				}
+			});
+		</script>
+
+	</body>
+
+</html>
