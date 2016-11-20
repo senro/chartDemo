@@ -18,7 +18,13 @@ public interface DrugRecordMapper {
 
     List<DrugRecord> selectBySeasonAndType(String startMonth, String endMonth, String drugType);
 
+    List<DrugRecord> selectBySeason(String startMonth, String endMonth);
+
+    List<DrugRecord> selectBySeasonAndDrugName(String startMonth, String endMonth, String drugName);
+
     List<DrugRecord> selectAllMonths();
+
+    List<DrugRecord> selectAllDrugs();
 
     List<DrugRecord> selectByMonthAndType(String month, String drugType);
 

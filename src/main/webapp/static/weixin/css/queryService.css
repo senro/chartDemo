@@ -5,6 +5,13 @@
  * Time: 11:27
  * To change this template use File | Settings | File Templates.
  */
+.mui-input-row label {
+    width: 39%;
+    padding-right: 0;
+}
+.mui-input-row label~input {
+    width: 59%;
+}
 .title-result{
     text-indent: 15px;
 }

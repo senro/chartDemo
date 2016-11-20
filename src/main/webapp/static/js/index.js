@@ -34,10 +34,16 @@ $(document).ready(function () {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data:[]
+            data:[],
+            nameLocation:'start',
+            axisLabel:{
+                rotate:-90,
+                inside:true
+            }
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            min:95
         },
         series: [
             {
@@ -617,4 +623,19 @@ $(document).ready(function () {
     });
 
 
+    //搜索单个药品
+
+    var $singleDrugNameInput=$('.input-search-single-drugName');
+
+    $('.btn-searchDrugName').click(function(){
+        var $this=$(this);
+
+        if($.trim($singleDrugNameInput.val())){
+            window.open('drugSearch.jsp?drugName='+$singleDrugNameInput.val());
+        }else{
+            window.open('drugSearch.jsp');
+        }
+
+        return false;
+    });
 });

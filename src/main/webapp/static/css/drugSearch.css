@@ -1,0 +1,98 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: senro
+ * Date: 16/11/20
+ * Time: 下午2:17
+ * To change this template use File | Settings | File Templates.
+ */
+.icon-loading{
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    background: url(../images/loading.gif) center center no-repeat;
+}
+
+.table>thead>tr>th {
+    border-bottom-color: #ddd;
+    background-color: #eef2f6;
+    padding: 12px 8px;
+    font-size: 15px;
+    color: #354876;
+    text-align: center;
+    border: 0;
+    font-weight: 400;
+}
+.table>tbody>tr>td {
+    text-align: center;
+}
+
+.pagination-wrap {
+    overflow: hidden;
+    text-align: right;
+    line-height: 42px;
+    padding: 20px;
+    text-align: right;
+}
+
+.pagination-count {
+    margin-top: 10px;
+}
+
+.pagination-right .pagination {
+    float: right;
+    margin-top: 10px;
+    margin-left: 14px;
+}
+
+.pagination > .active > a,.pagination > .active > a:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #23a9fe;
+    border-color: #23a9fe;
+}
+
+.pagination {
+    display: inline-block;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin: 0;
+    height: 34px;
+}
+.pagination-info-content{
+    display:inline-block;
+    margin: 0 0 0 10px;
+    vertical-align: middle;
+    height: 34px;
+    line-height: 34px;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{
+    background-color: #40d0fe;
+}
+.info-currentPage{
+    width: 33px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0 0 0 10px;
+    color:#337ab7;
+}
+.info-goToPage{
+    display: inline-block;
+    width: 33px;
+    height:31px;
+    line-height: 31px;
+    text-align: center;
+    background-color: #23A9FE;
+    border: 1px solid #23A9FE;
+    color:#fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.info-goToPage:hover{
+    color: #cccccc;
+}
+.pagination-TotalInfo{
+    float: left;
+}

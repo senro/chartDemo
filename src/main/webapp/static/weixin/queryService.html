@@ -3,34 +3,34 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>价格查询</title>
+		<title>医疗服务查询</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="css/mui.min.css">
 		<link rel="stylesheet" href="css/common.css">
-		<link rel="stylesheet" href="css/queryPrice.css">
+		<link rel="stylesheet" href="css/queryService.css">
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-			<h1 class="mui-title">价格查询</h1>
+			<h1 class="mui-title">医疗服务查询</h1>
 		</header>
 		<div class="mui-content">
 			<form class="mui-input-group" id="searchModal">
 				<div class="mui-input-row">
-					<label>产品编码:</label>
-					<input type="text" class="mui-input-clear" v-model="cpmbm" placeholder="例如: 100014272001" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					<label>医疗服务编号:</label>
+					<input type="text" class="mui-input-clear" v-model="Code" placeholder="例如: 110100001-b" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 				</div>
 				<div class="mui-input-row">
-					<label>产&nbsp;&nbsp;品&nbsp;&nbsp;名:</label>
-					<input type="text" class="mui-input-clear" v-model="cpm" placeholder="例如: 青霉素V钾片" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					<label>医疗服务名称:</label>
+					<input type="text" class="mui-input-clear" v-model="ServiceName" placeholder="例如: 门诊病历手册" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 				</div>
 				<div class="mui-input-row">
-					<label>生产企业:</label>
-					<input type="text" class="mui-input-clear" v-model="scs" placeholder="例如: 浙江亚太药业股份有限公司" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					<label>医疗拼音缩写:</label>
+					<input type="text" class="mui-input-clear" v-model="PYALL" placeholder="例如: menzhenbinlishouce" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 				</div>
 
 				<div class="mui-button-row">
@@ -46,21 +46,18 @@
 			<ul id="searchResultModal" class="mui-table-view mt10">
 				<template v-if="items.length>0">
 					<li class="mui-table-view-cell" v-for="item in items">
-						<a class="mui-navigate-right" href="queryPriceDetail.html?id={{ item.id }}">
+						<a class="mui-navigate-right" href="queryPriceDetail.html?Code={{ item.Code }}">
 							<h5 class="bold color-black">
-								{{ item.cpm }}
+								{{ item.ServiceName }}
 							</h5>
 							<p>
-								产品编码: {{ item.cpmbm }}
-							</p>
-							<p>
-								剂型: {{ item.jx_desc }}
+								医疗服务编号: {{ item.Code }}
 							</p>
 							<p>
 								单位: {{ item.dw }}
 							</p>
 							<p>
-								生产企业: {{ item.scs_desc }}
+								价格(元): {{ item.price }}
 							</p>
 						</a>
 					</li>
@@ -84,7 +81,7 @@
 		<script src="js/mui.min.js"></script>
         <script src="libs/vue.min.js"></script>
 		<script src="libs/jquery-1.11.1.js"></script>
-		<script src="js/queryPrice.js"></script>
+		<script src="js/queryService.js"></script>
 
 	</body>
 

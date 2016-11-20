@@ -66,6 +66,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 			<mvc:exclude-mapping path="/service/drugRecord/getDataPriceIndexByYearTop10.do"/>
 			<mvc:exclude-mapping path="/service/drugRecord/getDataSaleIndexByYearTop10.do"/>
 
+			<mvc:exclude-mapping path="/service/users/listUser.do"/>
+			<mvc:exclude-mapping path="/service/drugRecord/listDrugRecord.do"/>
+
+			<mvc:exclude-mapping path="/queryApi/**"/>
+
 			<mvc:exclude-mapping path="/static/**"/>
 			<!-- 登录拦截类 -->
 			<bean id="loginInterceptor" class="rml.Interceptor.LoginInterceptor">
