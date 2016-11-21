@@ -106,7 +106,7 @@ public class DataController {
 
 		try{
 
-			if(fileKey!=null&&data.getMonth()!=null){
+			if(fileKey!=null && data.getMonth()!=null){
 
 				Files getFile=filesService.getFilesByFileKey(fileKey);
 
@@ -130,7 +130,7 @@ public class DataController {
 
 				//从数据库已有的数据中筛选出该用户上月的所有药品数据，保存在一个list里
 				if(!data.getPreMonth().equals(data.getMonth())){
-					List<DrugRecord> preMonthDrugRecords = drugRecordService.getAllByUserIdAndMonth(data.getPreMonth(),user.getId());
+					List<DrugRecord> preMonthDrugRecords = drugRecordService.getAllByUserIdAndMonth(data.getPreMonth(),data.getUserId());
 
 					//把当前excel的数据和上月的数据进行比较，价格超过上月2倍的，作一个isValid：1标记
 					if(preMonthDrugRecords.size()>0){
@@ -150,7 +150,7 @@ public class DataController {
 											!preMonthDrugRecord.getPrice().equals("无")) {
 
 										//System.out.printf(preMonthDrugRecord.getMonth()+"\n");
-										//System.out.printf(preMonthDrugRecord.getDrugName()+"\n");
+										//System.out.printf(excelDrugRecord.getDrugName()+"\n");
 										//System.out.printf(preMonthDrugRecord.getUpdateAt()+"\n");
 										//System.out.printf(preMonthDrugRecord.getPrice()+"\n");
 
