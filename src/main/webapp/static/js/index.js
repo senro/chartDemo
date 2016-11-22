@@ -37,8 +37,8 @@ $(document).ready(function () {
             data:[],
             nameLocation:'start',
             axisLabel:{
-                rotate:-90,
-                inside:true
+                //rotate:-90,
+                //inside:true
             }
         },
         yAxis: {
@@ -217,7 +217,7 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var monthPriceIndex=data.data[i];
-                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
                     allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                 }
 
@@ -361,7 +361,7 @@ $(document).ready(function () {
                var allPriceIndex=[];
                for(var i=0;i<data.data.length;i++){
                    var monthPriceIndex=data.data[i];
-                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
+                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
                    allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                }
 

@@ -35,12 +35,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <input type="hidden" name="size" value="20">
                       <input type="hidden" name="order" value="desc">
                       <div class="form-group">
+                          <label for="drugType">药品类型</label>
+                          <select class="form-control" id="drugType" name="drugType">
+                              <option value="">
+                                  请选择
+                              </option>
+                              <option value="1">
+                                  中药
+                              </option>
+                              <option value="0">
+                                  西药
+                              </option>
+                          </select>
+                      </div>
+                      <div class="form-group">
                           <label>药名</label>
                           <input type="text" class="form-control" name="drugName">
                       </div>
                       <div class="form-group">
                           <label>厂家</label>
                           <input type="text" class="form-control" name="drugFactory">
+                      </div>
+                      <div class="form-group">
+                          <label>所属月份</label>
+                          <select class="form-control mt10" name="month">
+                              <option value="">请选择</option>
+                              <option value="01">1月</option>
+                              <option value="02">2月</option>
+                              <option value="03">3月</option>
+                              <option value="04">4月</option>
+                              <option value="05">5月</option>
+                              <option value="06">6月</option>
+                              <option value="07">7月</option>
+                              <option value="08">8月</option>
+                              <option value="09">9月</option>
+                              <option value="10">10月</option>
+                              <option value="11">11月</option>
+                              <option value="12">12月</option>
+                          </select>
                       </div>
                       <!--<div class="form-group">-->
                       <!--<label for="startDate">绑定日期</label>-->
@@ -99,8 +131,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                               </td>
 
                               <td>
-                                  <a href="javascript:;" class="btn-checkChart" data-drugName="{{ item.drugName }}">
-                                      走势图
+                                  <a href="javascript:;" class="btn-checkChart" data-drugName="{{ item.drugName }}" title="走势图">
+                                      <span class="glyphicon glyphicon-signal"></span>
                                   </a>
                               </td>
                           </tr>

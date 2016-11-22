@@ -769,6 +769,61 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		int lastYear=currentYear-1;
 
 
+		List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"price");
+
+		for (DrugKindSalePrice currentYearTop10DrugKindSalePrice:currentYearTop10DrugKindSalePrices) {
+			String currentDrugName = currentYearTop10DrugKindSalePrice.getDrugName();
+
+			DrugNamePriceIndex drugNamePriceIndex=new DrugNamePriceIndex();
+			drugNamePriceIndex.setDrugName(currentDrugName);
+
+			List<MonthPriceIndex> currentDrugMonthPriceIndexs=getDataPriceIndexByMonthAndDrugName(currentDrugName);
+
+			String priceIndex=currentDrugMonthPriceIndexs.get(currentDrugMonthPriceIndexs.size()-1).getPriceIndex();
+			drugNamePriceIndex.setPriceIndex(priceIndex);
+
+			resultList.add(drugNamePriceIndex);
+		}
+
+
+		return resultList;
+	}
+
+	public List<DrugNamePriceIndex> getRealDataPriceIndexByYearTop10() {
+		List<DrugNamePriceIndex> resultList=new ArrayList<DrugNamePriceIndex>();
+
+		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
+		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+
+		List<String> yearArrayList=new ArrayList<String>();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		for (DrugRecord drugRecord:drugRecords) {
+			String currentMonth = drugRecord.getMonth();
+
+			System.out.println(currentMonth);
+
+			try
+			{
+				Date currentMonthDate = sdf.parse(currentMonth);
+				int currentYear=DateUtils.getYear(currentMonthDate);
+
+				yearArrayList.add(String.valueOf(currentYear));
+			}
+			catch (ParseException e)
+			{
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+		List<String> yearWithoutDup = removeDuplicateWithOrder(yearArrayList);
+
+		int currentYear=DateUtils.getYear(new Date());
+		int lastYear=currentYear-1;
+
+
 		if(yearWithoutDup.contains(String.valueOf(lastYear))){
 			List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"price");
 			List<DrugKindSalePrice> lastYearTop10DrugKindSalePrices=new ArrayList<DrugKindSalePrice>();
@@ -802,9 +857,61 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return resultList;
 	}
 
-
 	@Override
 	public List<DrugNamePriceIndex> getDataSaleIndexByYearTop10() {
+		List<DrugNamePriceIndex> resultList=new ArrayList<DrugNamePriceIndex>();
+
+		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
+		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+
+		List<String> yearArrayList=new ArrayList<String>();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		for (DrugRecord drugRecord:drugRecords) {
+			String currentMonth = drugRecord.getMonth();
+
+			System.out.println(currentMonth);
+
+			try
+			{
+				Date currentMonthDate = sdf.parse(currentMonth);
+				int currentYear=DateUtils.getYear(currentMonthDate);
+
+				yearArrayList.add(String.valueOf(currentYear));
+			}
+			catch (ParseException e)
+			{
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+		List<String> yearWithoutDup = removeDuplicateWithOrder(yearArrayList);
+
+		int currentYear=DateUtils.getYear(new Date());
+		int lastYear=currentYear-1;
+
+		List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"sale");
+
+		for (DrugKindSalePrice currentYearTop10DrugKindSalePrice:currentYearTop10DrugKindSalePrices) {
+			String currentDrugName = currentYearTop10DrugKindSalePrice.getDrugName();
+
+			DrugNamePriceIndex drugNamePriceIndex=new DrugNamePriceIndex();
+			drugNamePriceIndex.setDrugName(currentDrugName);
+
+			List<MonthPriceIndex> currentDrugMonthPriceIndexs=getDataPriceIndexByMonthAndDrugName(currentDrugName);
+
+			String priceIndex=currentDrugMonthPriceIndexs.get(currentDrugMonthPriceIndexs.size()-1).getPriceIndex();
+			drugNamePriceIndex.setPriceIndex(priceIndex);
+
+			resultList.add(drugNamePriceIndex);
+		}
+
+		return resultList;
+	}
+
+	public List<DrugNamePriceIndex> getRealDataSaleIndexByYearTop10() {
 		List<DrugNamePriceIndex> resultList=new ArrayList<DrugNamePriceIndex>();
 
 		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
