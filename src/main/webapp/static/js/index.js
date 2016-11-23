@@ -78,7 +78,12 @@ $(document).ready(function () {
                for(var i=0;i<data.data.length;i++){
                    var monthPriceIndex=data.data[i];
                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
-                   allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+
+                   if(i==0){
+                       allPriceIndex.push('100');
+                   }else{
+                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                   }
                }
 
                var chartTogetherMonth_lineOption= $.extend(true,lineOption,{});
@@ -218,7 +223,11 @@ $(document).ready(function () {
                 for(var i=0;i<data.data.length;i++){
                     var monthPriceIndex=data.data[i];
                     allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
-                    allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                    if(i==0){
+                        allPriceIndex.push('100');
+                    }else{
+                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                    }
                 }
 
                 var chartCnMonth_lineOption= $.extend(true,lineOption,{});
@@ -362,7 +371,12 @@ $(document).ready(function () {
                for(var i=0;i<data.data.length;i++){
                    var monthPriceIndex=data.data[i];
                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
-                   allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
+                   if(i==0){
+                       allPriceIndex.push('100');
+                   }else{
+                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                   }
+
                }
 
                var chartEnMonth_lineOption= $.extend(true,lineOption,{});
