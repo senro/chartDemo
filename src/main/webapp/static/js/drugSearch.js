@@ -121,7 +121,8 @@ $(document).ready(function () {
             data:[]
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            min:95
         },
         series: [
             {

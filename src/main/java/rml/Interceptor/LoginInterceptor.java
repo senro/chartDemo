@@ -42,6 +42,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             return false;
         }
 
+        if(url.matches("getDataPriceIndexByMonthAndType")){
+            String drugType=request.getParameter("drugType");
+
+            if(drugType.equals("0")){
+                //西药
+
+            }else{
+                //中药
+
+            }
+        }
 
 
         return true;

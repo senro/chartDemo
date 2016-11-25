@@ -284,7 +284,11 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 					MonthPriceIndex currentMonthPriceIndex=new MonthPriceIndex();
 
 					currentMonthPriceIndex.setMonth(currentMonth);
-					currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice/baseMonthTotalPrice)*100));
+					if(currentMonthTotalPrice>0 && baseMonthTotalPrice>0) {
+						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
+					}else{
+						currentMonthPriceIndex.setPriceIndex("100");
+					}
 					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
 					resultList.add(currentMonthPriceIndex);
 				}

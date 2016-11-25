@@ -1,17 +1,24 @@
 package rml.dao;
 
 import rml.model.PriceIndex;
+import rml.model.Page;
+
+import java.util.List;
 
 public interface PriceIndexMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(int id);
 
-    int insert(PriceIndex record);
+    int insert(PriceIndex priceIndex);
 
-    int insertSelective(PriceIndex record);
+    int insertSelective(PriceIndex priceIndex);
 
-    PriceIndex selectByPrimaryKey(Integer id);
+    PriceIndex selectByPrimaryKey(int id);
 
-    int updateByPrimaryKeySelective(PriceIndex record);
+    int updateByPrimaryKeySelective(PriceIndex priceIndex);
 
-    int updateByPrimaryKey(PriceIndex record);
+    int updateByPrimaryKey(PriceIndex priceIndex);
+    
+    List<PriceIndex> getAll(Page page);
+
+    int countAll(Page page);
 }
