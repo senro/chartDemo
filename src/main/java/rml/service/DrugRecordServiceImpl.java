@@ -195,6 +195,14 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						currentMonthPriceIndex.setMonth(currentMonth);
 						currentMonthPriceIndex.setPriceIndex("101.91");
 						currentMonthPriceIndex.setTotalSale("2807777.47");
+					}else if(currentMonth.equals("2016-10-01") && drugType.equals("0")){
+						currentMonthPriceIndex.setMonth(currentMonth);
+						currentMonthPriceIndex.setPriceIndex("100.43");
+						currentMonthPriceIndex.setTotalSale("6673634.545");
+					}else if(currentMonth.equals("2016-10-01") && drugType.equals("1")){
+						currentMonthPriceIndex.setMonth(currentMonth);
+						currentMonthPriceIndex.setPriceIndex("100.01");
+						currentMonthPriceIndex.setTotalSale("2648492.61");
 					}else{
 						currentMonthPriceIndex.setMonth(currentMonth);
 						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
