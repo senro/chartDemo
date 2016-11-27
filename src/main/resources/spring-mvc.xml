@@ -78,6 +78,29 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<!--<mvc:interceptors>-->
+		<!--<mvc:interceptor>-->
+			<!--&lt;!&ndash; 拦截全部地址 &ndash;&gt;-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByMonthAndDrugName.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByMonthAndDrugName.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByMonthAndType.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByMonth.do"/>-->
+
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexBySeasonAndType.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexBySeason.do"/>-->
+
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByYearAndType.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByYear.do"/>-->
+
+			<!--<mvc:mapping path="/service/drugRecord/getDataPriceIndexByYearTop10.do"/>-->
+			<!--<mvc:mapping path="/service/drugRecord/getDataSaleIndexByYearTop10.do"/>-->
+
+			<!--&lt;!&ndash; 登录拦截类 &ndash;&gt;-->
+			<!--<bean id="apiInterceptor" class="rml.Interceptor.ApiInterceptor">-->
+			<!--</bean>-->
+		<!--</mvc:interceptor>-->
+	<!--</mvc:interceptors>-->
+
 	<!-- For static resources -->
 	<mvc:resources mapping="/static/**" location="/static/" />
 

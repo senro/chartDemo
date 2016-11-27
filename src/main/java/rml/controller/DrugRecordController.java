@@ -80,16 +80,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexByMonth", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexByMonth(HttpServletRequest request) {
+	public String getDataPriceIndexByMonth(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取月数据的综合价格指数！");
 
 		try{
-			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonth();
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexByMonth")!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexByMonth"));
+			}else{
+				List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonth();
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexByMonth",data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -102,17 +108,25 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexByMonthAndType", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexByMonthAndType(HttpServletRequest request,String drugType) {
+	public String getDataPriceIndexByMonthAndType(HttpServletRequest request, HttpSession session, String drugType) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取当月数据的价格指数！");
 
 		try{
-			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugType(drugType);
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+
+			if(session.getAttribute("getDataPriceIndexByMonthAndType"+drugType)!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexByMonthAndType"+drugType));
+			}else{
+				List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugType(drugType);
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexByMonthAndType"+drugType,data);
+			}
+
 			resultJson.put("detail","获取数据成功");
+
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
 			resultJson.put("status","0");
@@ -146,16 +160,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexBySeasonAndType", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexBySeasonAndType(HttpServletRequest request,String drugType) {
+	public String getDataPriceIndexBySeasonAndType(HttpServletRequest request, HttpSession session, String drugType) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取季度数据的价格指数！");
 
 		try{
-			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexBySeasonAndType"+drugType)!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexBySeasonAndType"+drugType));
+			}else{
+				List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeasonAndDrugType(drugType);
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexBySeasonAndType"+drugType,data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -168,16 +188,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexBySeason", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexBySeason(HttpServletRequest request) {
+	public String getDataPriceIndexBySeason(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取季度数据的价格指数！");
 
 		try{
-			List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeason();
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexBySeason")!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexBySeason"));
+			}else{
+				List<SeasonPriceIndex> data = drugRecordService.getDataPriceIndexBySeason();
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexBySeason",data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -190,16 +216,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexByYearAndType", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexByYearAndType(HttpServletRequest request,String drugType) {
+	public String getDataPriceIndexByYearAndType(HttpServletRequest request, HttpSession session, String drugType) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取年数据的价格指数！");
 
 		try{
-			List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYearAndDrugType(drugType);
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexByYearAndType"+drugType)!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexByYearAndType"+drugType));
+			}else{
+				List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYearAndDrugType(drugType);
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexByYearAndType"+drugType,data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -212,16 +244,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexByYear", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexByYear(HttpServletRequest request) {
+	public String getDataPriceIndexByYear(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取季度数据的价格指数！");
 
 		try{
-			List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYear();
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexByYear")!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexByYear"));
+			}else{
+				List<YearPriceIndex> data = drugRecordService.getDataPriceIndexByYear();
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexByYear",data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -234,16 +272,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataPriceIndexByYearTop10", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataPriceIndexByYearTop10(HttpServletRequest request) {
+	public String getDataPriceIndexByYearTop10(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取季度数据的价格指数！");
 
 		try{
-			List<DrugNamePriceIndex> data = drugRecordService.getDataPriceIndexByYearTop10();
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataPriceIndexByYearTop10")!=null){
+				resultJson.put("data",session.getAttribute("getDataPriceIndexByYearTop10"));
+			}else{
+				List<DrugNamePriceIndex> data = drugRecordService.getDataPriceIndexByYearTop10();
+				resultJson.put("data",data);
+				session.setAttribute("getDataPriceIndexByYearTop10",data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
@@ -256,16 +300,22 @@ public class DrugRecordController {
 
 	@RequestMapping(value="/getDataSaleIndexByYearTop10", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getDataSaleIndexByYearTop10(HttpServletRequest request) {
+	public String getDataSaleIndexByYearTop10(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 
 		logger.info("获取季度数据的价格指数！");
 
 		try{
-			List<DrugNamePriceIndex> data = drugRecordService.getDataSaleIndexByYearTop10();
+
 			resultJson.put("status","1");
-			resultJson.put("data",data);
+			if(session.getAttribute("getDataSaleIndexByYearTop10")!=null){
+				resultJson.put("data",session.getAttribute("getDataSaleIndexByYearTop10"));
+			}else{
+				List<DrugNamePriceIndex> data = drugRecordService.getDataSaleIndexByYearTop10();
+				resultJson.put("data",data);
+				session.setAttribute("getDataSaleIndexByYearTop10",data);
+			}
 			resultJson.put("detail","获取数据成功");
 		}catch(Exception e){
 			logger.error(e.getMessage(), e);
