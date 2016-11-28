@@ -82,7 +82,7 @@ $(document).ready(function () {
                    if(i==0){
                        allPriceIndex.push('100');
                    }else{
-                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                    }
                }
 
@@ -226,7 +226,7 @@ $(document).ready(function () {
                     if(i==0){
                         allPriceIndex.push('100');
                     }else{
-                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[i-1].priceIndex))/100).toFixed(2));
+                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                     }
                 }
 
@@ -374,7 +374,7 @@ $(document).ready(function () {
                    if(i==0){
                        allPriceIndex.push('100');
                    }else{
-                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[i-1].priceIndex))/100).toFixed(2));
+                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                    }
 
                }
