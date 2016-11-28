@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import rml.dao.DrugRecordMapper;
-import rml.dao.PriceIndexMapper;
 import rml.model.PriceIndex;
 import rml.model.Users;
 import rml.model.Page;

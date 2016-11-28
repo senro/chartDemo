@@ -226,7 +226,7 @@ $(document).ready(function () {
                     if(i==0){
                         allPriceIndex.push('100');
                     }else{
-                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[i-1].priceIndex))/100).toFixed(2));
                     }
                 }
 
@@ -374,7 +374,7 @@ $(document).ready(function () {
                    if(i==0){
                        allPriceIndex.push('100');
                    }else{
-                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[0].priceIndex))/100).toFixed(2));
+                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*Number(data.data[i-1].priceIndex))/100).toFixed(2));
                    }
 
                }
@@ -563,7 +563,11 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
-                    allDrugs.push(priceIndex.drugName);
+                    if(priceIndex.drugName.length>5){
+                        allDrugs.push(priceIndex.drugName.slice(0,5));
+                    }else{
+                        allDrugs.push(priceIndex.drugName);
+                    }
                     allPriceIndex.push(Number(priceIndex.priceIndex).toFixed(2));
                 }
 
@@ -608,7 +612,12 @@ $(document).ready(function () {
                 var allSaleIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
-                    allDrugs.push(priceIndex.drugName);
+                    if(priceIndex.drugName.length>5){
+                        allDrugs.push(priceIndex.drugName.slice(0,5));
+                    }else{
+                        allDrugs.push(priceIndex.drugName);
+                    }
+
                     allSaleIndex.push(Number(priceIndex.priceIndex).toFixed(2));
                 }
 

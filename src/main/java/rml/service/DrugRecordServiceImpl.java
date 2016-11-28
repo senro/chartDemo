@@ -307,7 +307,91 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		return resultList;
 	}
 
+	public List<MonthPriceIndex> getDataSaleIndexByMonthAndDrugName(String drugName) {
+		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
+		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
+		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
 
+		//设定5月份（基期）的价格指数默认为100
+		MonthPriceIndex baseMonthPriceIndex=new MonthPriceIndex();
+
+		int i=0;
+		for (DrugRecord drugRecord:drugRecords) {
+			if(i>0){
+				String currentMonth=drugRecord.getMonth();
+
+				Double baseMonthTotalPrice=0.0;
+				Double baseMonthTotalSale=0.0;
+				Double currentMonthTotalPrice=0.0;
+				Double currentMonthTotalSale=0.0;
+
+				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(currentMonth,drugName);
+				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
+
+					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
+							!currentMonthDrugRecord.getSale().trim().equals("")&&
+							!currentMonthDrugRecord.getPrice().equals("无") &&
+							!currentMonthDrugRecord.getSale().equals("无")){
+
+						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
+						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
+
+						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+						currentMonthTotalSale=currentMonthTotalSale+sale;
+
+						List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(drugRecords.get(i-1).getMonth(),drugName);
+
+						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+
+							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+									!baseMonthDrugRecord.getSale().trim().equals("") &&
+									!baseMonthDrugRecord.getPrice().equals("无") &&
+									!baseMonthDrugRecord.getSale().equals("无") &&
+									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
+									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
+									){
+
+								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+
+								baseMonthTotalPrice=baseMonthTotalPrice+price*baseSale;
+								baseMonthTotalSale=baseMonthTotalSale+baseSale;
+							}
+
+						}
+
+					}
+
+				}
+
+				System.out.printf(currentMonth+"月"+drugName+"的总销售额为："+String.valueOf(currentMonthTotalPrice)+"\n");
+				System.out.printf("基期 "+drugName+"的总销售额为："+String.valueOf(baseMonthTotalPrice)+"\n");
+
+				baseMonthPriceIndex.setMonth("2016-05-01");
+				baseMonthPriceIndex.setPriceIndex("100");
+				baseMonthPriceIndex.setTotalSale(String.valueOf(baseMonthTotalSale));
+
+				//resultList.add(baseMonthPriceIndex);
+
+				if(currentMonthDrugRecords.size()>0){
+					MonthPriceIndex currentMonthPriceIndex=new MonthPriceIndex();
+
+					currentMonthPriceIndex.setMonth(currentMonth);
+					if(currentMonthTotalPrice>0 && baseMonthTotalPrice>0) {
+						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
+					}else{
+						currentMonthPriceIndex.setPriceIndex("100");
+					}
+					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+					resultList.add(currentMonthPriceIndex);
+				}
+			}
+			i++;
+		}
+
+		return resultList;
+	}
 
 	//获取月综合指数
 	@Override
@@ -781,7 +865,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		int lastYear=currentYear-1;
 
 
-		List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"price");
+		List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"sale");
 
 		for (DrugKindSalePrice currentYearTop10DrugKindSalePrice:currentYearTop10DrugKindSalePrices) {
 			String currentDrugName = currentYearTop10DrugKindSalePrice.getDrugName();
@@ -837,7 +921,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 
 		if(yearWithoutDup.contains(String.valueOf(lastYear))){
-			List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"price");
+			List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"sale");
 			List<DrugKindSalePrice> lastYearTop10DrugKindSalePrices=new ArrayList<DrugKindSalePrice>();
 
 			for (DrugKindSalePrice currentYearTop10DrugKindSalePrice:currentYearTop10DrugKindSalePrices) {
@@ -912,7 +996,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 			DrugNamePriceIndex drugNamePriceIndex=new DrugNamePriceIndex();
 			drugNamePriceIndex.setDrugName(currentDrugName);
 
-			List<MonthPriceIndex> currentDrugMonthPriceIndexs=getDataPriceIndexByMonthAndDrugName(currentDrugName);
+			List<MonthPriceIndex> currentDrugMonthPriceIndexs=getDataSaleIndexByMonthAndDrugName(currentDrugName);
 
 			String priceIndex=currentDrugMonthPriceIndexs.get(currentDrugMonthPriceIndexs.size()-1).getPriceIndex();
 			drugNamePriceIndex.setPriceIndex(priceIndex);
