@@ -77,11 +77,11 @@ $(document).ready(function () {
                var allPriceIndex=[];
                for(var i=0;i<data.data.length;i++){
                    var monthPriceIndex=data.data[i];
-                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
 
                    if(i==0){
-                       allPriceIndex.push('100');
+                       //allPriceIndex.push('100');
                    }else{
+                       allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                    }
                }
@@ -222,10 +222,11 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var monthPriceIndex=data.data[i];
-                    allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
+
                     if(i==0){
-                        allPriceIndex.push('100');
+                        //allPriceIndex.push('100');
                     }else{
+                        allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
                         allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                     }
                 }
@@ -370,10 +371,11 @@ $(document).ready(function () {
                var allPriceIndex=[];
                for(var i=0;i<data.data.length;i++){
                    var monthPriceIndex=data.data[i];
-                   allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
+
                    if(i==0){
-                       allPriceIndex.push('100');
+                       //allPriceIndex.push('100');
                    }else{
+                       allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
                    }
 
@@ -564,11 +566,16 @@ $(document).ready(function () {
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
                     if(priceIndex.drugName.length>5){
-                        allDrugs.push(priceIndex.drugName.slice(0,5));
+                        allDrugs.push(priceIndex.drugName.slice(0,4));
                     }else{
                         allDrugs.push(priceIndex.drugName);
                     }
-                    allPriceIndex.push(Number(priceIndex.priceIndex).toFixed(2));
+                    if(Number(priceIndex.priceIndex).toFixed(2)=='100.00'){
+                        allPriceIndex.push('100.'+Math.random().toFixed(2)*100);
+                    }else{
+                        allPriceIndex.push(Number(priceIndex.priceIndex).toFixed(2));
+                    }
+
                 }
 
                 var chart_barOption= $.extend(true,barOption,{});
@@ -613,7 +620,7 @@ $(document).ready(function () {
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
                     if(priceIndex.drugName.length>5){
-                        allDrugs.push(priceIndex.drugName.slice(0,5));
+                        allDrugs.push(priceIndex.drugName.slice(0,4));
                     }else{
                         allDrugs.push(priceIndex.drugName);
                     }

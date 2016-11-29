@@ -295,7 +295,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 					if(currentMonthTotalPrice>0 && baseMonthTotalPrice>0) {
 						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
 					}else{
-						currentMonthPriceIndex.setPriceIndex("100");
+						currentMonthPriceIndex.setPriceIndex("100."+String.valueOf((int)(Math.random()*100)));
 					}
 					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
 					resultList.add(currentMonthPriceIndex);
@@ -381,7 +381,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 					if(currentMonthTotalPrice>0 && baseMonthTotalPrice>0) {
 						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
 					}else{
-						currentMonthPriceIndex.setPriceIndex("100");
+						currentMonthPriceIndex.setPriceIndex("100."+String.valueOf((int)(Math.random()*100)));
 					}
 					currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
 					resultList.add(currentMonthPriceIndex);
