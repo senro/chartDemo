@@ -82,7 +82,7 @@ $(document).ready(function () {
                        //allPriceIndex.push('100');
                    }else{
                        allMonths.push(monthPriceIndex.month.replace(/\-01/g,""));
-                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
+                       allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                    }
                }
 
@@ -227,7 +227,7 @@ $(document).ready(function () {
                         //allPriceIndex.push('100');
                     }else{
                         allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
-                        allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
+                        allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                     }
                 }
 
@@ -376,7 +376,7 @@ $(document).ready(function () {
                        //allPriceIndex.push('100');
                    }else{
                        allMonths.push(monthPriceIndex.month.replace(/\-01/g,"").split('-')[1]);
-                       allPriceIndex.push(((Number(monthPriceIndex.priceIndex).toFixed(2)*100)/Number(data.data[i-1].priceIndex)).toFixed(2));
+                       allPriceIndex.push(Number(monthPriceIndex.priceIndex).toFixed(2));
                    }
 
                }

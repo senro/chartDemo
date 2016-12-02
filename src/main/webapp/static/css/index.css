@@ -147,6 +147,7 @@ a:hover{
 
 .chartBox-together .searchBox{
     width: 287px;
+    display: none;
 }
 
 .chartBox-together .searchBox input,.chartBox-together .searchBox button{
