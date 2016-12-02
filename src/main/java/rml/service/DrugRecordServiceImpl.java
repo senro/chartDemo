@@ -173,28 +173,36 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						currentMonthPriceIndex.setTotalSale("2692155.87");
 					}else if(currentMonth.equals("2016-07-01") && drugType.equals("0")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("100.31");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.31/102.08)));
 						currentMonthPriceIndex.setTotalSale("6466715.074");
 					}else if(currentMonth.equals("2016-07-01") && drugType.equals("1")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("99.86");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(99.86/101.68)));
 						currentMonthPriceIndex.setTotalSale("2733980.04");
 					}else if(currentMonth.equals("2016-08-01") && drugType.equals("0")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("100.5");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.5/102.08)));
 						currentMonthPriceIndex.setTotalSale("7037634.953");
 					}else if(currentMonth.equals("2016-08-01") && drugType.equals("1")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("100.04");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.04/101.68)));
 						currentMonthPriceIndex.setTotalSale("2811152.32");
 					}else if(currentMonth.equals("2016-09-01") && drugType.equals("0")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("100.37");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.37/102.08)));
 						currentMonthPriceIndex.setTotalSale("7488590.67");
 					}else if(currentMonth.equals("2016-09-01") && drugType.equals("1")){
 						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("101.91");
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(101.91/101.68)));
 						currentMonthPriceIndex.setTotalSale("2807777.47");
+					}else if(currentMonth.equals("2016-10-01") && drugType.equals("0")){
+						currentMonthPriceIndex.setMonth(currentMonth);
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.43/102.08)));
+						currentMonthPriceIndex.setTotalSale("6690255.515");
+					}else if(currentMonth.equals("2016-10-01") && drugType.equals("1")){
+						currentMonthPriceIndex.setMonth(currentMonth);
+						currentMonthPriceIndex.setPriceIndex(String.valueOf(100/(100.01/101.68)));
+						currentMonthPriceIndex.setTotalSale("2648492.61");
 					}else{
 						currentMonthPriceIndex.setMonth(currentMonth);
 						currentMonthPriceIndex.setPriceIndex(String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100));
@@ -907,7 +915,9 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 			List<MonthPriceIndex> currentDrugMonthPriceIndexs=getDataPriceIndexByMonthAndDrugName(currentDrugName);
 
 			String priceIndex=currentDrugMonthPriceIndexs.get(currentDrugMonthPriceIndexs.size()-1).getPriceIndex();
-			drugNamePriceIndex.setPriceIndex(priceIndex);
+			String baseIndex=currentDrugMonthPriceIndexs.get(0).getPriceIndex();
+
+			drugNamePriceIndex.setPriceIndex(String.valueOf(100.0/(Double.valueOf(priceIndex)/Double.valueOf(baseIndex))));
 
 			resultList.add(drugNamePriceIndex);
 		}
