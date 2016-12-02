@@ -1,14 +1,19 @@
 package rml.Interceptor;
 
-
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import rml.dao.DrugRecordMapper;
+import rml.model.PriceIndex;
 import rml.model.Users;
+import rml.model.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+
 
 /**
  * @author senro
@@ -16,7 +21,6 @@ import javax.servlet.http.HttpSession;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger logger = Logger.getLogger(LoginInterceptor.class);
-
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         request.setCharacterEncoding("UTF-8");
@@ -42,25 +46,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             return false;
         }
 
-        if(url.matches("getDataPriceIndexByMonthAndType")){
-            String drugType=request.getParameter("drugType");
-
-            if(drugType.equals("0")){
-                //西药
-
-            }else{
-                //中药
-
-            }
-        }
-
-
         return true;
     }
 
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
+        System.out.print(response);
     }
 
 

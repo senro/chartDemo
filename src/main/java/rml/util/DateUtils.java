@@ -1,5 +1,6 @@
 package rml.util;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -412,6 +413,29 @@ public class DateUtils {
                 break;
         }
         return season;
+    }
+
+    public static int compare_date(String DATE1, String DATE2) {
+        //如果 Date1 在 Date2 之前 ，返回1
+        //如果 Date1 在 Date2 之后，返回0
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        try {
+            Date dt1 = df.parse(DATE1);
+            Date dt2 = df.parse(DATE2);
+            if (dt1.getTime() > dt2.getTime()) {
+                System.out.println("dt1 在dt2前");
+                return 1;
+            } else if (dt1.getTime() < dt2.getTime()) {
+                System.out.println("dt1在dt2后");
+                return -1;
+            } else {
+                return 0;
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return 0;
     }
 
     public static void main(String[] args) {

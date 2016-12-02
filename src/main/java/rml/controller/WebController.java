@@ -38,6 +38,14 @@ public class WebController {
 
     private static Logger logger = Logger.getLogger(WebController.class);
 
+	@RequestMapping(value="/returnResult", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String returnResult(HttpServletRequest request, HttpSession session, String result) {
+
+
+		return result;
+	}
+
 	@RequestMapping(value="/login", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public String login(HttpServletRequest request, HttpSession session) {

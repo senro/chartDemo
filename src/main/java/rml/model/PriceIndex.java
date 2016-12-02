@@ -27,9 +27,25 @@ public class PriceIndex {
 
     private String dataTotal;
 
-    private String createat;
+    private String createAt;
 
-    private String updateat;
+    private String updateAt;
+
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(String updateAt) {
+        this.updateAt = updateAt;
+    }
 
     public Integer getId() {
         return id;
@@ -135,19 +151,5 @@ public class PriceIndex {
         this.dataTotal = dataTotal == null ? null : dataTotal.trim();
     }
 
-    public String getCreateat() {
-        return createat;
-    }
 
-    public void setCreateat(String createat) {
-        this.createat = createat == null ? null : createat.trim();
-    }
-
-    public String getUpdateat() {
-        return updateat;
-    }
-
-    public void setUpdateat(String updateat) {
-        this.updateat = updateat == null ? null : updateat.trim();
-    }
 }
