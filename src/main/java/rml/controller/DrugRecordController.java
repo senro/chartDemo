@@ -145,7 +145,7 @@ public class DrugRecordController {
 		logger.info("获取单个药品的价格指数！");
 
 		try{
-			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugName(drugName);
+			List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugName(drugName,null,null);
 			resultJson.put("status","1");
 			resultJson.put("data",data);
 			resultJson.put("detail","获取数据成功");

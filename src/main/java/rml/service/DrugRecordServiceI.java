@@ -19,7 +19,7 @@ public interface DrugRecordServiceI {
 
     List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugType(String drugType);
 
-    List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugName(String drugName);
+    List<MonthPriceIndex> getDataPriceIndexByMonthAndDrugName(String drugName,String drugSpec,String drugFactory);
 
     List<SeasonPriceIndex> getDataPriceIndexBySeason();
 

@@ -1,5 +1,6 @@
 package rml.dao;
 
+import rml.model.Bo.DrugRecordSearchCondition;
 import rml.model.DrugRecord;
 import rml.model.Page;
 
@@ -29,6 +30,8 @@ public interface DrugRecordMapper {
     List<DrugRecord> selectByMonthAndType(String month, String drugType);
 
     List<DrugRecord> selectByMonthAndDrugName(String month, String drugName);
+
+    List<DrugRecord> selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(DrugRecordSearchCondition drugRecordSearchCondition);
 
     int updateByPrimaryKeySelective(DrugRecord drugRecord);
 
