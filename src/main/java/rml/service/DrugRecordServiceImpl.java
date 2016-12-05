@@ -351,10 +351,17 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
 						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
 
-						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+
 						currentMonthTotalSale=currentMonthTotalSale+sale;
 
-						List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(drugRecords.get(i-1).getMonth(),drugName);
+						DrugRecordSearchCondition baseDrugRecordSearchCondition=new DrugRecordSearchCondition();
+
+						baseDrugRecordSearchCondition.setDrugName(drugName);
+						baseDrugRecordSearchCondition.setDrugSpec(drugSpec);
+						baseDrugRecordSearchCondition.setDrugFactory(drugFactory);
+						baseDrugRecordSearchCondition.setMonth(drugRecords.get(i-1).getMonth());
+
+						List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(baseDrugRecordSearchCondition);
 
 						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
 
@@ -371,7 +378,9 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
 								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
-								baseMonthTotalPrice=baseMonthTotalPrice+price*baseSale;
+								currentMonthTotalPrice=currentMonthTotalPrice+basePrice*sale;
+
+								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*baseSale;
 								baseMonthTotalSale=baseMonthTotalSale+baseSale;
 							}
 
