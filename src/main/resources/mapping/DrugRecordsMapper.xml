@@ -90,16 +90,16 @@
     from drugRecords
     <trim prefix="Where" prefixOverrides="AND |OR">
       <if test="drugName != null and drugName != ''" >
-        AND drugName = #{drugName}
+        AND drugName = ${drugName}
       </if>
       <if test="drugSpec != null and drugSpec != ''" >
-        AND drugSpec = #{drugSpec}
+        AND drugSpec = ${drugSpec}
       </if>
       <if test="drugFactory != null and drugFactory != ''" >
-        AND drugFactory = #{drugFactory}
+        AND drugFactory = ${drugFactory}
       </if>
       <if test="month != null and month != ''" >
-        AND month= #{month}
+        AND month= ${month}
       </if>
     </trim>
   </select>
@@ -315,10 +315,10 @@
         AND drugName like CONCAT('%','${drugName}','%' )
       </if>
       <if test="drugSpec != null and drugSpec != ''" >
-        AND drugSpec like CONCAT('%','#{drugSpec}','%' )
+        AND drugSpec like CONCAT('%','${drugSpec}','%' )
       </if>
       <if test="drugFactory != null and drugFactory != ''" >
-        AND drugFactory like CONCAT('%','#{drugFactory}','%' )
+        AND drugFactory like CONCAT('%','${drugFactory}','%' )
       </if>
       <if test="drugType != null and drugType != ''" >
         AND drugType= #{drugType}
@@ -365,10 +365,10 @@
         AND drugName like CONCAT('%','${drugName}','%' )
       </if>
       <if test="drugSpec != null and drugSpec != ''" >
-        AND drugSpec like CONCAT('%','#{drugSpec}','%' )
+        AND drugSpec like CONCAT('%','${drugSpec}','%' )
       </if>
       <if test="drugFactory != null and drugFactory != ''" >
-        AND drugFactory like CONCAT('%','#{drugFactory}','%' )
+        AND drugFactory like CONCAT('%','${drugFactory}','%' )
       </if>
       <if test="drugType != null and drugType != ''" >
         AND drugType= #{drugType}
