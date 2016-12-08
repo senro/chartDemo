@@ -249,38 +249,42 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(drugRecordSearchCondition);
 				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
 
-					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
-							!currentMonthDrugRecord.getSale().trim().equals("")&&
-							!currentMonthDrugRecord.getPrice().equals("无") &&
-							!currentMonthDrugRecord.getSale().equals("无")){
+					Double price=0.0;
+					Double sale=0.0;
 
-						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
-						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
+					if(currentMonthDrugRecord.getPrice().trim().equals("") ||
+							currentMonthDrugRecord.getSale().trim().equals("") ||
+							currentMonthDrugRecord.getPrice().equals("无") ||
+							currentMonthDrugRecord.getSale().equals("无")){
+						price=0.0;
+						sale=0.0;
+					}else{
+						price=Double.valueOf(currentMonthDrugRecord.getPrice());
+						sale=Double.valueOf(currentMonthDrugRecord.getSale());
+					}
 
-						currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
-						currentMonthTotalSale=currentMonthTotalSale+sale;
+					currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+					currentMonthTotalSale=currentMonthTotalSale+sale;
 
-						List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(drugRecords.get(i-1).getMonth(),drugName);
+					List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugName(drugRecords.get(i-1).getMonth(),drugName);
 
-						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+					for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
 
-							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-									!baseMonthDrugRecord.getSale().trim().equals("") &&
-									!baseMonthDrugRecord.getPrice().equals("无") &&
-									!baseMonthDrugRecord.getSale().equals("无") &&
-									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
-									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
-									){
+						if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+								!baseMonthDrugRecord.getSale().trim().equals("") &&
+								!baseMonthDrugRecord.getPrice().equals("无") &&
+								!baseMonthDrugRecord.getSale().equals("无") &&
+								baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+								baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
+								baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
+								baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
+								){
 
-								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+							Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+							Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
-								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
-								baseMonthTotalSale=baseMonthTotalSale+baseSale;
-							}
-
+							baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+							baseMonthTotalSale=baseMonthTotalSale+baseSale;
 						}
 
 					}
@@ -343,47 +347,52 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(drugRecordSearchCondition);
 				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
 
-					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
-							!currentMonthDrugRecord.getSale().trim().equals("")&&
-							!currentMonthDrugRecord.getPrice().equals("无") &&
-							!currentMonthDrugRecord.getSale().equals("无")){
+					Double price=0.0;
+					Double sale=0.0;
 
-						Double price=Double.valueOf(currentMonthDrugRecord.getPrice());
-						Double sale=Double.valueOf(currentMonthDrugRecord.getSale());
+					if(currentMonthDrugRecord.getPrice().trim().equals("") ||
+							currentMonthDrugRecord.getSale().trim().equals("") ||
+							currentMonthDrugRecord.getPrice().equals("无") ||
+							currentMonthDrugRecord.getSale().equals("无")){
+						price=0.0;
+						sale=0.0;
+					}else{
+						price=Double.valueOf(currentMonthDrugRecord.getPrice());
+						sale=Double.valueOf(currentMonthDrugRecord.getSale());
+					}
 
 
-						currentMonthTotalSale=currentMonthTotalSale+sale;
 
-						DrugRecordSearchCondition baseDrugRecordSearchCondition=new DrugRecordSearchCondition();
+					currentMonthTotalSale=currentMonthTotalSale+sale;
 
-						baseDrugRecordSearchCondition.setDrugName(drugName);
-						baseDrugRecordSearchCondition.setDrugSpec(drugSpec);
-						baseDrugRecordSearchCondition.setDrugFactory(drugFactory);
-						baseDrugRecordSearchCondition.setMonth(drugRecords.get(i-1).getMonth());
+					DrugRecordSearchCondition baseDrugRecordSearchCondition=new DrugRecordSearchCondition();
 
-						List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(baseDrugRecordSearchCondition);
+					baseDrugRecordSearchCondition.setDrugName(drugName);
+					baseDrugRecordSearchCondition.setDrugSpec(drugSpec);
+					baseDrugRecordSearchCondition.setDrugFactory(drugFactory);
+					baseDrugRecordSearchCondition.setMonth(drugRecords.get(i-1).getMonth());
 
-						for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+					List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(baseDrugRecordSearchCondition);
 
-							if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-									!baseMonthDrugRecord.getSale().trim().equals("") &&
-									!baseMonthDrugRecord.getPrice().equals("无") &&
-									!baseMonthDrugRecord.getSale().equals("无") &&
-									baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
-									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
-									){
+					for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
 
-								Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-								Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+						if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+								!baseMonthDrugRecord.getSale().trim().equals("") &&
+								!baseMonthDrugRecord.getPrice().equals("无") &&
+								!baseMonthDrugRecord.getSale().equals("无") &&
+								baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+								baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
+								baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
+								baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())
+								){
 
-								currentMonthTotalPrice=currentMonthTotalPrice+basePrice*sale;
+							Double basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+							Double baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
 
-								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*baseSale;
-								baseMonthTotalSale=baseMonthTotalSale+baseSale;
-							}
+							currentMonthTotalPrice=currentMonthTotalPrice+basePrice*sale;
 
+							baseMonthTotalPrice=baseMonthTotalPrice+basePrice*baseSale;
+							baseMonthTotalSale=baseMonthTotalSale+baseSale;
 						}
 
 					}
