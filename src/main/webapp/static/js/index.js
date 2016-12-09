@@ -565,11 +565,8 @@ $(document).ready(function () {
                 var allPriceIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
-                    if(priceIndex.drugName.length>5){
-                        allDrugs.push(priceIndex.drugName.slice(0,4));
-                    }else{
-                        allDrugs.push(priceIndex.drugName);
-                    }
+
+                    allDrugs.push(autoNewLine(priceIndex.drugName,4));
                     if(Number(priceIndex.priceIndex).toFixed(2)=='100.00'){
                         allPriceIndex.push('100.'+Math.random().toFixed(2)*100);
                     }else{
@@ -619,12 +616,8 @@ $(document).ready(function () {
                 var allSaleIndex=[];
                 for(var i=0;i<data.data.length;i++){
                     var priceIndex=data.data[i];
-                    if(priceIndex.drugName.length>5){
-                        allDrugs.push(priceIndex.drugName.slice(0,4));
-                    }else{
-                        allDrugs.push(priceIndex.drugName);
-                    }
 
+                    allDrugs.push(autoNewLine(priceIndex.drugName,4));
                     allSaleIndex.push(Number(priceIndex.priceIndex).toFixed(2));
                 }
 
@@ -652,6 +645,24 @@ $(document).ready(function () {
         }
     });
 
+    function autoNewLine(str,max){
+        var result;
+        if(str.length>max){
+            var strArray=str.split('');
+            result=[];
+            for(var i=0;i<strArray.length;i++){
+                result.push(strArray[i]);
+                if( (i+1) % max == 0 ){
+                    result.push('\n');
+                }
+            }
+            result=result.join('');
+        }else{
+            result=str;
+        }
+
+        return result;
+    }
 
     //搜索单个药品
 
