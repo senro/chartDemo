@@ -817,7 +817,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		List<DrugRecord> allDrugKinds=drugRecordMapper.selectAllDrugs();
 
 		String yearStart=year+"-01-01";
-		String yearEnd=year+"-12-01";
+		String yearEnd=year+"-10-01";
 
 		List<DrugRecord> currentYearDrugRecords=drugRecordMapper.selectBySeason(yearStart,yearEnd);
 
@@ -952,7 +952,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		List<String> yearWithoutDup = removeDuplicateWithOrder(yearArrayList);
 
-		int currentYear=DateUtils.getYear(new Date());
+		int currentYear=2016;//DateUtils.getYear(new Date())
 		int lastYear=currentYear-1;
 
 
@@ -1080,7 +1080,7 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		List<String> yearWithoutDup = removeDuplicateWithOrder(yearArrayList);
 
-		int currentYear=DateUtils.getYear(new Date());
+		int currentYear=2016;//DateUtils.getYear(new Date())
 		int lastYear=currentYear-1;
 
 		List<DrugKindSalePrice> currentYearTop10DrugKindSalePrices=getTop10DrugKindSalePriceByYear(String.valueOf(currentYear),"sale");
