@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医疗服务查询</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/queryService.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">医疗服务查询</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group" id="searchModal">
+				<div class="mui-input-row">
+					<label>医疗服务编号:</label>
+					<input type="text" class="mui-input-clear" v-model="Code" placeholder="例如: 110100001-b" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>医疗服务名称:</label>
+					<input type="text" class="mui-input-clear" v-model="ServiceName" placeholder="例如: 门诊病历手册" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>医疗拼音缩写:</label>
+					<input type="text" class="mui-input-clear" v-model="PYALL" placeholder="例如: menzhenbinlishouce" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary btn-search" v-on:click="search">搜索</button>&nbsp;&nbsp;
+					<button type="reset" class="mui-btn mui-btn-danger">重置</button>
+				</div>
+			</form>
+
+			<div class="title title-result mt20">
+				搜索结果
+			</div>
+
+			<ul id="searchResultModal" class="mui-table-view mt10">
+				<template v-if="items.length>0">
+					<li class="mui-table-view-cell" v-for="item in items">
+						<a class="mui-navigate-right" href="queryPriceDetail.html?Code={{ item.Code }}">
+							<h5 class="bold color-black">
+								{{ item.ServiceName }}
+							</h5>
+							<p>
+								医疗服务编号: {{ item.Code }}
+							</p>
+							<p>
+								单位: {{ item.dw }}
+							</p>
+							<p>
+								价格(元): {{ item.price }}
+							</p>
+						</a>
+					</li>
+				</template>
+				<template v-else>
+					<template v-if="loading">
+						<li class="mui-text-center loading">
+							<span class="mui-spinner"></span>
+						</li>
+					</template>
+					<template v-else>
+						<li class="mui-text-center noData">
+							没有相关结果
+						</li>
+					</template>
+				</template>
+
+			</ul>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+        <script src="libs/vue.min.js"></script>
+		<script src="libs/jquery-1.11.1.js"></script>
+		<script src="js/queryService.js"></script>
+
+	</body>
+
+</html>

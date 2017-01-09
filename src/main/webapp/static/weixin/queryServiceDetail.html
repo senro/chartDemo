@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>服务详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/queryServiceDetail.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">服务详情</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group none" id="searchResultModal">
+				<div class="mui-input-row">
+					<label>医疗服务编号:</label>
+					<span>
+						{{ data.Code||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>项目名称:</label>
+					<span>
+						{{ data.ServiceName||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>计价单位:</label>
+					<span>
+						{{ data.Until||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>价格(元):</label>
+					<span>
+						{{ data.Price||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>项目内涵:</label>
+					<span>
+						{{ data.ServiceBody||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>除外内容:</label>
+					<span>
+						{{ data.ServiceContent||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>说明:</label>
+					<span>
+						{{ data.Note||'' }}
+					</span>
+				</div>
+
+			</form>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/get-query-string.js"></script>
+        <script src="libs/vue.min.js"></script>
+		<script src="libs/jquery-1.11.1.js"></script>
+		<script src="js/queryServiceDetail.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,25 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: yun.qiu
+ * Date: 2016/11/18
+ * Time: 11:24
+ * To change this template use File | Settings | File Templates.
+ */
+.mt10{
+    margin-top: 10px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mt30{
+    margin-top: 30px;
+}
+.none{
+    display: none;
+}
+.bold{
+    font-weight: bold;
+}
+.color-black{
+    color: #000;
+}

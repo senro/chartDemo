@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>药品详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/queryPriceDetail.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">药品详情</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group none" id="searchResultModal">
+				<div class="mui-input-row">
+					<label>产品编码:</label>
+					<span>
+						{{ data.cpmbm||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>产&nbsp;&nbsp;品&nbsp;&nbsp;名:</label>
+					<span>
+						{{ data.cpm||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>生产企业:</label>
+					<span>
+						{{ data.scs_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>销售企业:</label>
+					<span>
+						{{ data.gys_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>单位:</label>
+					<span>
+						{{ data.dw||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>规格:</label>
+					<span>
+						{{ data.gg||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>转换比:</label>
+					<span>
+						{{ data.zhb||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>包装材质:</label>
+					<span>
+						{{ data.bzcz_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>药品批准文号:</label>
+					<span>
+						{{ data.yppzwh||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>英文通用名:</label>
+					<span>
+						{{ data.ywtym||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>支付类别:</label>
+					<span>
+						{{ data.zflb_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>标注剂型:</label>
+					<span>
+						{{ data.jx_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>中文通用名:</label>
+					<span>
+						{{ data.zwtym||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>商品名:</label>
+					<span>
+						{{ data.spm||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>是否基药:</label>
+					<span>
+						{{ data.jy_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>是否处方药:</label>
+					<span>
+						{{ data.cfy_desc||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>限定支付范围:</label>
+					<span>
+						{{ data.xdzffw||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>最高零售价:</label>
+					<span>
+						{{ data.zglsj||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>中标价格:</label>
+					<span>
+						{{ data.zbj||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>中标零售价:</label>
+					<span>
+						{{ data.zblsj||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>招标申报编号:</label>
+					<span>
+						{{ data.zbsbbh||'' }}
+					</span>
+				</div>
+				<div class="mui-input-row">
+					<label>备注:</label>
+					<span>
+						{{ data.comment||'' }}
+					</span>
+				</div>
+
+			</form>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/get-query-string.js"></script>
+        <script src="libs/vue.min.js"></script>
+		<script src="libs/jquery-1.11.1.js"></script>
+		<script src="js/queryPriceDetail.js"></script>
+
+	</body>
+
+</html>
