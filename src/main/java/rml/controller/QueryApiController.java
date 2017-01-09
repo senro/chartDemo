@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/queryApi")
-public class QueryApiController2 {
+public class QueryApiController {
 
-    private static Logger logger = Logger.getLogger(QueryApiController2.class);
+    private static Logger logger = Logger.getLogger(QueryApiController.class);
 
 	@RequestMapping(value="/queryPrice", produces = "application/json; charset=utf-8")
 	@ResponseBody
