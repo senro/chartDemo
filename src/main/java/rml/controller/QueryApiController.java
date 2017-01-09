@@ -104,12 +104,47 @@ public class QueryApiController {
 			String ServiceName=request.getParameter("ServiceName");
 			String PYALL=request.getParameter("PYALL");
 
-			String getResult= HttpUtil.sendGet("http://www.szyyjg.com/androidapi/jqm/ServiceTypeQuery.jsp","act="+act+"&Code="+Code+"&mtids="+mtids+"&ServiceName="+ServiceName+"&PYALL="+PYALL);
+			String getResult= HttpUtil.sendGet("http://www.szyyjg.com/androidapi/jqm/ServiceTypeQuery.jsp","act="+act+"&Code="+Code+"&ServiceName="+ServiceName+"&PYALL="+PYALL+"&version=v2");
 
 			if(!getResult.equals("")){
 
 				resultJson.put("status","1");
-				JSONArray data= JSON.parseArray(getResult.replaceAll("\t",""));
+				JSONArray data= (JSONArray)JSON.parseObject(getResult.replaceAll("\t","")).get("data");
+
+				resultJson.put("data", data);
+				resultJson.put("detail","查询服务成功");
+
+			}else{
+				logger.info("没有查到服务记录");
+
+				resultJson.put("status","0");
+				resultJson.put("detail","没有查到相关服务");
+			}
+
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+	}
+
+	@RequestMapping(value="/queryServiceDetail", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String queryServiceDetail(HttpServletRequest request, HttpSession session) {
+		JSONObject resultJson=new JSONObject();
+		logger.info("服务查询！");
+
+		try{
+			String Code=request.getParameter("Code");
+
+			String getResult= HttpUtil.sendGet("http://www.szyyjg.com/androidapi/jqm/ServiceTypeQuery.jsp","act=detail&Code="+Code+"&version=v2");
+
+			if(!getResult.equals("")){
+
+				resultJson.put("status","1");
+				JSONObject data= (JSONObject)JSON.parseObject(getResult.replaceAll("\t","")).get("data");
 
 				resultJson.put("data", data);
 				resultJson.put("detail","查询服务成功");
