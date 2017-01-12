@@ -46,18 +46,19 @@
 			<ul id="searchResultModal" class="mui-table-view mt10">
 				<template v-if="items.length>0">
 					<li class="mui-table-view-cell" v-for="item in items">
-						<a class="mui-navigate-right" href="queryPriceDetail.html?Code={{ item.Code }}">
+						<a class="mui-navigate-right" href="queryServiceDetail.html?Code={{ item.code }}">
 							<h5 class="bold color-black">
-								{{ item.ServiceName }}
+								{{ item.serviceName }}
 							</h5>
 							<p>
-								医疗服务编号: {{ item.Code }}
+								医疗服务编号: {{ item.code }}
 							</p>
 							<p>
-								单位: {{ item.dw }}
+								单位: {{ item.until }}
 							</p>
-							<p>
-								价格(元): {{ item.price }}
+							<p class="mui-ellipsis" title="{{ item.price }}">
+								价格(元): <br/>
+								{{ item.price }}
 							</p>
 						</a>
 					</li>

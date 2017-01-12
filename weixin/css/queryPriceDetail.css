@@ -1,0 +1,23 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: yun.qiu
+ * Date: 2016/11/18
+ * Time: 11:27
+ * To change this template use File | Settings | File Templates.
+ */
+.mui-input-group .mui-input-row {
+    height: auto;
+    line-height: 20px;
+}
+.mui-input-row span{
+    float: right;
+    width: 56%;
+    padding: 10px 0;
+}
+.mui-input-row label {
+    width: 44%;
+    text-align: right;
+}
+.noData{
+    padding: 10px 0;
+}

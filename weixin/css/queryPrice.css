@@ -1,0 +1,13 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: yun.qiu
+ * Date: 2016/11/18
+ * Time: 11:27
+ * To change this template use File | Settings | File Templates.
+ */
+.title-result{
+    text-indent: 15px;
+}
+.noData,.loading{
+    padding: 10px 0;
+}

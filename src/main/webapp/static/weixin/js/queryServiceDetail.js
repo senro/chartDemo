@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     var Code=getQueryString('Code');
     $.ajax({
-        url:'/chartDemo/queryApi/queryService.do',
+        url:'/chartDemo/queryApi/queryServiceDetail.do',
         data:{
             act:'detail',
             Code:Code
@@ -31,11 +31,11 @@ $(document).ready(function () {
         },
         success:function(data){
             if(data.status==1){
-                searchResultModal.data=data.data[0];
+                searchResultModal.data=data.data;
             }else{
                 mui.toast(data.detail);
                 setTimeout(function(){
-                    window.location.href="queryService.html";
+                    //window.location.href="queryService.html";
                 },1000);
             }
         },
