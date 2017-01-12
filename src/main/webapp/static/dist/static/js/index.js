@@ -1,1 +1,0 @@
-require("components/util/utilRouter"),require("components/layout/layout").render(),require("components/header/header").render(),require("components/navigation/navigation").render();var router=require("components/router/router");router();

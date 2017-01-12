@@ -8,7 +8,7 @@ require('egis-datetimepicker')($);
 require('egis-jquery-file-upload')($);
 
 var ajax=require('components/util/ajax').ajax;
-var pagination = require('egis-pagination');
+require('egis-pagination')($);
 var template = require('egis-template');
 var loadCss = require('egis-load-css');
 var checkbox = require('egis-checkbox');

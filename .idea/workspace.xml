@@ -2,158 +2,374 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e099d1aa-373e-4960-9482-afb3a1e92fa5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/fonts/mui.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/60x60.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/cbd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/iconfont-tianjia.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/login-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/muwu.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/qrcode.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/shuijiao.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/images/yuantiao.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/common.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/feedback-page.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.dtpicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.imageviewer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.indexedlist.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.listpicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.picker.all.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.picker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.picker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/mui.poppicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/queryPrice.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/queryPriceDetail.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/queryService.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/css/queryServiceDetail.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/accordion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/actionsheet-plus.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/actionsheet.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/ad.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/badges.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/beecloud.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/buttons-with-badges.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/buttons-with-block.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/buttons-with-icons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/buttons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/checkbox.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/clouddb_wilddog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/date.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/dialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/dtpicker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/echarts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/grid-default.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/grid-pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/guide.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/icons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/im-chat.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/imageviewer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/indexed-list-select.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/indexed-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/info.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/input.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/lazyload-image.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/list-triplex-row.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/list-with-input.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/locker-dom.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/media-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/modals.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/nav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/numbox.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-down.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-left-plus-main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-left-plus-menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-left.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-right-plus-main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-right-plus-menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/offcanvas-drag-right.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/picker.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/popovers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/progressbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/pullrefresh_main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/pullrefresh_sub.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/pullrefresh_with_tab.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/radio.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/range.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/setting.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/slider-default.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/slider-table-default.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/slider-table-pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/slider-with-title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/switches.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-vertical-scroll.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-webview-main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-webview-subpage-about.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-webview-subpage-chat.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-webview-subpage-contact.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-webview-subpage-setting.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-with-segmented-control-vertical.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-with-segmented-control.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tab-with-viewpagerindicator.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tabbar-labels-only.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tabbar-with-submenus.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tabbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tableviews-with-badges.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tableviews-with-collapses.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tableviews-with-swipe.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/tableviews.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/examples/typography.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/95516.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/ad.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/arttmpl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/beecloud.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/city.data-3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/city.data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/feedback-page.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/feedback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/get-query-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.dtpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.imageViewer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.indexedlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.lazyload.img.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.lazyload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.listpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.locker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.picker.all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.picker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.picker.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.poppicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.previewimage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.pullToRefresh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.pullToRefresh.material.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.view.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/mui.zoom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/queryPrice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/queryPriceDetail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/queryService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/queryServiceDetail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/js/update.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/easymob-webim-sdk/easemob.im-1.0.5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/easymob-webim-sdk/jquery-1.11.1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/easymob-webim-sdk/json2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/easymob-webim-sdk/quickstart.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/easymob-webim-sdk/strophe-custom-2.0.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/echarts-all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/jquery-1.11.1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/vue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/libs/vue.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/queryPrice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/queryPriceDetail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/queryService.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/queryServiceDetail.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/bg_login.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/common.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/loading4.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/lock-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/message.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/pwd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/qrcode-login-icon-.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/qrcode-login-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/qrcode.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/login/tradition-login-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/logout/logout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/reset-password/reset-password.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/account/reset-password/reset-password.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/actions/addUserModal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/actions/addUserModal.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/dataManage/dataManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/dataManage/dataManage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/dataManage/dataManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/uploadManage/uploadManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/uploadManage/uploadManage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/businessManage/uploadManage/uploadManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/cacheIndex/cacheIndex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/cacheIndex/cacheIndex.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/cacheIndex/cacheIndexManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/cacheIndex/cacheIndexManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/constants/ActionTypes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/constants/ActionTypes.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/footer/footer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/footer/footer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-bind-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-bind.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-loginOut-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-loginOut.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-modifyPass-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-modifyPass.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-userName-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header-item-userName.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/header/header.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/layout/layout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/layout/layout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/arrow-head-right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step1-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step2-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step3-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step4-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step5-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main-guider-cont-step5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/main/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/arrow-btn-left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/arrow-btn-right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-authManage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-businessManage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-devCenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-index.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-systemManage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/nav-icon-tableCenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/navigation-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/navigation.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/navigation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/navigation/navigation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/reducers/addUserModal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/reducers/addUserModal.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/reducers/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/reducers/index.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/router/router.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/router/routerCallbacks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/store/configureStore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/store/configureStore.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/privilegeManage/privilegeManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/privilegeManage/privilegeManage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/privilegeManage/privilegeManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/roleManage/roleManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/roleManage/roleManage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/roleManage/roleManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/userManage/userManage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/userManage/userManage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/userManage/userManage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/systemManage/userManage/userManage.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/util/ajax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/util/store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/util/utilRouter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/util/utilUser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/util/xhr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/utils/ajax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/components/utils/ajax.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/config/server.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/pkg/index.html_aio.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/pkg/index.html_aio.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/pkg/login.html_aio.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/pkg/login.html_aio.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/css/common.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/css/normalize.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/5-121204193935-51.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/5-121204194032.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/Write-document.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/ajaxLoading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/arrow-btn-left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/arrow-btn-right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/bg-spirit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/bg-spirit.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/changeVillage_active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/check.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/checkbox-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/checkbox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/datePickerIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/del.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/deleteCheckbox-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/deleteCheckbox-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/deleteCheckbox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/dot-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/dot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon-date.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_fail.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_pin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_refuse.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_success.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_timeout.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/icon_wait.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/list-icon20.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/login-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/radio.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/settingIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/shop_loading.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/sort.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/uncheck.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/uploadLogo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/image/yes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/images/bg_login.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/GLOBAL_config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/affix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/alert.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/confirmation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/jquery-1.9.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/popover.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/tab.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/bootstrap/3.2.0/transition.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/js/spread.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/GLOBAL_config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/config-local.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/echarts-plain/echarts-plain.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/es5-shim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/es5-shim.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/es6-shim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/html5/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/html5/html5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/html5/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/jsencrypt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/json2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/sea-debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/sea.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/seajs-css-debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/seajs-css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/sugar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/bigint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/jquery.qrcode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/md5-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/numberid.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/qrcode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/sdk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tsc-src-new.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tsc-src.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tsc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tscShow-src.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tscShow.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tscShow2-src.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/static/lib/tsc/tscShow2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/addCacheIndex.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/areaManagement_queryAreaOrderPage.do.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/checkLogin.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/copyStrategy.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/delApp.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/deleteCacheIndex.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/deleteStrategyById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/dologin.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/dynamic-demo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAccountDetail.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAccountList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAccountStateList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAllPayType.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAllStrategy.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAppDevInfoById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAppList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAppServiceInfoById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAuthQueryList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAuthRecordById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAuthRecordDetail.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getAuthStateList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getBindQueryList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getCacheIndex.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getDeviceInfo.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getDeviceList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getExternalId.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getPayList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getStrategyById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getStrategyData.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getStrategyList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getUnbindDetail.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getUnbindRecordDetail.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/getUnbindRecordList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/login_checkLoginStatus.do.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/login_enter.do.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/login_logout.do.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/reset.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/saveOrUpdateStrategy.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/setDefault.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/systemManage_userManage_queryList.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/unbind.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/updateCacheIndex.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/updateServiceInfoById.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/uploadLogo.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/test/user_modifyPass.do.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rml/controller/QueryApiController.java" afterPath="$PROJECT_DIR$/src/main/java/rml/controller/QueryApiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/weixin/js/queryServiceDetail.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/weixin/js/queryServiceDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/weixin/queryService.html" afterPath="$PROJECT_DIR$/src/main/webapp/static/weixin/queryService.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/messages.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/messages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/enum.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/enum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/pattern.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/pattern.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/range.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/range.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/required.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/required.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/type.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/type.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/whitespace.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/rule/whitespace.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/util.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/array.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/array.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/boolean.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/boolean.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/date.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/date.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/enum.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/enum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/float.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/float.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/integer.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/integer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/method.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/method.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/number.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/number.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/object.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/object.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/pattern.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/pattern.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/regexp.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/regexp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/required.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/required.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/string.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/string.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/type.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/async-validator/lib/validator/type.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/deepmerge/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/deepmerge/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-ajax/ajax.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-ajax/ajax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-ajax/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-ajax/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/bootstrap.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/confirmation.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/confirmation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/popover.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/popover.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/tooltip.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-bootstrap/tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-checkbox/checkbox.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-checkbox/checkbox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-checkbox/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-checkbox/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-cookie/cookie.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-cookie/cookie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-date-extend/date-extend.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-date-extend/date-extend.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-datetimepicker/datetimepicker.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-datetimepicker/datetimepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-datetimepicker/datetimepicker.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-datetimepicker/datetimepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-director/director.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-director/director.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-formvars/formvars.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-formvars/formvars.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-get-query-string/get-query-string.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-get-query-string/get-query-string.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery-file-upload/jquery.fileupload.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery-file-upload/jquery.fileupload.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery-file-upload/vendor/jquery.ui.widget.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery-file-upload/vendor/jquery.ui.widget.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-load-css/load-css.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-load-css/load-css.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-pagination/pagination.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-pagination/pagination.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-parse-argus/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-parse-argus/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-parse-argus/parse-argus.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-parse-argus/parse-argus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/system-message.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/system-message.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/system-message.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-system-message/system-message.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tab/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tab/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tab/tab.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tab/tab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-template/template.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-template/template.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/QRCode.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/QRCode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/bigint.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/bigint.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/jquery.qrcode.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/jquery.qrcode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/md5-min.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/md5-min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/numberid.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/numberid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/tsc.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-tsc/tsc.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-util/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-util/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-util/util.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-util/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/node_modules/egis-jquery/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/node_modules/egis-jquery/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/regs.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/regs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/validate.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-validate/validate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-xhr/xhr.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/egis-xhr/xhr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/button.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/checkbox-group.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/checkbox-group.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/checkbox.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/checkbox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/element-ui.common.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/element-ui.common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/input-number.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/input-number.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/input.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/input.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/format.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/format.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/lang/zh-CN.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/locale/lang/zh-CN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/mixins/emitter.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/mixins/emitter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/mixins/locale.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/mixins/locale.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/option.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/option.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/progress.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/progress.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/scrollbar.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/scrollbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/select.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/select.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/tag.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/tag.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/theme-default/index.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/theme-default/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/tooltip.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/clickoutside.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/clickoutside.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/date.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/date.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/dom.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/dom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/merge.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/merge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popper.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popup/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popup/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popup/popup-manager.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/popup/popup-manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/resize-event.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/resize-event.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/scrollbar-width.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/scrollbar-width.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/vue-popper.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/element-ui/lib/utils/vue-popper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/es6-promise/dist/es6-promise.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/es6-promise/dist/es6-promise.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/fetch-ie8/fetch.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/fetch-ie8/fetch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/fis-mod/mod.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/fis-mod/mod.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/jquery/dist/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/_isHostObject.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/_isHostObject.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/isObjectLike.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/isObjectLike.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/isPlainObject.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/lodash/isPlainObject.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/mockjs/dist/mock.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/mockjs/dist/mock.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/process/browser.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/process/browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/applyMiddleware.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/applyMiddleware.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/bindActionCreators.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/bindActionCreators.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/combineReducers.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/combineReducers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/compose.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/compose.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/createStore.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/createStore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/utils/warning.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/redux/lib/utils/warning.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/lib/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/lib/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/lib/ponyfill.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/symbol-observable/lib/ponyfill.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/throttle-debounce/debounce.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/throttle-debounce/debounce.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/throttle-debounce/throttle.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/throttle-debounce/throttle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue/dist/vue.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue/dist/vue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue/dist/vue.runtime.common.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue/dist/vue.runtime.common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue1.x/dist/vue.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/node_modules/vue1.x/dist/vue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js" />
     </list>
     <ignored path="SpringMVC-Spring-MyBatis-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -184,31 +400,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="utilUser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/util/utilUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ajax.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/util/ajax.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/account/login/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -240,21 +436,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadManage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="uploadManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/uploadManage/uploadManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6395349">
-              <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+            <state vertical-scroll-proportion="-23.466667">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createTable.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mybatis-generator/createTable.sql">
+      <file leaf-file-name="dataManage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.892857">
-              <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.6321839">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagination.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/node_modules/egis-pagination/pagination.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -360,12 +566,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/cacheIndex/cacheIndexManage.vue" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/rml/service/DrugRecordServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js" />
         <option value="$PROJECT_DIR$/src/main/java/rml/controller/DrugRecordController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/header/header.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/util/utilUser.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/src/static/js/GLOBAL_config.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/uploadManage/uploadManage.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js" />
       </list>
     </option>
   </component>
@@ -592,6 +798,124 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="businessManage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploadManage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chartDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="businessManage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataManage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1383,12 +1707,12 @@
       <workItem from="1482315676416" duration="388000" />
       <workItem from="1482369588464" duration="583000" />
       <workItem from="1482894742840" duration="953000" />
-      <workItem from="1484203601011" duration="10420000" />
+      <workItem from="1484203601011" duration="10927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="457489000" />
+    <option name="totallyTimeSpent" value="457996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1405,7 +1729,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35536295" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37703142" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37703142" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18123667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1415,7 +1739,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40303358" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40303358" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1792,14 +2116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/util/utilRouter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1921,10 +2237,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/node_modules/egis-pagination/pagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/uploadManage/uploadManage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6395349">
-          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+        <state vertical-scroll-proportion="-23.466667">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/src/components/businessManage/dataManage/dataManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6321839">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding />
         </state>
       </provider>
