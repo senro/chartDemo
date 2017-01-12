@@ -4,11 +4,12 @@
 var $ = require('egis-jquery');
 require('egis-bootstrap/confirmation')();
 require('egis-bootstrap')();
-require('egis-datetimepicker')();
-require('egis-jquery-file-upload');
+require('egis-datetimepicker')($);
+require('egis-jquery-file-upload')($);
+var ajax=require('components/util/ajax').ajax;
 
-var ajax = require('egis-ajax').ajax;
-var pagination = require('egis-pagination');
+require('egis-pagination')($);
+
 var template = require('egis-template');
 var loadCss = require('egis-load-css');
 var checkbox = require('egis-checkbox');
@@ -21,7 +22,7 @@ var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
 var utilUser = require('components/util/utilUser');
 var $aside = $('aside');
-var Vue=require('vue');
+var Vue=require('vue1.x/dist/vue');
 
 function render(){
     $aside.hide().html(__inline('./uploadManage.html')).fadeIn(500);
@@ -129,6 +130,7 @@ function render(){
     var model_Data = {
         id:0,
         userId:0,
+        year:'2016',
         month:'',
         fileKey:''
     };
@@ -175,6 +177,31 @@ function render(){
         return false;
     });
 
+    //设置合理性
+    $page.on('click','.btn-validate',function(){
+        var id=$(this).attr('data-id');
+        var validate=$(this).attr('data-validate');
+        //获取数据详情
+        ajax(
+            window.apiHost+'data/updateData.do',
+            {
+                id:id,
+                validate:validate=='yes'?'no':'yes'
+            },
+            function (data) {
+                systemMessage.info('设置为'+(validate=='yes'?'不':'')+'合理！');
+                $searchForm.trigger('submit');
+            },
+            function () {
+
+            },function(){
+
+            },'post'
+        );
+
+        return false;
+    });
+
     $page.on('click','.btn-updateData',function(){
         $addDataModal.modal('show');
         $addDataModal.find('.modal-title').html('修改数据');
@@ -215,12 +242,12 @@ function render(){
                 var tmpDate=new Date();
 
                 if((dateExtend.normalizeToSingleNum(model_Data.month)-1)!=0){
-                    model_Data.preMonth=tmpDate.getFullYear()+'-'+dateExtend.normalizeSingleNum((dateExtend.normalizeToSingleNum(model_Data.month)-1))+'-01';
+                    model_Data.preMonth=model_Data.year+'-'+dateExtend.normalizeSingleNum((dateExtend.normalizeToSingleNum(model_Data.month)-1))+'-01';
                 }else{
-                    model_Data.preMonth=tmpDate.getFullYear()+'-'+model_Data.month+'-01';
+                    model_Data.preMonth=model_Data.year+'-'+model_Data.month+'-01';
                 }
 
-                //model_Data.month=tmpDate.getFullYear()+'-'+dateExtend.normalizeSingleNum(model_Data.month)+'-01';
+                model_Data.month=model_Data.year+'-'+dateExtend.normalizeSingleNum(model_Data.month)+'-01';
 
                 ajax(
                     url,

@@ -1,0 +1,1530 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rml.dao.CacheIndexMapper" >
+  <resultMap id="BaseResultMap" type="rml.model.CacheIndex" >
+    
+        
+            <id column="id" property="id" />
+        
+    
+        
+            <result column="month" property="month" />
+        
+    
+        
+            <result column="season" property="season" />
+        
+    
+        
+            <result column="year" property="year" />
+        
+    
+        
+            <result column="month_index" property="monthIndex" />
+        
+    
+        
+            <result column="month_sale" property="monthSale" />
+        
+    
+        
+            <result column="season_index" property="seasonIndex" />
+        
+    
+        
+            <result column="season_sale" property="seasonSale" />
+        
+    
+        
+            <result column="year_index" property="yearIndex" />
+        
+    
+        
+            <result column="year_sale" property="yearSale" />
+        
+    
+        
+            <result column="west_month_index" property="westMonthIndex" />
+        
+    
+        
+            <result column="west_month_sale" property="westMonthSale" />
+        
+    
+        
+            <result column="west_season_index" property="westSeasonIndex" />
+        
+    
+        
+            <result column="west_season_sale" property="westSeasonSale" />
+        
+    
+        
+            <result column="west_year_index" property="westYearIndex" />
+        
+    
+        
+            <result column="west_year_sale" property="westYearSale" />
+        
+    
+        
+            <result column="east_month_index" property="eastMonthIndex" />
+        
+    
+        
+            <result column="east_month_sale" property="eastMonthSale" />
+        
+    
+        
+            <result column="east_season_index" property="eastSeasonIndex" />
+        
+    
+        
+            <result column="east_season_sale" property="eastSeasonSale" />
+        
+    
+        
+            <result column="east_year_index" property="eastYearIndex" />
+        
+    
+        
+            <result column="east_year_sale" property="eastYearSale" />
+        
+    
+        
+            <result column="createAt" property="createAt" />
+        
+    
+        
+            <result column="updateAt" property="updateAt" />
+        
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <trim prefix=" " suffix=" " suffixOverrides=",">
+    
+      
+          id,
+      
+    
+      
+          month,
+      
+    
+      
+          season,
+      
+    
+      
+          year,
+      
+    
+      
+          month_index,
+      
+    
+      
+          month_sale,
+      
+    
+      
+          season_index,
+      
+    
+      
+          season_sale,
+      
+    
+      
+          year_index,
+      
+    
+      
+          year_sale,
+      
+    
+      
+          west_month_index,
+      
+    
+      
+          west_month_sale,
+      
+    
+      
+          west_season_index,
+      
+    
+      
+          west_season_sale,
+      
+    
+      
+          west_year_index,
+      
+    
+      
+          west_year_sale,
+      
+    
+      
+          east_month_index,
+      
+    
+      
+          east_month_sale,
+      
+    
+      
+          east_season_index,
+      
+    
+      
+          east_season_sale,
+      
+    
+      
+          east_year_index,
+      
+    
+      
+          east_year_sale,
+      
+    
+      
+          createAt,
+      
+    
+      
+          updateAt
+      
+    
+    </trim>
+  </sql>
+  <sql id="NoId_Column_List" >
+    <trim prefix=" " suffix=" " suffixOverrides=",">
+    
+      
+    
+      
+        
+            month,
+        
+      
+    
+      
+        
+            season,
+        
+      
+    
+      
+        
+            year,
+        
+      
+    
+      
+        
+            month_index,
+        
+      
+    
+      
+        
+            month_sale,
+        
+      
+    
+      
+        
+            season_index,
+        
+      
+    
+      
+        
+            season_sale,
+        
+      
+    
+      
+        
+            year_index,
+        
+      
+    
+      
+        
+            year_sale,
+        
+      
+    
+      
+        
+            west_month_index,
+        
+      
+    
+      
+        
+            west_month_sale,
+        
+      
+    
+      
+        
+            west_season_index,
+        
+      
+    
+      
+        
+            west_season_sale,
+        
+      
+    
+      
+        
+            west_year_index,
+        
+      
+    
+      
+        
+            west_year_sale,
+        
+      
+    
+      
+        
+            east_month_index,
+        
+      
+    
+      
+        
+            east_month_sale,
+        
+      
+    
+      
+        
+            east_season_index,
+        
+      
+    
+      
+        
+            east_season_sale,
+        
+      
+    
+      
+        
+            east_year_index,
+        
+      
+    
+      
+        
+            east_year_sale,
+        
+      
+    
+      
+        
+            createAt,
+        
+      
+    
+      
+        
+            updateAt
+        
+      
+    
+    </trim>
+  </sql>
+
+  
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from cacheIndex
+    where
+    
+      
+         id = #{id}
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="int" >
+    delete from cacheIndex
+    where
+    
+      
+        id = #{id}
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </delete>
+
+  <insert id="insert" parameterType="rml.model.CacheIndex" >
+    insert into cacheIndex
+    (<include refid="NoId_Column_List" />)
+    values (
+    <trim prefix=" " suffix=" " suffixOverrides=",">
+    
+      
+    
+      
+        
+          #{month},
+        
+      
+    
+      
+        
+          #{season},
+        
+      
+    
+      
+        
+          #{year},
+        
+      
+    
+      
+        
+          #{monthIndex},
+        
+      
+    
+      
+        
+          #{monthSale},
+        
+      
+    
+      
+        
+          #{seasonIndex},
+        
+      
+    
+      
+        
+          #{seasonSale},
+        
+      
+    
+      
+        
+          #{yearIndex},
+        
+      
+    
+      
+        
+          #{yearSale},
+        
+      
+    
+      
+        
+          #{westMonthIndex},
+        
+      
+    
+      
+        
+          #{westMonthSale},
+        
+      
+    
+      
+        
+          #{westSeasonIndex},
+        
+      
+    
+      
+        
+          #{westSeasonSale},
+        
+      
+    
+      
+        
+          #{westYearIndex},
+        
+      
+    
+      
+        
+          #{westYearSale},
+        
+      
+    
+      
+        
+          #{eastMonthIndex},
+        
+      
+    
+      
+        
+          #{eastMonthSale},
+        
+      
+    
+      
+        
+          #{eastSeasonIndex},
+        
+      
+    
+      
+        
+          #{eastSeasonSale},
+        
+      
+    
+      
+        
+          #{eastYearIndex},
+        
+      
+    
+      
+        
+          #{eastYearSale},
+        
+      
+    
+      
+        
+          #{createAt},
+        
+      
+    
+      
+        
+          #{updateAt}
+        
+      
+    
+    </trim>
+    )
+  </insert>
+
+  <insert id="insertSelective" parameterType="rml.model.CacheIndex" >
+    insert into cacheIndex
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      
+        <if test="id != null" >
+          id,
+        </if>
+      
+        <if test="month != null" >
+          month,
+        </if>
+      
+        <if test="season != null" >
+          season,
+        </if>
+      
+        <if test="year != null" >
+          year,
+        </if>
+      
+        <if test="monthIndex != null" >
+          month_index,
+        </if>
+      
+        <if test="monthSale != null" >
+          month_sale,
+        </if>
+      
+        <if test="seasonIndex != null" >
+          season_index,
+        </if>
+      
+        <if test="seasonSale != null" >
+          season_sale,
+        </if>
+      
+        <if test="yearIndex != null" >
+          year_index,
+        </if>
+      
+        <if test="yearSale != null" >
+          year_sale,
+        </if>
+      
+        <if test="westMonthIndex != null" >
+          west_month_index,
+        </if>
+      
+        <if test="westMonthSale != null" >
+          west_month_sale,
+        </if>
+      
+        <if test="westSeasonIndex != null" >
+          west_season_index,
+        </if>
+      
+        <if test="westSeasonSale != null" >
+          west_season_sale,
+        </if>
+      
+        <if test="westYearIndex != null" >
+          west_year_index,
+        </if>
+      
+        <if test="westYearSale != null" >
+          west_year_sale,
+        </if>
+      
+        <if test="eastMonthIndex != null" >
+          east_month_index,
+        </if>
+      
+        <if test="eastMonthSale != null" >
+          east_month_sale,
+        </if>
+      
+        <if test="eastSeasonIndex != null" >
+          east_season_index,
+        </if>
+      
+        <if test="eastSeasonSale != null" >
+          east_season_sale,
+        </if>
+      
+        <if test="eastYearIndex != null" >
+          east_year_index,
+        </if>
+      
+        <if test="eastYearSale != null" >
+          east_year_sale,
+        </if>
+      
+        <if test="createAt != null" >
+          createAt,
+        </if>
+      
+        <if test="updateAt != null" >
+          updateAt,
+        </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      
+        <if test="id != null" >
+          #{id},
+        </if>
+      
+        <if test="month != null" >
+          #{month},
+        </if>
+      
+        <if test="season != null" >
+          #{season},
+        </if>
+      
+        <if test="year != null" >
+          #{year},
+        </if>
+      
+        <if test="monthIndex != null" >
+          #{monthIndex},
+        </if>
+      
+        <if test="monthSale != null" >
+          #{monthSale},
+        </if>
+      
+        <if test="seasonIndex != null" >
+          #{seasonIndex},
+        </if>
+      
+        <if test="seasonSale != null" >
+          #{seasonSale},
+        </if>
+      
+        <if test="yearIndex != null" >
+          #{yearIndex},
+        </if>
+      
+        <if test="yearSale != null" >
+          #{yearSale},
+        </if>
+      
+        <if test="westMonthIndex != null" >
+          #{westMonthIndex},
+        </if>
+      
+        <if test="westMonthSale != null" >
+          #{westMonthSale},
+        </if>
+      
+        <if test="westSeasonIndex != null" >
+          #{westSeasonIndex},
+        </if>
+      
+        <if test="westSeasonSale != null" >
+          #{westSeasonSale},
+        </if>
+      
+        <if test="westYearIndex != null" >
+          #{westYearIndex},
+        </if>
+      
+        <if test="westYearSale != null" >
+          #{westYearSale},
+        </if>
+      
+        <if test="eastMonthIndex != null" >
+          #{eastMonthIndex},
+        </if>
+      
+        <if test="eastMonthSale != null" >
+          #{eastMonthSale},
+        </if>
+      
+        <if test="eastSeasonIndex != null" >
+          #{eastSeasonIndex},
+        </if>
+      
+        <if test="eastSeasonSale != null" >
+          #{eastSeasonSale},
+        </if>
+      
+        <if test="eastYearIndex != null" >
+          #{eastYearIndex},
+        </if>
+      
+        <if test="eastYearSale != null" >
+          #{eastYearSale},
+        </if>
+      
+        <if test="createAt != null" >
+          #{createAt},
+        </if>
+      
+        <if test="updateAt != null" >
+          #{updateAt},
+        </if>
+      
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="rml.model.CacheIndex" >
+    update cacheIndex
+    <set>
+      <trim prefix=" " suffix=" " suffixOverrides=",">
+        
+          
+        
+          
+            
+                <if test="month != null" >
+                  month = #{month},
+                </if>
+            
+          
+        
+          
+            
+                <if test="season != null" >
+                  season = #{season},
+                </if>
+            
+          
+        
+          
+            
+                <if test="year != null" >
+                  year = #{year},
+                </if>
+            
+          
+        
+          
+            
+                <if test="monthIndex != null" >
+                  month_index = #{monthIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="monthSale != null" >
+                  month_sale = #{monthSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="seasonIndex != null" >
+                  season_index = #{seasonIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="seasonSale != null" >
+                  season_sale = #{seasonSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="yearIndex != null" >
+                  year_index = #{yearIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="yearSale != null" >
+                  year_sale = #{yearSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westMonthIndex != null" >
+                  west_month_index = #{westMonthIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westMonthSale != null" >
+                  west_month_sale = #{westMonthSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westSeasonIndex != null" >
+                  west_season_index = #{westSeasonIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westSeasonSale != null" >
+                  west_season_sale = #{westSeasonSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westYearIndex != null" >
+                  west_year_index = #{westYearIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="westYearSale != null" >
+                  west_year_sale = #{westYearSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastMonthIndex != null" >
+                  east_month_index = #{eastMonthIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastMonthSale != null" >
+                  east_month_sale = #{eastMonthSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastSeasonIndex != null" >
+                  east_season_index = #{eastSeasonIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastSeasonSale != null" >
+                  east_season_sale = #{eastSeasonSale},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastYearIndex != null" >
+                  east_year_index = #{eastYearIndex},
+                </if>
+            
+          
+        
+          
+            
+                <if test="eastYearSale != null" >
+                  east_year_sale = #{eastYearSale},
+                </if>
+            
+          
+        
+          
+            
+          
+        
+          
+            
+                <if test="updateAt != null" >
+                  updateAt = #{updateAt},
+                </if>
+            
+          
+        
+      </trim>
+    </set>
+    where
+    
+      
+        id = #{id}
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="rml.model.CacheIndex" >
+    update cacheIndex
+    <set>
+      <trim prefix=" " suffix=" " suffixOverrides=",">
+      
+        
+      
+        
+          
+            <if test="month != null" >
+              month = #{month},
+            </if>
+          
+        
+      
+        
+          
+            <if test="season != null" >
+              season = #{season},
+            </if>
+          
+        
+      
+        
+          
+            <if test="year != null" >
+              year = #{year},
+            </if>
+          
+        
+      
+        
+          
+            <if test="monthIndex != null" >
+              month_index = #{monthIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="monthSale != null" >
+              month_sale = #{monthSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="seasonIndex != null" >
+              season_index = #{seasonIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="seasonSale != null" >
+              season_sale = #{seasonSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="yearIndex != null" >
+              year_index = #{yearIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="yearSale != null" >
+              year_sale = #{yearSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westMonthIndex != null" >
+              west_month_index = #{westMonthIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westMonthSale != null" >
+              west_month_sale = #{westMonthSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westSeasonIndex != null" >
+              west_season_index = #{westSeasonIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westSeasonSale != null" >
+              west_season_sale = #{westSeasonSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westYearIndex != null" >
+              west_year_index = #{westYearIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="westYearSale != null" >
+              west_year_sale = #{westYearSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastMonthIndex != null" >
+              east_month_index = #{eastMonthIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastMonthSale != null" >
+              east_month_sale = #{eastMonthSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastSeasonIndex != null" >
+              east_season_index = #{eastSeasonIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastSeasonSale != null" >
+              east_season_sale = #{eastSeasonSale},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastYearIndex != null" >
+              east_year_index = #{eastYearIndex},
+            </if>
+          
+        
+      
+        
+          
+            <if test="eastYearSale != null" >
+              east_year_sale = #{eastYearSale},
+            </if>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <if test="updateAt != null" >
+              updateAt = #{updateAt},
+            </if>
+          
+        
+      
+      </trim>
+    </set>
+    where
+    
+      
+        id = #{id}
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </update>
+  
+  <select id="getAll" resultMap="BaseResultMap" parameterType="rml.model.Page">
+	select
+    <trim prefix=" " suffix=" " suffixOverrides=",">
+    
+      
+          
+            id,
+          
+      
+    
+      
+          
+            month,
+          
+      
+    
+      
+          
+            season,
+          
+      
+    
+      
+          
+            year,
+          
+      
+    
+      
+          
+            month_index,
+          
+      
+    
+      
+          
+            month_sale,
+          
+      
+    
+      
+          
+            season_index,
+          
+      
+    
+      
+          
+            season_sale,
+          
+      
+    
+      
+          
+            year_index,
+          
+      
+    
+      
+          
+            year_sale,
+          
+      
+    
+      
+          
+            west_month_index,
+          
+      
+    
+      
+          
+            west_month_sale,
+          
+      
+    
+      
+          
+            west_season_index,
+          
+      
+    
+      
+          
+            west_season_sale,
+          
+      
+    
+      
+          
+            west_year_index,
+          
+      
+    
+      
+          
+            west_year_sale,
+          
+      
+    
+      
+          
+            east_month_index,
+          
+      
+    
+      
+          
+            east_month_sale,
+          
+      
+    
+      
+          
+            east_season_index,
+          
+      
+    
+      
+          
+            east_season_sale,
+          
+      
+    
+      
+          
+            east_year_index,
+          
+      
+    
+      
+          
+            east_year_sale,
+          
+      
+    
+      
+          
+            createAt,
+          
+      
+    
+      
+          
+            updateAt
+          
+      
+    
+    </trim>
+    from cacheIndex
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+          ORDER BY cacheIndex.updateAt
+      
+    
+
+    <choose>
+      <when test="order!=null and order!=''">
+        <choose>
+          <when test="order == 'DESC'.toString() or order == 'desc'.toString()">
+            DESC
+          </when>
+          <otherwise>
+            ASC
+          </otherwise>
+        </choose>
+      </when>
+      <otherwise>
+        DESC
+      </otherwise>
+    </choose>
+    <if test="offset!=null and limit!=null">LIMIT #{offset}, #{limit}</if>
+  </select>
+
+  <select id="countAll"
+          parameterType="rml.model.Page"
+          resultType="java.lang.Integer">
+    select count(1) from cacheIndex
+  </select>
+</mapper>

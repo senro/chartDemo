@@ -2,11 +2,11 @@ package rml.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rml.dao.CacheIndexMapper;
+import rml.dao.DataMapper;
 import rml.dao.DrugRecordMapper;
+import rml.model.*;
 import rml.model.Bo.*;
-import rml.model.DrugRecord;
-import rml.model.Page;
-import rml.model.PageResult;
 import rml.util.DateUtils;
 
 import java.text.ParseException;
@@ -18,6 +18,12 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 	@Autowired
 	private DrugRecordMapper drugRecordMapper;
+
+	@Autowired
+	private DataMapper dataMapper;
+
+	@Autowired
+	private CacheIndexMapper cacheIndexMapper;
 
 	@Override
 	public int insert(DrugRecord drugRecord) {
@@ -93,6 +99,10 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		List<MonthPriceIndex> resultList=new ArrayList<MonthPriceIndex>();
 		//先获取目前已经有哪些月份数据已经上传，按照升序排列，放在一个数组
 		List<DrugRecord> drugRecords=drugRecordMapper.selectAllMonths();
+		Page pageCacheIndex=new Page();
+		pageCacheIndex.setSize(1000000);
+
+		List<CacheIndex> cacheIndexs=cacheIndexMapper.getAll(pageCacheIndex);
         //遍历月份数组，获取每个月的type类型的药品数据，存在以月份命名的对象里，按照type计算每月的价格指数
 		//Map monthDateMap = new HashMap();
 
@@ -105,151 +115,135 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		int i=0;
 
 		for (DrugRecord drugRecord:drugRecords) {
-			if(i>0){
+			if(i>0){//为了跳过5月的计算
 				String currentMonth=drugRecord.getMonth();
+				Boolean showCurrentMonth=true;
 
-				Double baseMonthTotalPrice=0.0;
-				Double baseMonthTotalSale=0.0;
-				Double currentMonthTotalPrice=0.0;
-				Double currentMonthTotalSale=0.0;
+				List<Data> currentMonthDatas=dataMapper.selectByMonth(currentMonth);
 
-				List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
-				for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
-
-					String currentPrice=currentMonthDrugRecord.getPrice();
-					String currentSale=currentMonthDrugRecord.getSale();
-					Double price=0.0;
-					Double sale=0.0;
-
-					if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
-							!currentMonthDrugRecord.getPrice().equals("无")){
-
-						price=Double.valueOf(currentMonthDrugRecord.getPrice());
+				for (Data currentMonthData:currentMonthDatas) {
+					if(currentMonthData.getValidate().equals("no")){
+						showCurrentMonth=false;
 					}
-
-					if(!currentMonthDrugRecord.getSale().trim().equals("")&&
-							!currentMonthDrugRecord.getSale().equals("无")){
-
-						sale=Double.valueOf(currentMonthDrugRecord.getSale());
-					}
-
-					currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
-					currentMonthTotalSale=currentMonthTotalSale+sale;
-
-					List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndType(drugRecords.get(i-1).getMonth(),drugType);
-
-					for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
-
-						Double basePrice=0.0;
-						Double baseSale=0.0;
-
-						if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
-								!baseMonthDrugRecord.getPrice().equals("无")){
-
-							if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getDrugUnit().equals(currentMonthDrugRecord.getDrugUnit()) &&
-									baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
-									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
-
-								basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
-							}
-						}
-
-						if(!baseMonthDrugRecord.getSale().trim().equals("") &&
-								!baseMonthDrugRecord.getSale().equals("无")){
-
-							if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
-									baseMonthDrugRecord.getDrugUnit().equals(currentMonthDrugRecord.getDrugUnit()) &&
-									baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
-									baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
-									baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
-
-								baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
-							}
-						}
-
-						baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
-						baseMonthTotalSale=baseMonthTotalSale+baseSale;
-
-					}
-
 				}
 
-				System.out.printf(currentMonth+"月"+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(currentMonthTotalPrice)+"\n");
-				System.out.printf("基期 "+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(baseMonthTotalPrice)+"\n");
+				if(showCurrentMonth){
 
-				if(currentMonthDrugRecords.size()>0) {
+					Boolean currentMonthHasCache=false;
+
+					Double baseMonthTotalPrice=0.0;
+					Double baseMonthTotalSale=0.0;
+					Double currentMonthTotalPrice=0.0;
+					Double currentMonthTotalSale=0.0;
+
 					MonthPriceIndex currentMonthPriceIndex = new MonthPriceIndex();
 
-					if(currentMonth.equals("2016-06-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("102.08");
-						currentMonthPriceIndex.setTotalSale("6772055.918");
-					}else if(currentMonth.equals("2016-06-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("101.68");
-						currentMonthPriceIndex.setTotalSale("2692155.87");
-					}else if(currentMonth.equals("2016-07-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.27");//String.valueOf(100*(100.31/102.08))
-						currentMonthPriceIndex.setTotalSale("6466715.074");
-					}else if(currentMonth.equals("2016-07-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.21");//String.valueOf(100*(99.86/101.68))
-						currentMonthPriceIndex.setTotalSale("2733980.04");
-					}else if(currentMonth.equals("2016-08-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.45");//String.valueOf(100*(100.5/102.08))
-						currentMonthPriceIndex.setTotalSale("7037634.953");
-					}else if(currentMonth.equals("2016-08-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.39");//String.valueOf(100*(100.04/101.68))
-						currentMonthPriceIndex.setTotalSale("2811152.32");
-					}else if(currentMonth.equals("2016-09-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.33");//String.valueOf(100*(100.37/102.08))
-						currentMonthPriceIndex.setTotalSale("7488590.67");
-					}else if(currentMonth.equals("2016-09-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("100.23");//String.valueOf(100*(101.91/101.68))
-						currentMonthPriceIndex.setTotalSale("2807777.47");
-					}else if(currentMonth.equals("2016-10-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.38");//String.valueOf(100*(100.43/102.08))
-						currentMonthPriceIndex.setTotalSale("6690255.515");
-					}else if(currentMonth.equals("2016-10-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.36");//String.valueOf(100*(100.01/101.68))
-						currentMonthPriceIndex.setTotalSale("6673634.545");
-					}else if(currentMonth.equals("2016-11-01") && drugType.equals("0")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.44");//String.valueOf(100*(100.43/102.08))
-						currentMonthPriceIndex.setTotalSale("6690255.515");
-					}else if(currentMonth.equals("2016-11-01") && drugType.equals("1")){
-						currentMonthPriceIndex.setMonth(currentMonth);
-						currentMonthPriceIndex.setPriceIndex("98.64");//String.valueOf(100*(100.01/101.68))
-						currentMonthPriceIndex.setTotalSale("6673634.545");
-					}else{
-						Double originPriceIndex=0.0;
-						if(drugType.equals("0")){
+					for (CacheIndex cacheIndex:cacheIndexs) {
+						if(currentMonth.equals(cacheIndex.getMonth()) && drugType.equals("0") && cacheIndex.getWestMonthIndex()!=null && cacheIndex.getWestMonthSale()!=null){
 							currentMonthPriceIndex.setMonth(currentMonth);
-							originPriceIndex=(currentMonthTotalPrice / baseMonthTotalPrice) * 100;
-
-							currentMonthPriceIndex.setPriceIndex(String.valueOf( 100*(originPriceIndex/102.08) ));
-							currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
-						}else if(drugType.equals("1")){
+							currentMonthPriceIndex.setPriceIndex(cacheIndex.getWestMonthIndex());
+							currentMonthPriceIndex.setTotalSale(cacheIndex.getWestMonthSale());
+							currentMonthHasCache=true;
+						}else if(currentMonth.equals(cacheIndex.getMonth()) && drugType.equals("1") && cacheIndex.getEastMonthIndex()!=null && cacheIndex.getEastMonthSale()!=null){
 							currentMonthPriceIndex.setMonth(currentMonth);
-							originPriceIndex=(currentMonthTotalPrice / baseMonthTotalPrice) * 100;
+							currentMonthPriceIndex.setPriceIndex(cacheIndex.getEastMonthIndex());
+							currentMonthPriceIndex.setTotalSale(cacheIndex.getEastMonthSale());
+							currentMonthHasCache=true;
+						}
+					}
 
-							currentMonthPriceIndex.setPriceIndex(String.valueOf( 100*(originPriceIndex/101.68) ));
-							currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+					if(!currentMonthHasCache){//没有缓存
+						List<DrugRecord> currentMonthDrugRecords=drugRecordMapper.selectByMonthAndType(currentMonth,drugType);
+						for (DrugRecord currentMonthDrugRecord:currentMonthDrugRecords) {
+
+							String currentPrice=currentMonthDrugRecord.getPrice();
+							String currentSale=currentMonthDrugRecord.getSale();
+							Double price=0.0;
+							Double sale=0.0;
+
+							if(!currentMonthDrugRecord.getPrice().trim().equals("") &&
+									!currentMonthDrugRecord.getPrice().equals("无")){
+
+								price=Double.valueOf(currentMonthDrugRecord.getPrice());
+							}
+
+							if(!currentMonthDrugRecord.getSale().trim().equals("")&&
+									!currentMonthDrugRecord.getSale().equals("无")){
+
+								sale=Double.valueOf(currentMonthDrugRecord.getSale());
+							}
+
+							currentMonthTotalPrice=currentMonthTotalPrice+price*sale;
+							currentMonthTotalSale=currentMonthTotalSale+sale;
+
+							List<DrugRecord> baseMonthDrugRecords=drugRecordMapper.selectByMonthAndType(drugRecords.get(i-1).getMonth(),drugType);
+
+							for (DrugRecord baseMonthDrugRecord:baseMonthDrugRecords) {
+
+								Double basePrice=0.0;
+								Double baseSale=0.0;
+
+								if(!baseMonthDrugRecord.getPrice().trim().equals("") &&
+										!baseMonthDrugRecord.getPrice().equals("无")){
+
+									if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+											baseMonthDrugRecord.getDrugUnit().equals(currentMonthDrugRecord.getDrugUnit()) &&
+											baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
+											baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
+											baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
+
+										basePrice=Double.valueOf(baseMonthDrugRecord.getPrice());
+									}
+								}
+
+								if(!baseMonthDrugRecord.getSale().trim().equals("") &&
+										!baseMonthDrugRecord.getSale().equals("无")){
+
+									if(baseMonthDrugRecord.getDrugName().equals(currentMonthDrugRecord.getDrugName()) &&
+											baseMonthDrugRecord.getDrugUnit().equals(currentMonthDrugRecord.getDrugUnit()) &&
+											baseMonthDrugRecord.getDrugSpec().equals(currentMonthDrugRecord.getDrugSpec()) &&
+											baseMonthDrugRecord.getDrugFactory().equals(currentMonthDrugRecord.getDrugFactory()) &&
+											baseMonthDrugRecord.getHospitalName().equals(currentMonthDrugRecord.getHospitalName())){
+
+										baseSale=Double.valueOf(baseMonthDrugRecord.getSale());
+									}
+								}
+
+								baseMonthTotalPrice=baseMonthTotalPrice+basePrice*sale;
+								baseMonthTotalSale=baseMonthTotalSale+baseSale;
+
+							}
+
+						}
+
+						System.out.printf(currentMonth+"月"+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(currentMonthTotalPrice)+"\n");
+						System.out.printf("基期 "+(drugType.equals("0")?"西药":"中药")+"的总销售额为："+String.valueOf(baseMonthTotalPrice)+"\n");
+
+						if(currentMonthDrugRecords.size()>0) {
+
+							Double originPriceIndex=0.0;
+							if(drugType.equals("0")){
+								currentMonthPriceIndex.setMonth(currentMonth);
+								originPriceIndex=(currentMonthTotalPrice / baseMonthTotalPrice) * 100;
+
+								currentMonthPriceIndex.setPriceIndex(String.valueOf( 100*(originPriceIndex/102.08) ));
+								currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+							}else if(drugType.equals("1")){
+								currentMonthPriceIndex.setMonth(currentMonth);
+								originPriceIndex=(currentMonthTotalPrice / baseMonthTotalPrice) * 100;
+
+								currentMonthPriceIndex.setPriceIndex(String.valueOf( 100*(originPriceIndex/101.68) ));
+								currentMonthPriceIndex.setTotalSale(String.valueOf(currentMonthTotalSale));
+							}
+
 						}
 					}
 
 					System.out.printf(currentMonth+"月"+(drugType.equals("0")?"西药":"中药")+"的指数为："+String.valueOf((currentMonthTotalPrice / baseMonthTotalPrice) * 100)+"\n");
 					resultList.add(currentMonthPriceIndex);
+
 				}
+
 			}
 			i++;
 		}

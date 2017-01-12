@@ -1,1 +1,0 @@
-define("components/systemManage/privilegeManage/privilegeManage",function(e,n,i){function a(){r.html("日志管理内容"),o(document).ready(function(){})}var o=e("node_modules/egis-jquery/jquery"),r=o("aside");i.exports={render:a}});

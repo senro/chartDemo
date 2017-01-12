@@ -1,6 +1,6 @@
 //@require fis-mod
 var $=require('egis-jquery');
-var ajax=require('egis-ajax').ajax;
+var ajax=require('components/util/ajax').ajax;
 var jsonstringify=require('egis-util').JSON_stringify;
 var cookie=require('egis-cookie');
 var checkbox=require('egis-checkbox');

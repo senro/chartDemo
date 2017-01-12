@@ -3,9 +3,7 @@
  */
 var $ = require('egis-jquery');
 require('egis-bootstrap')();
-var loadCss=require('egis-load-css');
-var doGenTsc=require('egis-tsc').doGenTsc;
-var ajax=require('egis-ajax').ajax;
+var ajax=require('components/util/ajax').ajax;
 //var utilUser = require('components/util/utilUser');
 var $header = $('header');
 var cookie=require('egis-cookie');

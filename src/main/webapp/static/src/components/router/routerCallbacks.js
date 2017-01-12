@@ -27,4 +27,8 @@ routerCallbacks.uploadManage=function(){
     require('components/businessManage/uploadManage/uploadManage').render();
 };
 
+routerCallbacks.cacheIndex=function(){
+    require('components/cacheIndex/cacheIndex').render();
+};
+
 module.exports=routerCallbacks;

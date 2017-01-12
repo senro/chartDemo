@@ -4,10 +4,10 @@
 var $ = require('egis-jquery');
 require('egis-bootstrap/confirmation')();
 require('egis-bootstrap')();
-require('egis-datetimepicker')();
-require('egis-jquery-file-upload');
+require('egis-datetimepicker')($);
+require('egis-jquery-file-upload')($);
 
-var ajax = require('egis-ajax').ajax;
+var ajax=require('components/util/ajax').ajax;
 var pagination = require('egis-pagination');
 var template = require('egis-template');
 var loadCss = require('egis-load-css');
@@ -21,7 +21,7 @@ var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
 
 var $aside = $('aside');
-var Vue=require('vue');
+var Vue=require('vue1.x/dist/vue');
 
 function render(){
     $aside.hide().html(__inline('./dataManage.html')).fadeIn(500);

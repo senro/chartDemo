@@ -2,8 +2,9 @@
 var $ = require('egis-jquery');
 require('egis-bootstrap/confirmation')();
 require('egis-bootstrap')();
-var ajax = require('egis-ajax').ajax;
-var pagination = require('egis-pagination');
+var ajax=require('components/util/ajax').ajax;
+
+require('egis-pagination')($);
 var template = require('egis-template');
 var loadCss = require('egis-load-css');
 var checkbox = require('egis-checkbox');
@@ -13,7 +14,7 @@ var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
 //var utilUser = require('components/util/utilUser');
 var $aside = $('aside');
-var Vue=require('vue');
+var Vue=require('vue1.x/dist/vue');
 var getQueryString=require('egis-get-query-string');
 var regs=require('egis-validate/regs');
 var validateForm=require('egis-validate').validateForm;

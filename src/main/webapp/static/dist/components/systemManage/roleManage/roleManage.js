@@ -1,1 +1,0 @@
-define("components/systemManage/roleManage/roleManage",function(e,n,o){function a(){t.html("角色管理内容"),r(document).ready(function(){})}var r=e("node_modules/egis-jquery/jquery"),t=r("aside");o.exports={render:a}});

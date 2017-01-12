@@ -16,7 +16,7 @@ public interface DataMapper {
 
     Data selectByPrimaryKey(int id);
 
-    Data selectByEmail(String email);
+    List<Data> selectByMonth(String month);
 
     int updateByPrimaryKeySelective(Data data);
 

@@ -314,9 +314,9 @@ colors
 }
 /*btn*/
 .btn-orange{
-     background-color: #f9ac3a;
-     border-color: #f9ac3a;
-     color: #fff;
+    background-color: #f9ac3a;
+    border-color: #f9ac3a;
+    color: #fff;
 }
 .btn-orange:hover{
     background-color: #ffdb61;
@@ -416,8 +416,8 @@ colors
     background: url(/static/image/bg-spirit.png) no-repeat -92px -198px;
 }
 .singleRadio_hover:visited, .singleRadio_hover:focus, .singleRadio_hover:hover {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 .multiCheckbox{
     position:relative;
@@ -593,5 +593,3 @@ colors
     height: 39px;
     background: url(../image/loading.gif) center center no-repeat;
 }
-
-
