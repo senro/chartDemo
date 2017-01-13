@@ -1,0 +1,1 @@
+define("components/store/configureStore.jsx",function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){var t=u.createStore(s["default"],e);return t}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=o;var u=e("node_modules/redux/lib/index"),d=e("components/reducers/index.jsx"),s=r(d);n.exports=t["default"]});

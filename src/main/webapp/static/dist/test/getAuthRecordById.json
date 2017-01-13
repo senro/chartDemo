@@ -1,0 +1,38 @@
+{
+ "status": "0",
+ "data": [
+   {
+     "id": "1",
+     "appEnName":"guoke",
+     "businessMedia":"支付",
+     "cont": "向小墩转账100RMB",
+     "source": "192.168.1.2",
+     "device": "zzz",
+     "authType": "推送确认",
+     "state": "已确认",
+     "operateDate": "2015-02-02 14:00:00"
+   }
+ ,
+   {
+     "id": "1",
+     "cont": "向小墩转账100RMB",
+     "source": "192.168.1.2",
+     "device": "zzz",
+     "authType": "推送确认",
+     "state": "已取消",
+     "operateDate": "2015-02-02 14:00:00"
+   }
+ ,
+   {
+     "id": "1",
+     "cont": "向小墩转账100RMB",
+     "source": "192.168.1.2",
+     "device": "zzz",
+     "authType": "推送确认",
+     "state": "等待",
+     "operateDate": "2015-02-02 14:00:00"
+   }
+ ],
+ "detail": "请求数据成功!",
+ "key":"null"
+}
