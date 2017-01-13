@@ -68,6 +68,20 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>所属年份</label>
+                <select class="form-control mt10" name="year">
+                    <option value="">请选择</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>所属月份</label>
                 <select class="form-control mt10" name="month">
                     <option value="">请选择</option>
@@ -173,9 +187,9 @@
                             <a class="btn btn-info btn-transparent btn-modify btn-updateDrugRecord" href="javascript:;" title="编辑数据" data-id="{{ item.id }}">
                                 <span class="glyphicon glyphicon-edit"></span>
                             </a>
-                            <!--<a class="btn btn-info btn-transparent btn-deleteDrugRecord" title="删除数据" data-id="{{ item.id }}" data-placement="left" data-toggle="confirmation" data-original-title="确认删除?">-->
-                                <!--<span class="glyphicon glyphicon-trash"></span>-->
-                            <!--</a>-->
+                            <a class="btn btn-info btn-transparent btn-deleteDrugRecord" title="删除数据" data-id="{{ item.id }}" data-placement="left" data-toggle="confirmation" data-original-title="确认删除?">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
                         </td>
                     </tr>
                     {{/each}}
