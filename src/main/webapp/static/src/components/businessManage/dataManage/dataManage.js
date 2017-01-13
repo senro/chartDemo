@@ -158,7 +158,8 @@ function render(){
         sale:'',
         price:'',
         isValid:'',
-        month:''
+        month:'',
+        year:''
     };
 
     var $addDrugRecordModal=$('#modal-addDrugRecord');
@@ -187,6 +188,7 @@ function render(){
             },
             function (data) {
                 var dataObj = data.data || {};
+                dataObj.year=dataObj.month.split('-')[0];
                 dataObj.month=dataObj.month.split('-')[1];
                 model_DrugRecord= $.extend(model_DrugRecord,dataObj);
             },
@@ -203,9 +205,8 @@ function render(){
         var $this=$(this);
         if(!$this.hasClass('disable')){
             if(validateForm($addDrugRecordModal.find('form'))){
-                var tempDate=new Date();
 
-                //model_DrugRecord.month=tempDate.getFullYear()+'-'+model_DrugRecord.month+'-01';
+                model_DrugRecord.month=model_DrugRecord.year+'-'+model_DrugRecord.month+'-01';
 
                 ajax(
                     window.apiHost+'drugRecord/updateDrugRecord.do',
