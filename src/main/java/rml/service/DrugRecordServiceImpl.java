@@ -69,6 +69,11 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 	}
 
 	@Override
+	public int deleteAllByMonthAndHospitalName(String month, String hospitalName){
+		return drugRecordMapper.deleteAllByMonthAndHospitalName(month, hospitalName);
+	}
+
+	@Override
 	public DrugRecord getDrugRecordById(int id) {
 		return drugRecordMapper.selectByPrimaryKey(id);
 	}

@@ -65,6 +65,9 @@ public class Data extends Base {
     }
 
     public String getValidate() {
+        if(validate==null){
+            this.validate = "no";
+        }
         return validate;
     }
 
