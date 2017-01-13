@@ -244,10 +244,10 @@ function render(){
                 if((dateExtend.normalizeToSingleNum(model_Data.month)-1)!=0){
                     model_Data.preMonth=model_Data.year+'-'+dateExtend.normalizeSingleNum((dateExtend.normalizeToSingleNum(model_Data.month)-1))+'-01';
                 }else{
-                    model_Data.preMonth=model_Data.year+'-'+model_Data.month+'-01';
+                    model_Data.preMonth=(Number(model_Data.year)-1)+'-12-01';
                 }
 
-                model_Data.month=model_Data.year+'-'+dateExtend.normalizeSingleNum(model_Data.month)+'-01';
+                model_Data.month=model_Data.year+'-'+model_Data.month+'-01';
 
                 ajax(
                     url,

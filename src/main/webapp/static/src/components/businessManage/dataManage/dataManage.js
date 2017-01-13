@@ -14,7 +14,7 @@ var loadCss = require('egis-load-css');
 var checkbox = require('egis-checkbox');
 var dateExtend = require('egis-date-extend');
 var validateForm=require('egis-validate').validateForm;
-var formVars=require('egis-formvars');
+var FormVars=require('egis-formvars');
 //var validateForm=require('egis-validate').validateForm;
 var systemMessage=require('egis-system-message');
 var xhr = require('egis-xhr'),
@@ -56,9 +56,18 @@ function render(){
             return false;
         }
 
+        var formVars=new FormVars($context.serializeArray());
+
+        if(formVars.getItem('month') && !formVars.getItem('year')){
+            systemMessage.alert('请先选择年份！');
+            return false;
+        }
+        if(formVars.getItem('month') && formVars.getItem('year')){
+            formVars.setItem('month',formVars.getItem('year')+"-"+formVars.getItem('month')+"-"+"01");
+        }
         ajax(
             window.apiHost+'drugRecord/listDrugRecord.do',
-            $context.serializeArray(),//clearEmptyValue($context)
+            formVars.value(),//clearEmptyValue($context)
             function (data) {
                 var dataObj = data.data || {};
 

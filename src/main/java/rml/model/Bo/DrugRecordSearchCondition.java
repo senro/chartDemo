@@ -23,6 +23,22 @@ public class DrugRecordSearchCondition extends Page {
 
     private String month;
 
+    private String year;
+
+    public String getYear() {
+
+        return year;
+    }
+
+    public void setYear(String year) {
+        if(year==null||year.equals("")){
+            this.year="2016";
+        }else{
+            this.year = year;
+        }
+
+    }
+
     public int getUserId() {
         return userId;
     }
@@ -85,6 +101,7 @@ public class DrugRecordSearchCondition extends Page {
                 this.month = month;
             }else{
                 SimpleDateFormat df = new SimpleDateFormat("yyyy");//设置日期格式
+
                 this.month = df.format(new Date())+"-"+month+"-01";
             }
         }
