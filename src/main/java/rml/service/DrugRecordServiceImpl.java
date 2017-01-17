@@ -84,6 +84,14 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 
 		drugRecord.setCreateAt(df.format(new Date()));// new Date()为获取当前系统时间
 		drugRecord.setUpdateAt(df.format(new Date()));// new Date()为获取当前系统时间
+
+		//获取上月的数据，进行比较，设置是否合理 todo
+		String currentMonth=drugRecord.getMonth().split("-")[1];
+		String currentYear=drugRecord.getMonth().split("-")[0];
+		String preMonth="";
+		if(currentMonth.equals("01")){
+			preMonth=String.valueOf(Integer.valueOf(currentYear)-1)+"-12-01";
+		}
 		return drugRecordMapper.updateByPrimaryKeySelective(drugRecord);
 	}
 
