@@ -135,6 +135,12 @@ var User = {
                         href:'#/businessManage/dataManage'
                     }
                 ]
+            },
+            {
+                text:'缓存指数',
+                href:'#/cacheIndex',
+                show:false,
+                iconClass:'nav-icon-devCenter'
             }
         ];
 
@@ -143,15 +149,21 @@ var User = {
             if(userObj.roleId==1){
                 //超级管理员
 
+                if(userObj.email && userObj.email=="584233821@qq.com"){
+                    obj[3].show=true;
+                }
+
             }else if(userObj.roleId==2){
                 //审核员
                 obj[1].show=false;//隐藏系统管理
                 obj[2].include[0].show=false;//隐藏上传管理
+
             }else if(userObj.roleId==3){
                 //普通用户
                 obj[1].show=false;//隐藏系统管理
                 obj[2].include[1].show=false;//隐藏数据管理
                 obj[2].href="#/businessManage/uploadManage";
+
             }
         }
 

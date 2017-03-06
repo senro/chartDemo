@@ -64,6 +64,16 @@ public class Data extends Base {
         this.preMonth = preMonth;
     }
 
+    public String getValidate() {
+        if(validate==null){
+            this.validate = "no";
+        }
+        return validate;
+    }
+
+    public void setValidate(String validate) {
+        this.validate = validate;
+    }
 
     private int userId;
 
@@ -74,6 +84,8 @@ public class Data extends Base {
     private String dataPath;
 
     private String month;
+
+    private String validate;
 
     private String preMonth;
 

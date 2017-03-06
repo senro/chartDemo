@@ -4,24 +4,24 @@
 var $ = require('egis-jquery');
 require('egis-bootstrap/confirmation')();
 require('egis-bootstrap')();
-require('egis-datetimepicker')();
-require('egis-jquery-file-upload');
+require('egis-datetimepicker')($);
+require('egis-jquery-file-upload')($);
 
-var ajax = require('egis-ajax').ajax;
-var pagination = require('egis-pagination');
+var ajax=require('components/util/ajax').ajax;
+require('egis-pagination')($);
 var template = require('egis-template');
 var loadCss = require('egis-load-css');
 var checkbox = require('egis-checkbox');
 var dateExtend = require('egis-date-extend');
 var validateForm=require('egis-validate').validateForm;
-var formVars=require('egis-formvars');
+var FormVars=require('egis-formvars');
 //var validateForm=require('egis-validate').validateForm;
 var systemMessage=require('egis-system-message');
 var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
 
 var $aside = $('aside');
-var Vue=require('vue');
+var Vue=require('vue1.x/dist/vue');
 
 function render(){
     $aside.hide().html(__inline('./dataManage.html')).fadeIn(500);
@@ -56,9 +56,18 @@ function render(){
             return false;
         }
 
+        var formVars=new FormVars($context.serializeArray());
+
+        if(formVars.getItem('month') && !formVars.getItem('year')){
+            systemMessage.alert('请先选择年份！');
+            return false;
+        }
+        if(formVars.getItem('month') && formVars.getItem('year')){
+            formVars.setItem('month',formVars.getItem('year')+"-"+formVars.getItem('month')+"-"+"01");
+        }
         ajax(
             window.apiHost+'drugRecord/listDrugRecord.do',
-            $context.serializeArray(),//clearEmptyValue($context)
+            formVars.value(),//clearEmptyValue($context)
             function (data) {
                 var dataObj = data.data || {};
 
@@ -149,7 +158,8 @@ function render(){
         sale:'',
         price:'',
         isValid:'',
-        month:''
+        month:'',
+        year:''
     };
 
     var $addDrugRecordModal=$('#modal-addDrugRecord');
@@ -178,6 +188,7 @@ function render(){
             },
             function (data) {
                 var dataObj = data.data || {};
+                dataObj.year=dataObj.month.split('-')[0];
                 dataObj.month=dataObj.month.split('-')[1];
                 model_DrugRecord= $.extend(model_DrugRecord,dataObj);
             },
@@ -194,9 +205,8 @@ function render(){
         var $this=$(this);
         if(!$this.hasClass('disable')){
             if(validateForm($addDrugRecordModal.find('form'))){
-                var tempDate=new Date();
 
-                //model_DrugRecord.month=tempDate.getFullYear()+'-'+model_DrugRecord.month+'-01';
+                model_DrugRecord.month=model_DrugRecord.year+'-'+model_DrugRecord.month+'-01';
 
                 ajax(
                     window.apiHost+'drugRecord/updateDrugRecord.do',

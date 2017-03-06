@@ -36,7 +36,7 @@ public class WebController {
 	@Autowired
 	private FilesServiceI filesService;
 
-    private static Logger logger = Logger.getLogger(WebController.class);
+	private static Logger logger = Logger.getLogger(WebController.class);
 
 	@RequestMapping(value="/returnResult", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -191,8 +191,8 @@ public class WebController {
 	}
 
 	@RequestMapping(value="/register", produces = "application/json; charset=utf-8")
-    @ResponseBody
-    public String register(HttpServletRequest request, HttpSession session) {
+	@ResponseBody
+	public String register(HttpServletRequest request, HttpSession session) {
 
 		JSONObject resultJson=new JSONObject();
 		Users user=new Users();
@@ -271,9 +271,9 @@ public class WebController {
 	@RequestMapping(method= RequestMethod.GET,value = "/download")
 	@ResponseBody
 	public String download(HttpServletRequest request,
-						 HttpServletResponse response,
-						 String userId,
-						 String fileName)
+						   HttpServletResponse response,
+						   String userId,
+						   String fileName)
 			throws ServletException, IOException {
 
 		JSONObject resultJson=new JSONObject();

@@ -136,6 +136,11 @@
     where month = #{0} and userId= #{1}
   </delete>
 
+  <delete id="deleteAllByMonthAndHospitalName" >
+    delete from drugRecords
+    where month = #{0} and hospitalName= #{1}
+  </delete>
+
   <insert id="insert" parameterType="rml.model.DrugRecord" >
     insert into drugRecords (<include refid="Base_Column_NoId_List" />)
     values (

@@ -65,9 +65,16 @@
                             </span>
                         </td>
                         <td>
-                            <!--<a class="btn btn-info btn-transparent btn-checkoutData" href="javascript:;" title="查看数据" data-id="{{ item.id }}">-->
-                                <!--<span class="glyphicon glyphicon-eye-open"></span>-->
-                            <!--</a>-->
+                            {{ if item.validate=="yes" }}
+                                <a class="btn btn-info btn-transparent btn-validate" href="javascript:;" title="是否合理" data-validate="{{ item.validate }}" data-id="{{ item.id }}">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </a>
+                            {{ else }}
+                                <a class="btn btn-info btn-transparent btn-validate" href="javascript:;" title="是否合理" data-validate="{{ item.validate }}" data-id="{{ item.id }}">
+                                    <span class="glyphicon glyphicon-eye-close"></span>
+                                </a>
+                            {{ /if }}
+
                             <a class="btn btn-info btn-transparent btn-modify btn-updateData" href="javascript:;" title="编辑数据" data-id="{{ item.id }}">
                                 <span class="glyphicon glyphicon-edit"></span>
                             </a>
@@ -125,6 +132,26 @@
                                         </option>
                                         {{ /if }}
                                     </script>
+                                </select>
+                            </td>
+                            <td class="color-red">
+                                <!--<span class="color-red">*</span>-->
+                                <!--<span class="errorMsg"></span>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">数据年份</td>
+                            <td>
+                                <select class="form-control mt10" name="year" v-model="year" required="required" data-vd-msg="请选择年份！">
+                                    <option value="">请选择</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
                                 </select>
                             </td>
                             <td class="color-red">

@@ -15,78 +15,16 @@ var env={
         "apiHost":"/chartDemo/service/"
     }
 };
+
 // source setup
 fis.set('project.files', ['/favicon.ico','/index.html','/login.html','/components/**','/node_modules/**','/static/**', 'test/**']);//, './map.json'
 // used to do node_modules lookup
-fis.hook('npm');
+fis.hook('node_modules');
 
 // used to resolve dependencies and wrap your code with `define`.
 fis.hook('commonjs');
 
-function onPreprocess (content,file,options) {
-
-    // 兼容node的全局变量
-    var vars = {
-        process: function () {
-            return 'var process = require(\'process/browser\');';
-        },
-        global: function () {
-            return 'var global = typeof global !== "undefined" ? global : '
-                + 'typeof self !== "undefined" ? self : '
-                + 'typeof window !== "undefined" ? window : {};'
-                ;
-        },
-        Buffer: function () {
-            return 'var Buffer = require("buffer").Buffer;';
-        },
-        'Buffer.isBuffer': function () {
-            return 'Buffer.isBuffer = require("is-buffer");';
-        }
-    };
-
-// 替换node的一些全局变量
-    var replaceVars = {
-        __filename: function (file, basedir) {
-            var filename = '/' + path.relative(basedir, file);
-            return JSON.stringify(filename);
-        },
-        __dirname: function (file, basedir) {
-            var dir = path.dirname('/' + path.relative(basedir, file));
-            return JSON.stringify(dir);
-        }
-    };
-
-    var content = content;
-    var pushContent = [];
-    var rest = file.rest;
-    var basedir = '/';
-
-    if (!file.isJsLike || !file.isMod) {
-        return;
-    }
-
-    Object.keys(vars).forEach(function (name) {
-        if (RegExp('\\b' + name + '\\b').test(content) && !(file.fullname.indexOf(name.toLowerCase()) >= 0)) {
-            pushContent.push(vars[name](rest, basedir))
-        }
-    });
-
-    //Object.keys(replaceVars).forEach(function (name) {
-    //  content = content.replace(name, replaceVars[name](rest, basedir));
-    //});
-
-
-    // disabled.forEach(function (modules) {
-    //   var moduleName = getModuleNameFromId(file.id);
-    //   if (moduleName === modules.module) {
-    //     content = content.replace(new RegExp("require\\(\\s?['\"]" + modules.key.replace('.', '\\.') + "['\"]\\s?\\)", "g"), '{}');
-    //   }
-    // });
-
-    content = pushContent.join('\n') + '\n' + content;
-
-    return content;
-}
+//fis.on('process:start', onPreprocess);
 
 //配置mock接口模拟
 fis.match('/test/**', {
@@ -96,13 +34,12 @@ fis.match('/test/**', {
 fis.match('/test/server.conf', {
     release: '/config/server.conf'
 });
-
 // our module loader 
 fis.match('/node_modules/fis-mod/mod.js', {
     wrap: false
 });
 
-fis.match('/static/lib/**', {
+fis.match('/static/**', {
     wrap: false
 });
 
@@ -110,18 +47,53 @@ fis.match('/static/lib/**', {
 fis.match('/node_modules/**.js', {
     isMod: true,
     useSameNameRequire: true,
-    parser:onPreprocess
+    parser: fis.plugin('node-env')
     //release: '/dist/$0'
 });
+
+// vue组件本身配置
+fis.match('/components/**.vue', {
+  isMod: true,
+  rExt: 'js',
+  useSameNameRequire: true,
+  parser: fis.plugin('vue-component', {
+    cssScopeFlag: 'vuec'
+  })
+});
+
+// vue组件中js片段处理。
+fis.match('/components/**.vue:js', {
+  parser: [
+    fis.plugin('babel-5.x', {
+       sourceMaps: true
+    }),
+    fis.plugin('translate-es3ify', null, 'append')
+  ]
+})
+
+// vue组件中的less片段处理
+fis.match('/components/**.vue:less', {
+  rExt: 'css',
+  parser: fis.plugin('less-2.x'),
+  release: 'xxx' // 这个无效
+});
+
+// vue组件中的sass片段处理
+// fis.match('src/vue/**.vue:scss', {
+//   rExt: 'css',
+//   parser: fis.plugin('node-sass')
+// });
+
+// vue组件中的jade模板片段处理
+// fis.match('src/**.vue:jade', {
+//   rExt: 'css',
+//   parser: fis.plugin('jade')
+// });
 
 fis.match('/components/**.{js,jsx}', {
     isMod: true,
     useSameNameRequire: true
     //release: '/dist/$0'
-});
-
-fis.match('/**', {
-    url: env["default"]["baseUrl"]+'$0'
 });
 
 fis.match('{*.jsx,*:jsx}', {
@@ -131,7 +103,6 @@ fis.match('{*.jsx,*:jsx}', {
     rExt: '.js'
 });
 
-
 fis.match('**.less', {
     rExt: '.css', // from .less to .css
     parser: fis.plugin('less-2.x', {
@@ -140,12 +111,17 @@ fis.match('**.less', {
     })
 });
 
-fis.match('static/lib/GLOBAL_config.js', {
+fis.match('static/js/GLOBAL_config.js', {
     globalVars: {
+        //env:env["dev"]["env"],
         apiHost: env["default"]["apiHost"],
         baseUrl:env["default"]["baseUrl"]
     },
     parser: fis.plugin('global-vars')
+});
+
+fis.match('/**', {
+    url: env["default"]["baseUrl"]+'$0'
 });
 
 fis.match('::package', {
@@ -216,42 +192,3 @@ fis.media('prod')
         //     useTrack: false
         // })
     });
-
-//生产环境配置
-// fis.media('prod')
-//     .match('**.{js,jsx}', {
-//         optimizer: fis.plugin('uglify-js'),
-//         useHash: true
-//     })
-//     .match('**.{css,less}', {
-//         optimizer: fis.plugin('clean-css'),
-//         useHash: true
-//     })
-//     .match('/node_modules/**.(*)', {
-//         packTo: '/pkg/nodeModules.$1'
-//     })
-//     .match('/node_modules/fis-mod/**', {
-//         packTo: 'mod.js',
-//         packOrder: -1
-//     })
-//     .match('/components/**.(*)', {
-//         packTo: '/pkg/components.$1'
-//     })
-//     .match('/**', {
-//         url: env["prod"]["baseUrl"]+'$0'
-//     })
-//     .match('static/lib/GLOBAL_config.js', {
-//         globalVars: {
-//             apiHost: env["prod"]["apiHost"],
-//             baseUrl:env["prod"]["baseUrl"]
-//         },
-//         parser: fis.plugin('global-vars')
-//     })
-//     .match('::package', {
-//         postpackager: [
-//             fis.plugin('loader')
-//         ]
-//         // packager: fis.plugin('map', {
-//         //     useTrack: false
-//         // })
-//     });

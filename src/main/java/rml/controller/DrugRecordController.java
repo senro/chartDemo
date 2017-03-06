@@ -15,7 +15,9 @@ import rml.util.ExcelUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -89,7 +91,7 @@ public class DrugRecordController {
 		try{
 
 			resultJson.put("status","1");
-			if(session.getAttribute("getDataPriceIndexByMonth")!=null){
+			if(false){//session.getAttribute("getDataPriceIndexByMonth")!=null
 				resultJson.put("data",session.getAttribute("getDataPriceIndexByMonth"));
 			}else{
 				List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonth();
@@ -117,7 +119,7 @@ public class DrugRecordController {
 		try{
 			resultJson.put("status","1");
 
-			if(session.getAttribute("getDataPriceIndexByMonthAndType"+drugType)!=null){
+			if(false){//session.getAttribute("getDataPriceIndexByMonthAndType"+drugType)!=null
 				resultJson.put("data",session.getAttribute("getDataPriceIndexByMonthAndType"+drugType));
 			}else{
 				List<MonthPriceIndex> data = drugRecordService.getDataPriceIndexByMonthAndDrugType(drugType);

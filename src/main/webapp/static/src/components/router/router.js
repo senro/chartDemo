@@ -18,7 +18,9 @@ var route = {
     //数据管理
     "/businessManage/dataManage":routerCallbacks.dataManage,
 
-    "/businessManage/uploadManage":routerCallbacks.uploadManage
+    "/businessManage/uploadManage":routerCallbacks.uploadManage,
+
+    "/cacheIndex":routerCallbacks.cacheIndex
 
 };
 

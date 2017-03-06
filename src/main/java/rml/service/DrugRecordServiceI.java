@@ -35,6 +35,8 @@ public interface DrugRecordServiceI {
 
     int deleteAllByMonthAndUserId(String month,int userId);
 
+    int deleteAllByMonthAndHospitalName(String month, String hospitalName);
+
     DrugRecord getDrugRecordById(int id);
 
     DrugRecord selectByPrimaryKey(int id);

@@ -1,1 +1,1 @@
-define("components/footer/footer",function(o){function e(){var o=n("footer");o.load(window.baseUrl+"/components/footer/footer.html",function(){})}var n=o("jquery");n(document).ready(e)});
+define("components/footer/footer",function(o){function e(){var o=n("footer");o.load(window.baseUrl+"/components/footer/footer.html",function(){})}var n=o("node_modules/jquery/dist/jquery");n(document).ready(e)});

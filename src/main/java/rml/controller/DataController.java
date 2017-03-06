@@ -204,7 +204,7 @@ public class DataController {
 
 		try{
 			Data data = dataService.getDataById(id);
-			drugRecordService.deleteAllByMonthAndUserId(data.getMonth(),data.getUserId());
+			drugRecordService.deleteAllByMonthAndHospitalName(data.getMonth(),data.getHospitalName());
 			dataService.delete(id);
 
 			resultJson.put("status","1");

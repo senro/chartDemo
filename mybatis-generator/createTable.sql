@@ -100,12 +100,53 @@ createAt VARCHAR(30),
 updateAt VARCHAR(30)
 ) charset utf8 collate utf8_general_ci;
 
+-- 指数销售额记录表
+create table cacheIndex(
+id int primary key auto_increment,
+
+month VARCHAR(50),
+season VARCHAR(50),
+year VARCHAR(50),
+
+month_index VARCHAR(50),
+month_sale VARCHAR(50),
+
+season_index VARCHAR(50),
+season_sale VARCHAR(50),
+
+year_index VARCHAR(50),
+year_sale VARCHAR(50),
+
+west_month_index varchar(50),
+west_month_sale varchar(50),
+
+west_season_index varchar(50),
+west_season_sale varchar(50),
+
+west_year_index varchar(50),
+west_year_sale varchar(50),
+
+east_month_index varchar(50),
+east_month_sale varchar(50),
+
+east_season_index varchar(50),
+east_season_sale varchar(50),
+
+east_year_index varchar(50),
+east_year_sale varchar(50),
+
+createAt VARCHAR(30),
+updateAt VARCHAR(30)
+) charset utf8 collate utf8_general_ci;
+
 INSERT INTO `users`( `name`, `email`, `password`, `roleId`) VALUES ('superDevAdmin','passtome@foxmail.com','abc111111','1');
 
 
 ALTER TABLE priceIndex MODIFY month VARCHAR(30);
 ALTER TABLE priceIndex MODIFY season VARCHAR(30);
 ALTER TABLE priceIndex MODIFY year VARCHAR(30);
+
+ALTER TABLE `data` ADD `validate` VARCHAR( 10 ) DEFAULT "yes";
 
 -- ALTER TABLE users MODIFY updateAt VARCHAR(30);
 --

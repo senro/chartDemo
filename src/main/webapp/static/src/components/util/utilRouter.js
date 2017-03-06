@@ -1,5 +1,5 @@
 var $=require('egis-jquery');
-var ajax = require('egis-ajax').ajax;
+var ajax = require('components/util/ajax').ajax;
 var jsonstringify=require('egis-util').JSON_stringify;
 var utilUser=require('components/util/utilUser');
 var cookie = require('egis-cookie');

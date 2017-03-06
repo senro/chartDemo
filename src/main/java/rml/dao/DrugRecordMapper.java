@@ -43,5 +43,7 @@ public interface DrugRecordMapper {
 
     int deleteAllByMonthAndUserId(String month,int userId);
 
+    int deleteAllByMonthAndHospitalName(String month,String hospitalName);
+
     int countAll(Page page);
 }

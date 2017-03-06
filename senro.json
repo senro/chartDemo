@@ -1,0 +1,292 @@
+{
+    "database": {
+        "type": "mysql",
+        "tables": [
+            {
+                "name": "cacheIndex",
+                "label": "指数缓存",
+                "fields": [
+                    {
+                        "name": "id",
+                        "label": "id",
+                        "type": "int",
+                        "primaryKey": true,
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "month",
+                        "label": "月份",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "season",
+                        "label": "季度",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "year",
+                        "label": "年份",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "month_index",
+                        "label": "月指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "month_sale",
+                        "label": "月销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "season_index",
+                        "label": "季指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "season_sale",
+                        "label": "季销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "year_index",
+                        "label": "年指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "year_sale",
+                        "label": "年销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "west_month_index",
+                        "label": "西药月指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "west_month_sale",
+                        "label": "西药月销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "west_season_index",
+                        "label": "西药季指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "west_season_sale",
+                        "label": "西药季销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "west_year_index",
+                        "label": "西药年指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "west_year_sale",
+                        "label": "西药年销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "east_month_index",
+                        "label": "中药月指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "east_month_sale",
+                        "label": "中药月销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "east_season_index",
+                        "label": "中药季指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "east_season_sale",
+                        "label": "中药季销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "east_year_index",
+                        "label": "中药年指数",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "east_year_sale",
+                        "label": "中药年销售额",
+                        "type": "String",
+                        "editable": true,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+
+                    {
+                        "name": "createAt",
+                        "alias": "create_at",
+                        "label": "创建时间",
+                        "type": "String",
+                        "editable": false,
+                        "listShow": true,
+                        "canBeSearch": false
+                    },
+                    {
+                        "name": "updateAt",
+                        "alias": "update_at",
+                        "label": "修改时间",
+                        "type": "String",
+                        "editable": false,
+                        "listShow": true,
+                        "canBeSearch": false
+                    }
+                ]
+            }
+        ]
+    },
+    "server": {
+        "type": "java",
+        "structure": "springmvc",
+        "packageName": "rml",
+        "clientPath": "src/main/webapp/static/src/",
+        "templates": [
+            {
+                "path": "src/main/java/{{packageName}}/model/{{table.name}}.java",
+                "single": true,
+                "release": "src/main/java/{{packageName}}/model/{{table.name}}.java"
+            },
+            {
+                "path": "src/main/java/{{packageName}}/dao/{{table.name}}Mapper.java",
+                "single": true,
+                "release": "src/main/java/{{packageName}}/dao/{{table.name}}Mapper.java"
+            },
+            {
+                "path": "src/main/java/{{packageName}}/controller/{{table.name}}Controller.java",
+                "single": true,
+                "release": "src/main/java/{{packageName}}/controller/{{table.name}}Controller.java"
+            },
+            {
+                "path": "src/main/java/{{packageName}}/service/{{table.name}}ServiceI.java",
+                "single": true,
+                "release": "src/main/java/{{packageName}}/service/{{table.name}}ServiceI.java"
+            },
+            {
+                "path": "src/main/java/{{packageName}}/service/{{table.name}}ServiceImpl.java",
+                "single": true,
+                "release": "src/main/java/{{packageName}}/service/{{table.name}}ServiceImpl.java"
+            },
+            {
+                "path": "src/main/resources/mapping/{{table.name}}Mapper.xml",
+                "single": true,
+                "release": "src/main/resources/mapping/{{table.name}}Mapper.xml"
+            }
+        ]
+    },
+    "client": {
+        "type": "system",
+        "templates": [
+            {
+                "path": "test/{{server}}.conf",
+                "vars": [
+                    {
+                        "mark": "#{{server.rewrite}}",
+                        "path": "test/{{server.rewrite}}.conf"
+                    }
+                ],
+                "release": "test/server.conf"
+            },
+            {
+                "path": "components/{{table.name}}Manage.vue",
+                "release": "components/{{table.name}}Manage.vue"
+            },
+            {
+                "path": "test/get{{table.name}}.json",
+                "release": "test/get{{table.name}}.json"
+            },
+            {
+                "path": "test/add{{table.name}}.json",
+                "release": "test/add{{table.name}}.json"
+            },
+            {
+                "path": "test/update{{table.name}}.json",
+                "release": "test/update{{table.name}}.json"
+            },
+            {
+                "path": "test/delete{{table.name}}.json",
+                "release": "test/delete{{table.name}}.json"
+            }
+        ]
+    }
+}
