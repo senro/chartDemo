@@ -1,0 +1,51 @@
+{
+ "status": "0",
+ "data": {
+   "content": [
+     {
+       "authId": "1",
+       "app": "时空令",
+       "account": "1@payegis.com",
+       "accountMedia": "支付",
+       "authDevice": "ZTE",
+       "authChannel": "天士力APP",
+       "authType":"推送确认+PIN",
+       "accountState": "已激活",
+       "lastOperateTime":"2015-12-1 13:00:00"
+     }
+     ,
+     {
+       "authId": "2",
+       "app": "时空令",
+       "account": "1@payegis.com",
+       "accountMedia": "支付",
+       "authDevice": "ZTE",
+       "authChannel": "天士力APP",
+       "authType":"推送确认+PIN",
+       "accountState": "已激活",
+       "lastOperateTime":"2015-12-1 13:00:00"
+     }
+     ,
+     {
+       "authId": "3",
+       "app": "时空令",
+       "account": "1@payegis.com",
+       "accountMedia": "支付",
+       "authDevice": "ZTE",
+       "authChannel": "天士力APP",
+       "authType":"推送确认+PIN",
+       "accountState": "已激活",
+       "lastOperateTime":"2015-12-1 13:00:00"
+     }
+    ],
+   "size":"2",
+   "number":"0",
+   "sort":"null",
+   "numberOfElements":"2",
+   "totalElements":"2",
+   "totalPages":"1",
+   "firstPage":"true",
+   "lastPage":"true"
+  },
+ "detail": "请求数据成功!"
+}

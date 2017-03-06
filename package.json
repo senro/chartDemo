@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "staticDir":"src/main/webapp/static",
-  "license": "ISC"
+  "staticDir": "src/main/webapp/static",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^1.0.28"
+  }
 }

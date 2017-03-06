@@ -1,0 +1,1 @@
+{"version":3,"sources":["/components/constants/ActionTypes.jsx"],"names":[],"mappings":";;;;;;;AAAO,IAAM,WAAW,GAAG,UAAU,CAAC","file":"/components/constants/ActionTypes.jsx","sourcesContent":["export const SUBMIT_USER = 'ADD_USER';\n\n"]}
