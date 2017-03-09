@@ -1,16 +1,1 @@
-define('components/footer/footer', function(require, exports, module) {
-
-  var $ = require('jquery');
-  
-  function domReady() {
-  
-      var $footer = $('footer');
-      $footer.load(window.baseUrl+"/components/footer/footer.html", function(html){
-          //alert("header have been loaded");
-          //console.log(html);
-      });
-  }
-  
-  $(document).ready(domReady);
-
-});
+define("components/footer/footer",function(o){function e(){var o=n("footer");o.load(window.baseUrl+"/components/footer/footer.html",function(){})}var n=o("node_modules/jquery/dist/jquery");n(document).ready(e)});

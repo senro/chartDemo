@@ -86,39 +86,39 @@ public class DrugRecordServiceImpl implements DrugRecordServiceI{
 		drugRecord.setUpdateAt(df.format(new Date()));// new Date()为获取当前系统时间
 
 		//获取上月的数据，进行比较，设置是否合理 todo
-		String currentMonth=drugRecord.getMonth().split("-")[1];
-		String currentYear=drugRecord.getMonth().split("-")[0];
-		String preMonth="";
-		if(currentMonth.equals("01")){
-			preMonth=String.valueOf(Integer.valueOf(currentYear)-1)+"-12-01";
-		}else{
-			preMonth=currentYear+"-"+((Integer.valueOf(currentMonth)-1)<10 ? "0"+String.valueOf(Integer.valueOf(currentMonth)-1):String.valueOf(Integer.valueOf(currentMonth)-1))+"-01";
-		}
-
-		DrugRecordSearchCondition preMonthDrugRecordSearchCondition=new DrugRecordSearchCondition();
-		preMonthDrugRecordSearchCondition.setMonth(preMonth);
-		preMonthDrugRecordSearchCondition.setDrugName(drugRecord.getDrugName());
-		preMonthDrugRecordSearchCondition.setDrugSpec(drugRecord.getDrugSpec());
-		preMonthDrugRecordSearchCondition.setDrugFactory(drugRecord.getDrugFactory());
-		preMonthDrugRecordSearchCondition.setUserId(drugRecord.getUserId());
-
-		DrugRecord preMonthDrugRecord= drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactoryAndUserId(preMonthDrugRecordSearchCondition);
-
-		if( !drugRecord.getPrice().equals("") &&
-				!preMonthDrugRecord.getPrice().equals("")&&
-				!drugRecord.getPrice().equals("无") &&
-				!preMonthDrugRecord.getPrice().equals("无")) {
-
-			Double currMonthPrice = Double.valueOf(drugRecord.getPrice());
-			Double preMonthPrice = Double.valueOf(preMonthDrugRecord.getPrice());
-
-			if ((currMonthPrice - preMonthPrice) > preMonthPrice * 0.5) {
-				//价格涨幅超上月50%
-				drugRecord.setIsValid("0");
-			} else {
-				drugRecord.setIsValid("1");
-			}
-		}
+//		String currentMonth=drugRecord.getMonth().split("-")[1];
+//		String currentYear=drugRecord.getMonth().split("-")[0];
+//		String preMonth="";
+//		if(currentMonth.equals("01")){
+//			preMonth=String.valueOf(Integer.valueOf(currentYear)-1)+"-12-01";
+//		}else{
+//			preMonth=currentYear+"-"+((Integer.valueOf(currentMonth)-1)<10 ? "0"+String.valueOf(Integer.valueOf(currentMonth)-1):String.valueOf(Integer.valueOf(currentMonth)-1))+"-01";
+//		}
+//
+//		DrugRecordSearchCondition preMonthDrugRecordSearchCondition=new DrugRecordSearchCondition();
+//		preMonthDrugRecordSearchCondition.setMonth(preMonth);
+//		preMonthDrugRecordSearchCondition.setDrugName(drugRecord.getDrugName());
+//		preMonthDrugRecordSearchCondition.setDrugSpec(drugRecord.getDrugSpec());
+//		preMonthDrugRecordSearchCondition.setDrugFactory(drugRecord.getDrugFactory());
+//		preMonthDrugRecordSearchCondition.setUserId(drugRecord.getUserId());
+//
+//		DrugRecord preMonthDrugRecord= drugRecordMapper.selectByMonthAndDrugNameAndDrugSpecAndDrugFactoryAndUserId(preMonthDrugRecordSearchCondition);
+//
+//		if( !drugRecord.getPrice().equals("") &&
+//				!preMonthDrugRecord.getPrice().equals("")&&
+//				!drugRecord.getPrice().equals("无") &&
+//				!preMonthDrugRecord.getPrice().equals("无")) {
+//
+//			Double currMonthPrice = Double.valueOf(drugRecord.getPrice());
+//			Double preMonthPrice = Double.valueOf(preMonthDrugRecord.getPrice());
+//
+//			if ((currMonthPrice - preMonthPrice) > preMonthPrice * 0.5) {
+//				//价格涨幅超上月50%
+//				drugRecord.setIsValid("0");
+//			} else {
+//				drugRecord.setIsValid("1");
+//			}
+//		}
 
 		return drugRecordMapper.updateByPrimaryKeySelective(drugRecord);
 	}
