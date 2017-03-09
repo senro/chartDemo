@@ -33,6 +33,8 @@ public interface DrugRecordMapper {
 
     List<DrugRecord> selectByMonthAndDrugNameAndDrugSpecAndDrugFactory(DrugRecordSearchCondition drugRecordSearchCondition);
 
+    DrugRecord selectByMonthAndDrugNameAndDrugSpecAndDrugFactoryAndUserId(DrugRecordSearchCondition drugRecordSearchCondition);
+
     int updateByPrimaryKeySelective(DrugRecord drugRecord);
 
     int updateByPrimaryKey(DrugRecord drugRecord);

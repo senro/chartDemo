@@ -104,6 +104,29 @@
     </trim>
   </select>
 
+  <select id="selectByMonthAndDrugNameAndDrugSpecAndDrugFactoryAndUserId" parameterType="rml.model.Bo.DrugRecordSearchCondition" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from drugRecords
+    <trim prefix="Where" prefixOverrides="AND |OR">
+      <if test="drugName != null and drugName != ''" >
+        AND drugName = #{drugName}
+      </if>
+      <if test="drugSpec != null and drugSpec != ''" >
+        AND drugSpec = #{drugSpec}
+      </if>
+      <if test="drugFactory != null and drugFactory != ''" >
+        AND drugFactory = #{drugFactory}
+      </if>
+      <if test="month != null and month != ''" >
+        AND month= #{month}
+      </if>
+      <if test="userId != null and userId != ''" >
+        AND userId= #{userId}
+      </if>
+    </trim>
+  </select>
+
   <select id="selectAllMonths" resultMap="MonthsResultMap">
     select
     distinct
