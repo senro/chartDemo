@@ -3,17 +3,10 @@ var routerCallbacks=require('./routerCallbacks');
 
 //定义路由
 var route = {
-    /*首页*/
-    "/main":routerCallbacks.main,
+
     /*系统管理*/
     //用户管理
     "/systemManage/userManage":routerCallbacks.userManage,
-
-    "/systemManage/userManage/addUser":routerCallbacks.addUser,
-    //角色管理
-    "/systemManage/roleManage":routerCallbacks.roleManage,
-    //日志管理
-    "/systemManage/privilegeManage":routerCallbacks.privilegeManage,
     /*业务管理*/
     //数据管理
     "/businessManage/dataManage":routerCallbacks.dataManage,

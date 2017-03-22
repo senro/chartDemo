@@ -14,6 +14,8 @@ public interface DataServiceI {
 
     Data selectByPrimaryKey(int id);
 
+    List<Data> selectByMonth(String month);
+
     int insert(Data data);
 
     int update(Data data);

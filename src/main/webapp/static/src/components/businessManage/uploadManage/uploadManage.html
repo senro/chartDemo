@@ -1,17 +1,58 @@
 
 <div class="page page-uploadManage">
     <div class="page-tit">
-        <form role="form" class="page-tit-form" id="searchForm">
-            上传管理
+        上传管理
+        <a href="javascript:;" class="btn btn-primary pull-right btn-addData" id="btn-addData">
+            <span class="glyphicon glyphicon-plus"></span>
+            新增数据
+        </a>
+    </div>
+
+    <div class="page-search">
+        <form class="form-inline" id="searchForm">
             <input type="hidden" name="page" value="1">
             <input type="hidden" name="size" value="20">
             <input type="hidden" name="order" value="desc">
-            <a href="javascript:;" class="btn btn-primary pull-right btn-addData" id="btn-addData">
-                <span class="glyphicon glyphicon-plus"></span>
-                新增数据
-            </a>
+        </form>
+        <form role="form" class="page-tit-form form-inline" id="calcuForm">
+            <div class="form-group">
+                <label>所属年份</label>
+                <select class="form-control mt10" name="year">
+                    <option value="">请选择</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>所属月份</label>
+                <select class="form-control mt10" name="month">
+                    <option value="">请选择</option>
+                    <option value="01">1月</option>
+                    <option value="02">2月</option>
+                    <option value="03">3月</option>
+                    <option value="04">4月</option>
+                    <option value="05">5月</option>
+                    <option value="06">6月</option>
+                    <option value="07">7月</option>
+                    <option value="08">8月</option>
+                    <option value="09">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" id="btn-calcu">
+                计算
+            </button>
         </form>
     </div>
+
     <div class="page-cont">
         <table id="listTable" class="merchant-manage default-list box table table-hover table-bordered">
             <thead>

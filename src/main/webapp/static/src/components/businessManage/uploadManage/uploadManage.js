@@ -28,10 +28,38 @@ function render(){
     $aside.hide().html(__inline('./uploadManage.html')).fadeIn(500);
     var $page=$('.page-uploadManage');
     var $searchForm = $('#searchForm'),
+        $calcuForm = $('#calcuForm'),
         $pageNum = $searchForm.find('input[name=page]'),
         $pageSize = $searchForm.find('input[name=size]'),
         $pagination = $('#pagination');
 
+
+    $('#btn-calcu').click(function(){
+        var $this=$(this);
+        var year=$calcuForm.find('select[name=year]').val();
+        var month=$calcuForm.find('select[name=month]').val();
+
+        if(!$this.hasClass('disable')){
+            if(year&&month){
+                ajax(
+                    window.apiHost+'data/calcuData.do',
+                    {
+                        month:year+'-'+month+'-01'
+                    },//clearEmptyValue($context)
+                    function (data) {
+                        $this.removeClass('disable');
+                        $searchForm.trigger('submit');
+                        systemMessage.info(year+'-'+month+'-01'+'的数据计算成功，将显示在数据展示页的图表里！');
+                        $calcuForm[0].reset();
+                    }
+                );
+            }else{
+                systemMessage.alert('请选择要计算的年份和月份！');
+            }
+        }
+
+        return false;
+    });
     /*列表展示*/
     var listRender=template.compile($('#list-tpl').html());
 
@@ -178,29 +206,29 @@ function render(){
     });
 
     //设置合理性
-    $page.on('click','.btn-validate',function(){
-        var id=$(this).attr('data-id');
-        var validate=$(this).attr('data-validate');
-        //获取数据详情
-        ajax(
-            window.apiHost+'data/updateData.do',
-            {
-                id:id,
-                validate:validate=='yes'?'no':'yes'
-            },
-            function (data) {
-                systemMessage.info('设置为'+(validate=='yes'?'不':'')+'合理！');
-                $searchForm.trigger('submit');
-            },
-            function () {
-
-            },function(){
-
-            },'post'
-        );
-
-        return false;
-    });
+    //$page.on('click','.btn-validate',function(){
+    //    var id=$(this).attr('data-id');
+    //    var validate=$(this).attr('data-validate');
+    //    //获取数据详情
+    //    ajax(
+    //        window.apiHost+'data/updateData.do',
+    //        {
+    //            id:id,
+    //            validate:validate=='yes'?'no':'yes'
+    //        },
+    //        function (data) {
+    //            systemMessage.info('设置为'+(validate=='yes'?'不':'')+'合理！');
+    //            $searchForm.trigger('submit');
+    //        },
+    //        function () {
+    //
+    //        },function(){
+    //
+    //        },'post'
+    //    );
+    //
+    //    return false;
+    //});
 
     $page.on('click','.btn-updateData',function(){
         $addDataModal.modal('show');

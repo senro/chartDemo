@@ -65,4 +65,9 @@ public class DataServiceImpl implements DataServiceI{
 		return dataMapper.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public List<Data> selectByMonth(String month) {
+		return dataMapper.selectByMonth(month);
+	}
+
 }

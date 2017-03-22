@@ -7,7 +7,3 @@ var protocol = window.location.protocol + '//',
 
 window.baseUrl = baseUrl;
 window.apiHost = apiHost;
-window.loginUrl=window.baseUrl + '/login.html';
-
-window.env='{{env}}';
-window.loginUrl=window.baseUrl+'/login.html';

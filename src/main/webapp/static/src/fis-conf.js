@@ -132,7 +132,7 @@ fis.match('::package', {
 
 //maven开发环境场景配置
 fis.media('dev')
-    .match('static/lib/GLOBAL_config.js', {
+    .match('static/js/GLOBAL_config.js', {
         globalVars: {
             apiHost: env["dev"]["apiHost"],
             baseUrl:env["dev"]["baseUrl"]
@@ -170,7 +170,7 @@ fis.media('prod')
     .match('*.png', {
         optimizer: fis.plugin('png-compressor')
     })
-    .match('static/lib/GLOBAL_config.js', {
+    .match('static/js/GLOBAL_config.js', {
         globalVars: {
             apiHost: env["prod"]["apiHost"],
             baseUrl:env["prod"]["baseUrl"]

@@ -241,4 +241,52 @@ public class DataController {
 
 
 	}
+
+	@RequestMapping(value="/calcuData", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String calcuData(HttpServletRequest request, HttpSession session,String month) {
+
+		logger.info("计算数据！");
+
+		JSONObject resultJson=new JSONObject();
+
+		try{
+
+			List<Data> currentMonthDatas= dataService.selectByMonth(month);
+			for (Data currentMonthData:
+					currentMonthDatas) {
+				Data param=new Data();
+				param.setId(currentMonthData.getId());
+				param.setValidate("yes");
+
+				dataService.update(param);
+			}
+
+			session.removeAttribute("getDataPriceIndexByMonth");
+			session.removeAttribute("getDataPriceIndexByMonthAndType0");
+			session.removeAttribute("getDataPriceIndexByMonthAndType1");
+
+			session.removeAttribute("getDataPriceIndexBySeasonAndType0");
+			session.removeAttribute("getDataPriceIndexBySeasonAndType1");
+			session.removeAttribute("getDataPriceIndexBySeason");
+
+			session.removeAttribute("getDataPriceIndexByYear");
+			session.removeAttribute("getDataPriceIndexByYearAndType0");
+			session.removeAttribute("getDataPriceIndexByYearAndType1");
+
+			session.removeAttribute("getDataPriceIndexByYearTop10");
+			session.removeAttribute("getDataSaleIndexByYearTop10");
+
+			resultJson.put("status","1");
+			resultJson.put("detail","计算数据成功");
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			resultJson.put("status","0");
+			resultJson.put("detail",e.getMessage());
+		}
+
+		return resultJson.toString();
+
+
+	}
 }

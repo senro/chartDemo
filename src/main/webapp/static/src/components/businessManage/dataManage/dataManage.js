@@ -21,7 +21,7 @@ var xhr = require('egis-xhr'),
     clearEmptyValue = xhr.clearEmptyValue;
 
 var $aside = $('aside');
-var Vue=require('vue1.x/dist/vue');
+var Vue=require('vue/dist/vue');
 
 function render(){
     $aside.hide().html(__inline('./dataManage.html')).fadeIn(500);
