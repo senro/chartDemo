@@ -244,6 +244,8 @@ function render(){
             },
             function (data) {
                 var dataObj = data.data || {};
+                dataObj.year=dataObj.month.split('-')[0];
+                dataObj.month=dataObj.month.split('-')[1];
                 model_Data= $.extend(model_Data,dataObj);
             },
             function () {
